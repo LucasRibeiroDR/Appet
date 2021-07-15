@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PetsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ConsultController;
+use App\Http\Controllers\AnimalController;
 
 // Rota de entrada do software assim que aberto cai nessa rota
 Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -22,6 +24,7 @@ Route::prefix('user')->group(function() {
     });
 });
 
+<<<<<<< HEAD
 /************************** Cadastro Pets **************************/
 //Grupo de rotas autenticadas | mesmo prefixo | mesmo name
 Route::group([
@@ -35,6 +38,27 @@ Route::group([
     Route::get('/edit/{id}', [PetsController::class, 'edit'])->name('edit');
     Route::put('/update/{id}', [PetsController::class, 'update'])->name('update');
     Route::delete('/{id}', [PetsController::class, 'destroy'])->name('delete');
+=======
+// Grupo de rotas para animas mas fora do middleware pois n tem verificação de autenticação
+Route::prefix('animals')->group(function() {
+        Route::name('animals.')->group(function() {
+            Route::get('/create', [AnimalController::class, 'create'])->name('create');
+        });
+});
+
+//Grupo de rotas autenticadas 
+Route::middleware(['auth'])->group(function() {
+    // para rotas que necessitam da autenticação
+    
+   /* CRUD PETs -> Só cliente autenticados que no 
+       caso cadastrados podem relaziar o cadastro do pet
+    * create -> add
+    * read -> show
+    * update -> update
+    * delete -> delete
+    */
+
+>>>>>>> 84730d5bdbce728672b14cadb5082d425c12a534
 });
 
 /**
