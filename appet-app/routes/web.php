@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ConsultController;
+use App\Http\Controllers\AnimalController;
 
 // Rota de entrada do software assim que aberto cai nessa rota
 Route::get('/', function () {
@@ -21,16 +22,23 @@ Route::prefix('clinic')->group(function() {
     });
 });
 
+// Grupo de rotas para animas mas fora do middleware pois n tem verificação de autenticação
+Route::prefix('animals')->group(function() {
+        Route::name('animals.')->group(function() {
+            Route::get('/create', [AnimalController::class, 'create'])->name('create');
+        });
+});
+
 //Grupo de rotas autenticadas 
 Route::middleware(['auth'])->group(function() {
     // para rotas que necessitam da autenticação
-
+    
    /* CRUD PETs -> Só cliente autenticados que no 
        caso cadastrados podem relaziar o cadastro do pet
     * create -> add
     * read -> show
     * update -> update
-    * elete -> delete
+    * delete -> delete
     */
 
 });
