@@ -4,8 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PetsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ConsultController;
-use App\Http\Controllers\AnimalController;
 
 // Rota de entrada do software assim que aberto cai nessa rota
 Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -27,7 +25,7 @@ Route::prefix('user')->group(function() {
 /************************** Cadastro Pets **************************/
 //Grupo de rotas autenticadas | mesmo prefixo | mesmo name
 Route::group([
-    'middleware' => [], //Colocar 'auth' no array quando estiver tudo certo essa parte
+    'middleware' => ['auth'], //Colocar 'auth' no array quando estiver tudo certo essa parte
     'prefix' => 'pets',
     'name' => 'pets.'
     ], function(){
@@ -56,3 +54,6 @@ Route::group([
  * 
  * });
  */
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
