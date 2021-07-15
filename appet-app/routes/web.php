@@ -1,38 +1,40 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ConsultController;
+use App\Http\Controllers\PetsController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
 // Rota de entrada do software assim que aberto cai nessa rota
-Route::get('/', function () {
-    return view('welcome');
-})->name('index');
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
-
+/************************** Cadastro Usuários **************************/
 // Grupo de rotas de mesmo prefixo
-Route::prefix('clinic')->group(function() {
+Route::prefix('user')->group(function() {
     // Grupo de rotas de mesmo nome
-    Route::name('clinic.')->group(function() {
+    Route::name('user.')->group(function() {
         // Rotas para cadastro do cliente
-        Route::get('/register',[ConsultController::class, 'register'])
-        ->name('register');
-        Route::get('/{id}',[ConsultController::class, 'show'])
-        ->name('show');
+        Route::get('/register',[UserController::class, 'register'])->name('register');
+        // Route::get('/{id}',[UserController::class, 'show'])->name('show');
+        // Route::get('/edit/{id}', [UserController::class, 'edit'])->name('edit');
+        // Route::put('/update/{id}', [UserController::class, 'update'])->name('update');
+        // Route::delete('/{id}', [UserController::class, 'destroy'])->name('delete');
     });
 });
 
-//Grupo de rotas autenticadas 
-Route::middleware(['auth'])->group(function() {
-    // para rotas que necessitam da autenticação
-
-   /* CRUD PETs -> Só cliente autenticados que no 
-       caso cadastrados podem relaziar o cadastro do pet
-    * create -> add
-    * read -> show
-    * update -> update
-    * elete -> delete
-    */
-
+/************************** Cadastro Pets **************************/
+//Grupo de rotas autenticadas | mesmo prefixo | mesmo name
+Route::group([
+    'middleware' => [], //Colocar 'auth' no array quando estiver tudo certo essa parte
+    'prefix' => 'pets',
+    'name' => 'pets.'
+    ], function(){
+    // Rotas CRUD pets
+    Route::get('/register', [PetsController::class, 'register'])->name('register');
+    Route::get('/{id}', [PetsController::class, 'show'])->name('show');
+    Route::get('/edit/{id}', [PetsController::class, 'edit'])->name('edit');
+    Route::put('/update/{id}', [PetsController::class, 'update'])->name('update');
+    Route::delete('/{id}', [PetsController::class, 'destroy'])->name('delete');
 });
 
 /**
