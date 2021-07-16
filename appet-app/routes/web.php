@@ -14,7 +14,7 @@ Route::prefix('user')->group(function() {
     // Grupo de rotas de mesmo nome
     Route::name('user.')->group(function() {
         // Rotas para cadastro do cliente
-        Route::get('/register',[UserController::class, 'register'])->name('register');
+        Route::get('/create',[UserController::class, 'create'])->name('create');
         // Route::get('/{id}',[UserController::class, 'show'])->name('show');
         // Route::get('/edit/{id}', [UserController::class, 'edit'])->name('edit');
         // Route::put('/update/{id}', [UserController::class, 'update'])->name('update');
@@ -30,7 +30,7 @@ Route::group([
     'name' => 'pets.'
     ], function(){
     // Rotas CRUD pets
-    Route::get('/register', [PetsController::class, 'register'])->name('register');
+    Route::get('/create', [PetsController::class, 'create'])->name('create');
     // Route::get('/{id}', [PetsController::class, 'show'])->name('show');
     // Route::get('/edit/{id}', [PetsController::class, 'edit'])->name('edit');
     // Route::put('/update/{id}', [PetsController::class, 'update'])->name('update');

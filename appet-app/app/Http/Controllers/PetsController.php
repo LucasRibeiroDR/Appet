@@ -8,8 +8,8 @@ use App\Models\User;
 
 class PetsController extends Controller
 {
-    public function register() {
-        return view('pets.register');
+    public function create() {
+        return view('pets.create');
     }
     
     public function show($id) {

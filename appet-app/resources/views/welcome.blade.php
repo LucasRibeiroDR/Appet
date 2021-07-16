@@ -10,8 +10,8 @@
         <div>
             <div style="text-align:center; font-size:1rem;">
                 <p>Hello, World!!!</p>
-                <a href="/user/register">User register</a>
-                <a href="/pets/register">Pets register</a>
+                <a href="/user/create">User create</a>
+                <a href="/pets/create">Pets create</a>
                 <a href="/dashboard">Dashboard</a>
                 @guest
                     <a href="/login">Entrar</a>
