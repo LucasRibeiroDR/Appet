@@ -25,16 +25,16 @@ Route::prefix('user')->group(function() {
 /************************** Cadastro Pets **************************/
 //Grupo de rotas autenticadas | mesmo prefixo | mesmo name
 Route::group([
-    'middleware' => ['auth'], //Colocar 'auth' no array quando estiver tudo certo essa parte
+    'middleware' => [], //Colocar 'auth' no array quando estiver tudo certo essa parte
     'prefix' => 'pets',
     'name' => 'pets.'
     ], function(){
     // Rotas CRUD pets
     Route::get('/register', [PetsController::class, 'register'])->name('register');
-    Route::get('/{id}', [PetsController::class, 'show'])->name('show');
-    Route::get('/edit/{id}', [PetsController::class, 'edit'])->name('edit');
-    Route::put('/update/{id}', [PetsController::class, 'update'])->name('update');
-    Route::delete('/{id}', [PetsController::class, 'destroy'])->name('delete');
+    // Route::get('/{id}', [PetsController::class, 'show'])->name('show');
+    // Route::get('/edit/{id}', [PetsController::class, 'edit'])->name('edit');
+    // Route::put('/update/{id}', [PetsController::class, 'update'])->name('update');
+    // Route::delete('/{id}', [PetsController::class, 'destroy'])->name('delete');
 });
 
 /**
