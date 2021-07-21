@@ -13,4 +13,4 @@
 
 
 
-Projeto desenvolvido para hospital vegetariano da UENP
+Projeto desenvolvido para hospital veterinário da UENP
