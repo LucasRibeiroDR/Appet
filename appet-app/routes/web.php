@@ -24,6 +24,8 @@ Route::prefix('user')->group(function() {
 
 /************************** Cadastro Pets **************************/
 //Grupo de rotas autenticadas | mesmo prefixo | mesmo name
+Route::post('/pets', [PetsController::class, 'store']);
+
 Route::group([
     'middleware' => [], //Colocar 'auth' no array quando estiver tudo certo essa parte
     'prefix' => 'pets',
