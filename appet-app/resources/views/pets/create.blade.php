@@ -30,14 +30,6 @@
             <input type="text" id="especie" name="especie" placeholder="Especie do animal">
         </div>
         <div>
-            <label for="descricao">Descrição</label>
-            <textarea name="descricao" id="descricao" placeholder="Descreva algo">teste</textarea>
-        </div>
-        <div>
-            <label for="area_atendimento">Area de Atendimento</label>
-            <input type="text" id="area_atendimento" name="area_atendimento" placeholder="Area de atendimento">
-        </div>
-        <div>
             <label for="data_nascimento">Data de nascimento</label>
             <input type="date" name="data_nascimento" id="data_nascimento">
         </div>

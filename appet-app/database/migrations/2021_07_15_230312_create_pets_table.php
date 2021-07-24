@@ -19,8 +19,6 @@ class CreatePetsTable extends Migration
             $table->string('raca');
             $table->string('pelugem');
             $table->string('especie');
-            $table->text('descricao');
-            $table->string('area_atendimento');
             $table->dateTime('data_nascimento');
             $table->boolean('castrado');
             $table->timestamps();

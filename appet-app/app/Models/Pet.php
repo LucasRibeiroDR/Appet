@@ -10,4 +10,10 @@ class Pet extends Model
     use HasFactory;
 
     protected $dates =['data_nascimento'];
+
+    protected $guarded = [];
+
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
 }
