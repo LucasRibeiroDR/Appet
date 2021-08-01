@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PetsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AgendamentoController;
 
 // Rota de entrada do software assim que aberto cai nessa rota
 Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -24,9 +25,6 @@ Route::prefix('user')->group(function() {
 
 /************************** Cadastro Pets **************************/
 //Grupo de rotas autenticadas | mesmo prefixo | mesmo name
-
-
-
 Route::group([
     'middleware' => ['auth'], //Colocar 'auth' no array quando estiver tudo certo essa parte
     'prefix' => 'pets',
@@ -39,6 +37,14 @@ Route::group([
     Route::get('/edit/{id}', [PetsController::class, 'edit'])->name('edit');
     Route::put('/update/{id}', [PetsController::class, 'update'])->name('update');
     Route::delete('/{id}', [PetsController::class, 'destroy'])->name('delete');
+});
+/************************** Agendamentos **************************/
+Route::group([
+    'middleware' => ['auth'],
+    'prefix' => 'agendamento',
+    'name' => 'agendamento.'
+    ], function(){
+    Route::get('/', [AgendamentoController::class, 'index']);
 });
 
 /**
@@ -58,6 +64,8 @@ Route::group([
  * 
  * });
  */
+
+/************************** JetStream **************************/
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
