@@ -8,7 +8,8 @@
 </head>
 <body>
     <div style="text-align:center; font-size:2rem;">
-        <p>Hello, World!!!</p>
+        <p>Agendamento</p>
+        <a href="/appointments/create">Criar consulta</a>
         <a href="/">Home</a>
     </div>
 </body>

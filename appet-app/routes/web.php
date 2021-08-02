@@ -44,7 +44,9 @@ Route::group([
     'prefix' => 'appointments',
     'name' => 'appointments.'
     ], function(){
-    Route::get('/', [AppointmentsController::class, 'index']);
+    Route::post('/', [AppointmentsController::class, 'store']);
+    Route::get('/create', [AppointmentsController::class, 'create']);
+    Route::get('/show', [AppointmentsController::class, 'show']);
 });
 
 /**
