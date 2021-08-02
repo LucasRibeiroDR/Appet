@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Agendamento;
+use App\Models\Appointment;
 
-class AgendamentoController extends Controller
+class AppointmentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class AgendamentoController extends Controller
      */
     public function index()
     {
-        return view('agendamento.agendamento');
+        return view('appointments.appointments');
     }
 
     /**
@@ -24,7 +24,7 @@ class AgendamentoController extends Controller
      */
     public function create()
     {
-        //
+        return view ('appointments.create');
     }
 
     /**

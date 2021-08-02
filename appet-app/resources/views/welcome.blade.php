@@ -14,7 +14,7 @@
                 <a href="/pets/create">Pets create</a>
                 <a href="/dashboard">Dashboard</a>
                 <a href="/pets/show">Meus pets</a>
-                <a href="/agendamento">Agendamentos</a>
+                <a href="/appointments">Agendamentos</a>
                 @guest
                     <a href="/login">Entrar</a>
                     <a href="/register">Criar Conta</a>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PetsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\AgendamentoController;
+use App\Http\Controllers\AppointmentsController;
 
 // Rota de entrada do software assim que aberto cai nessa rota
 Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -41,10 +41,10 @@ Route::group([
 /************************** Agendamentos **************************/
 Route::group([
     'middleware' => ['auth'],
-    'prefix' => 'agendamento',
-    'name' => 'agendamento.'
+    'prefix' => 'appointments',
+    'name' => 'appointments.'
     ], function(){
-    Route::get('/', [AgendamentoController::class, 'index']);
+    Route::get('/', [AppointmentsController::class, 'index']);
 });
 
 /**
