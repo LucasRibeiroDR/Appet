@@ -66,4 +66,8 @@ class User extends Authenticatable
     public function pets(){
         return $this->hasMany('App\Models\Pet');
     }
+
+    public function appointments(){
+        return $this->hasMany('App\Models\Appointment');
+    }
 }

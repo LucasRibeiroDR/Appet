@@ -1173,7 +1173,7 @@ select {
 	width: 2.5rem;
 }
 .w-full {
-	width: 100%;
+	width: 90%;
 }
 .w-3\/4 {
 	width: 75%;
@@ -1315,6 +1315,7 @@ select {
 .py-4 {
 	padding-top: 1rem;
 	padding-bottom: 1rem;
+	padding-left: 3rem;
 }
 .pt-2 {
 	padding-top: 0.5rem;
