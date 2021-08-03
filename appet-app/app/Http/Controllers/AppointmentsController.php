@@ -61,7 +61,9 @@ class AppointmentsController extends Controller
      */
     public function show()
     {
-        return view ('appointments.appointments');
+        $user = auth()->user();
+        $appointment = $user->appointment;
+        return view('appointments.show', ["appointment" => $appointment]);
     }
 
     /**
@@ -72,7 +74,14 @@ class AppointmentsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = auth()->user();
+        $appointment = Appointment::findOrFail($id);
+        if($user->id != $appointment->user_id) {
+            return redirect('/appointments/show');
+        }
+        return view('appointments.edit', [
+            'appointment' => $appointment
+        ]);
     }
 
     /**
@@ -84,7 +93,9 @@ class AppointmentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        Appointment::findOrFail($request->id)->update($data);
+        return redirect('/appointments/show');
     }
 
     /**
@@ -95,6 +106,7 @@ class AppointmentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Appointment::findOrFail($id)->delete();
+        return redirect('/appointments/show');
     }
 }

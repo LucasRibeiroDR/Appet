@@ -45,8 +45,10 @@ Route::group([
     'name' => 'appointments.'
     ], function(){
     Route::post('/', [AppointmentsController::class, 'store']);
-    Route::get('/create', [AppointmentsController::class, 'create']);
-    Route::get('/show', [AppointmentsController::class, 'show']);
+    Route::get('/create', [AppointmentsController::class, 'create'])->name('create');
+    Route::get('/show', [AppointmentsController::class, 'show'])->name('show');
+    Route::get('/edit/{id}', [AppointmentsController::class, 'edit'])->name('edit');
+    Route::put('/update/{id}', [AppointmentsController::class, 'update'])->name('update');
 });
 
 /**
