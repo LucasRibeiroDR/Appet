@@ -16,7 +16,6 @@
   <a href="https://git-scm.com/" target="_blank"><img alt="Blade" src="https://img.shields.io/badge/Git-%23ffffff.svg?&style=flat&logo=git&logoColor=%23FF4500"/></a>
 </div>
 
----
 ## Pré-requisitos
 
 - Você precisa dos seguintes serviços instalados no seu computador:
