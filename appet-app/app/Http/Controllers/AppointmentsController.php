@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Appointment;
+use Carbon\Carbon;
+
 
 class AppointmentsController extends Controller
 {
@@ -24,7 +26,10 @@ class AppointmentsController extends Controller
      */
     public function create()
     {
-        return view ('appointments.create');
+        $user = auth()->user();
+        $pets = $user->pets;
+
+        return view ('appointments.create', ['user'=>$user, 'pets'=>$pets]);
     }
 
     /**
@@ -35,7 +40,17 @@ class AppointmentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $appointments = new Appointment;
+
+        $appointments->horario = Carbon::now();
+        $appointments->user_id = auth()->user()->id;
+        $appointments->pet_id = $request->animal;
+
+        $appointments->save();
+
+        return redirect('appointments/show');
+
+
     }
 
     /**

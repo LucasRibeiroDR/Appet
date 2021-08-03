@@ -9,6 +9,9 @@ class Appointment extends Model
 {
     use HasFactory;
 
+    protected $dates =['dia_consulta'];
+
+    protected $guarded = [];
 
     public function user_appointment(){
         return $this->belongsTo(App\Models\User);

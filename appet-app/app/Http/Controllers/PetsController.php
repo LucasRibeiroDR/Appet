@@ -15,6 +15,7 @@ class PetsController extends Controller
 
     public function store(Request $request){
 
+        //dd($request);
         
 
         $pet = new Pet;
