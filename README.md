@@ -2,7 +2,6 @@
   <strong>APPet <img align="center" height="50" src="./appet-app/public/pet.ico"></strong>
 </h1>
 
-<<<<<<< HEAD
 > Projeto desenvolvido para hospital veterinário da UENP
 =======
 <div align="center">
@@ -17,4 +16,3 @@
 
 
 Projeto desenvolvido para hospital veterinário da UENP
->>>>>>> back-end
