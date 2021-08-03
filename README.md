@@ -2,9 +2,6 @@
   <strong>APPet <img align="center" height="50" src="./appet-app/public/pet.ico"></strong>
 </h1>
 
-<<<<<<< HEAD
-> Projeto desenvolvido para hospital veterinário da UENP
-=======
 <div align="center">
   <a href="https://www.php.net/" target="_blank"><img alt="PHP" src="https://img.shields.io/badge/PHP-%235466B8.svg?&style=flat&logo=php&logoColor=white"/></a>
   <a href="https://getcomposer.org/" target="_blank"><img alt="Composer" src="https://img.shields.io/badge/Composer-%23ffffff.svg?&style=flat&logo=composer&logoColor=%238B4513"/></a>
@@ -14,7 +11,4 @@
   <a href="https://git-scm.com/" target="_blank"><img alt="Blade" src="https://img.shields.io/badge/Git-%23ffffff.svg?&style=flat&logo=git&logoColor=%23FF4500"/></a>
 </div>
 
-
-
 Projeto desenvolvido para hospital veterinário da UENP
->>>>>>> back-end
