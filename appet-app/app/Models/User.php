@@ -25,6 +25,10 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'cpf',
+        'rg',
+        'telefone',
+        'endereco',
         'email',
         'password',
     ];
@@ -58,4 +62,12 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function pets(){
+        return $this->hasMany('App\Models\Pet');
+    }
+
+    public function appointments(){
+        return $this->hasMany('App\Models\Appointment');
+    }
 }

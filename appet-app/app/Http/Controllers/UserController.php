@@ -8,8 +8,8 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function register() {
+    public function create() {
 
-        return view('user.register');
+        return view('user.create');
     }
 }

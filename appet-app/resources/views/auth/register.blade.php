@@ -15,6 +15,27 @@
             </div>
 
             <div class="mt-4">
+                <x-jet-label for="cpf" value="{{ __('Cpf') }}" />
+                <x-jet-input id="cpf" class="block mt-1 w-full" type="text" name="cpf" required autocomplete="new-cpf" />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="rg" value="{{ __('Rg') }}" />
+                <x-jet-input id="rg" class="block mt-1 w-full" type="text" name="rg" required autocomplete="new-rg" />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="telefone" value="{{ __('Telefone') }}" />
+                <x-jet-input id="telefone" class="block mt-1 w-full" type="text" name="telefone" required autocomplete="new-telefone" />
+            </div>
+
+            <div class="mt-4">
+            <x-jet-label for="endereco" value="{{ __('Endereco') }}" />
+                <x-jet-input id="endereco" class="block mt-1 w-full" type="text" name="endereco" required autocomplete="new-endereco" />
+            </div>
+
+
+            <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
@@ -23,6 +44,8 @@
                 <x-jet-label for="password" value="{{ __('Password') }}" />
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>
+
+
 
             <div class="mt-4">
                 <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
