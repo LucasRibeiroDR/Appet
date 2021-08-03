@@ -62,7 +62,8 @@ class AppointmentsController extends Controller
     public function show()
     {
         $user = auth()->user();
-        $appointment = $user->appointment;
+        $appointment = $user->appointments;
+        //dd($user->appointments);
         return view('appointments.show', ["appointment" => $appointment]);
     }
 
