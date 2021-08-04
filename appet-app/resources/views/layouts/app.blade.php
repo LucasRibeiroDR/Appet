@@ -32,6 +32,11 @@
         <!-- Scripts -->
         <script src="/js/main.js"></script>
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <style>
+            body {
+                background-color: #f2f2f2;
+            }
+        </style>
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
