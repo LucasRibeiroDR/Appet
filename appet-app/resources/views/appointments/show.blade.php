@@ -8,10 +8,16 @@
     </div>
     <div class="col-md-10 offset-md-1 dashboard-pets-container">
         <div class="form-group">
-            <a class="btn btn-primary" href="/appointments/create">Criar consulta</a>
-            <a class="btn btn-primary" href="/appointments/edit/1">
-                Editar consulta
-            </a>
+            <div class="form-group">
+                <a class="btn btn-primary" href="/appointments/create">Criar consulta</a>
+            </div>
+            <div class="form-group">
+                @foreach ($appointment as $appointments)
+                    <a class="btn btn-primary" href="/appointments/edit/{{$appointments->id}}">
+                        Editar consulta: {{$appointments->id}}
+                    </a>
+                @endforeach
+            </div>
         </div>
         <div class="form-group">
             <p class="totalConsults">Total de consultas: {{count($appointment)}}</p>

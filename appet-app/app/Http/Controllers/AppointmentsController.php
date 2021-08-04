@@ -67,7 +67,9 @@ class AppointmentsController extends Controller
         $user = auth()->user();
         $appointment = $user->appointments;
         //dd($user->appointments);
-        return view('appointments.show', ["appointment" => $appointment]);
+        return view('appointments.show', [
+            "appointment" => $appointment
+        ]);
     }
 
     /**
