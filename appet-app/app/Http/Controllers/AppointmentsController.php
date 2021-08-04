@@ -47,12 +47,13 @@ class AppointmentsController extends Controller
         $appointments->descricao = $request->descricao;
         $appointments->user_id = auth()->user()->id;
         $appointments->pet_id = $request->animal;
-
+        
+        // $appointments->date = $request->date;
+        
         $appointments->save();
 
         return redirect('appointments/show');
-
-
+        // return redirect('appointments/show')->with('msg', 'Agendado com sucesso!!!');
     }
 
     /**

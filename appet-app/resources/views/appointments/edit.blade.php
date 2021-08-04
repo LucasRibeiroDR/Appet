@@ -7,12 +7,34 @@
     <title>Editando Appointment</title>
 </head>
 <body>
-    <h2>Edição de Appointment</h2>
+    <div>
+        <h2>Edição de Appointment</h2>
+        <form action="/appointments/update/{{ $appointment->id }}" method="POST">
+            @csrf
+            @method('PUT')
+            <div>
+                <label for="dia_consulta">Selecione a data: </label>
+                <input type="date" name="dia_consulta" id="dia_consulta" value="{{}}">
+            </div>
+            <div>
+                <label for="time">Selecione o horário:</label>
+                <select name="time" id="time" value="{{}}">
+                    <option value="8:00">8:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="16:00">16:00</option>
+                </select>
+            </div>
+            <label for="animal">Qual animal você escolhe?</label>
+            <select name="animal" id="animal" value="{{}}">
+              @foreach ($pets as $pet)
+                <option value="{{ $pet->id }}">{{ $pet->name }}</option>
+              @endforeach
+            </select>
 
-    <form action="/appointment/update/{{ $appointment->id }}" method="POST">
-        @csrf
-        @method('PUT')
-    </form>
+            <input type="submit" value="Editar Consulta">
+        </form>
+    </div>
 
     <a href="/">Voltar ao menu</a>
 </body>
