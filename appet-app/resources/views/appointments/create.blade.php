@@ -26,6 +26,17 @@
                     <option value="16:00">16:00</option>
                 </select>
             </div>
+            <div>
+                <label for="area_consulta">Selecione a area de consulta:</label>
+                <select name="area_consulta" id="area_consulta">
+                    <option value="Oftalmologista">Oftalmologista</option>
+                    <option value="Clínico Geral">Clínico Geral</option>
+                </select>
+            </div>
+            <div>
+                <label for="descricao">Faça uma breve observação sobre o que seu pet tem:</label>
+                <textarea name="descricao" id="descricao"></textarea>
+            </div>
             <label for="animal">Qual animal você escolhe?</label>
             <select name="animal" id="animal">
               @foreach ($pets as $pet)

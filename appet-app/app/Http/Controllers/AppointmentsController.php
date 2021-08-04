@@ -43,6 +43,8 @@ class AppointmentsController extends Controller
         $appointments = new Appointment;
 
         $appointments->horario = Carbon::now();
+        $appointments->area_consulta = $request->area_consulta;
+        $appointments->descricao = $request->descricao;
         $appointments->user_id = auth()->user()->id;
         $appointments->pet_id = $request->animal;
 
