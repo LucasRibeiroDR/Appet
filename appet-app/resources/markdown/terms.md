@@ -1,3 +1,3 @@
-# Terms of Service
+# Termos de serviço
 
-Edit this file to define the terms of service for your application.
+Edite este arquivo para definir os termos de serviço do seu aplicativo.
