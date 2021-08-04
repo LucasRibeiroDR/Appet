@@ -9,7 +9,7 @@ class Appointment extends Model
 {
     use HasFactory;
 
-    protected $dates =['dia_consulta'];
+    protected $dates =['date'];
 
     protected $guarded = [];
 

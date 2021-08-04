@@ -1,56 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="pet.ico" type="image/x-icon">
-    <title>Cats&Dogs | Criar animal</title>
-</head>
-<body>
-    <h2>Crie seu animal</h2>
+@extends('layouts.main')
 
-    
-    <form action="/pets" method="POST">
+@section('title', 'APPet | Novo Pet')
+@section('content')
+<div id="event-create-container" class="col-md-6 offset-md-3">
+    <h1>Crie seu Pet</h1>
+    <form action="/pets" method="POST" enctype="multipart/form-data">
     @csrf
-        <div>
-            <label for="name">Nome</label>
-            <input type="text" id="name" name="name" placeholder="nome do animal">
+        <div class="form-group">
+            <label for="name">Nome do Pet</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Bob, Nina, Belinha, ...">
         </div>
-        <div>
-            <label for="raca">Raça</label>
-            <input type="text" id="raca" name="raca" placeholder="Raça do animal">
+        <div class="form-group">
+            <label for="raca">Raça do Pet</label>
+            <input type="text" class="form-control" id="raca" name="raca" placeholder="Pinscher, poodle, pug, chihuahua, ...">
         </div>
-        <div>
-            <label for="pelugem">Pelagem</label>
-            <input type="text" id="pelugem" name="pelugem" placeholder="Pelagem do animal">
+        <div class="form-group">
+            <label for="pelugem">Cor da pelagem</label>
+            <input type="text" class="form-control" id="pelugem" name="pelugem" placeholder="Marrom claro, marrom escuro, preto, ...">
         </div>
-        <div>
-            <label for="especie">Especie</label>
-            <input type="text" id="especie" name="especie" placeholder="Especie do animal">
+        <div class="form-group">
+            <label for="especie">Especie do seu Pet</label>
+            <input type="text" class="form-control" id="especie" name="especie" placeholder="Cachorro, gato, ...">
         </div>
-        <div>
+        <div class="form-group">
             <label for="data_nascimento">Data de nascimento</label>
-            <input type="date" name="data_nascimento" id="data_nascimento">
+            <input type="date" class="form-control" name="data_nascimento" id="data_nascimento">
         </div>
-        <div>
+        <div class="form-group">
             <label for="castrado">O animal é castrado?</label>
-            <select name="castrado" id="castrado">
+            <select name="castrado" id="castrado" class="form-control">
               <option value="0">Não</option>
               <option value="1">Sim</option>
             </select>
         </div>
-        <div>
-            <input type="submit" value="Adicionar Animal">
-        </div>
-        
-
-    
-    
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Adicionar Animal">
+        </div>   
     </form>
-    
-
-
-    <a href="/">Voltar ao menu principal</a>
-</body>
-</html>
+</div>
+@endsection

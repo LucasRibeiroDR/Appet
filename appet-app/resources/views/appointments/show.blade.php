@@ -1,18 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APPet | Agendamento</title>
-</head>
-<body>
-    <div style="text-align:center; font-size:2rem;">
-        <p>Agendamento</p>
-        <a href="/appointments/create">Criar consulta</a>
+@extends('layouts.main')
 
-        <p>Total de consultas: {{ count($appointment) }}</p>
-        <a href="/">Home</a>
+@section('title', 'APPet | Agendamentos')
+@section('content')
+<div>
+    <div class="col-md-10 offset-md-1 dashboard-title-container">
+        <h1>Agendamentos</h1>   
     </div>
-</body>
-</html>
+    <div class="col-md-10 offset-md-1 dashboard-pets-container">
+        <div class="form-group">
+            <a class="btn btn-primary" href="/appointments/create">Criar consulta</a>
+            <a class="btn btn-primary" href="/appointments/edit/1">
+                Editar consulta
+            </a>
+        </div>
+        <div class="form-group">
+            <p class="totalConsults">Total de consultas: {{count($appointment)}}</p>
+        </div>
+    </div>
+</div>
+@endsection
