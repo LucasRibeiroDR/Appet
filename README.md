@@ -1,5 +1,5 @@
 <h1 align="center">
-  <strong>APPet <img align="center" height="40" src="./appet-app/public/pet.ico"></strong>
+  <strong>APPet <img align="center" height="40" src="./appet-app/public/img/pet.ico"></strong>
 </h1>
 
 <div align="center">
