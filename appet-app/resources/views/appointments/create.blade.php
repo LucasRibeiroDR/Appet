@@ -14,16 +14,16 @@
         <form action="/appointments" method="POST">
         @csrf
             <div>
-                <label for="dia_consulta">Selecione a data: </label>
-                <input type="date" name="dia_consulta" id="dia_consulta">
+                <label for="date">Selecione a data: </label>
+                <input type="date" name="date" id="date">
             </div>
             <div>
-                <label for="time">Selecione o horário:</label>
-                <select name="time" id="time">
-                    <option value="8:00">8:00</option>
-                    <option value="10:00">10:00</option>
-                    <option value="14:00">14:00</option>
-                    <option value="16:00">16:00</option>
+                <label for="hour">Selecione o horário:</label>
+                <select name="hour" id="hour">
+                    <option value="08:00:00">8:00</option>
+                    <option value="10:00:00">10:00</option>
+                    <option value="14:00:00">14:00</option>
+                    <option value="16:00:00">16:00</option>
                 </select>
             </div>
             <div>
@@ -37,8 +37,8 @@
                 <label for="descricao">Faça uma breve observação sobre o que seu pet tem:</label>
                 <textarea name="descricao" id="descricao"></textarea>
             </div>
-            <label for="animal">Qual animal você escolhe?</label>
-            <select name="animal" id="animal">
+            <label for="pet_id">Qual animal você escolhe?</label>
+            <select name="pet_id" id="pet_id">
               @foreach ($pets as $pet)
                 <option value="{{ $pet->id }}">{{ $pet->name }}</option>
               @endforeach
