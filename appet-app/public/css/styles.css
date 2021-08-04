@@ -1,5 +1,10 @@
 * {
   font-family: 'Roboto', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-size: 1em;
 }
 
 h1 {
@@ -84,6 +89,36 @@ header {
 
 .youDontHavePets a:hover {
   text-decoration: underline;
+}
+
+.editProfile {
+  background-color: #bceeb3;
+  color: #25a10f;
+  border: 1px solid #66e477;
+  width: 100%;
+  margin-bottom: 0;
+  text-align: center;
+  padding: 10px;
+}
+
+.editProfile a {
+  color: #1ba10f;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.editProfile a:hover {
+  text-decoration: underline;
+}
+
+.totalConsults {
+  background-color: #bceeb3;
+  color: #218b0e;
+  border: 1px solid #66e477;
+  width: 100%;
+  margin-bottom: 0;
+  text-align: center;
+  padding: 10px;
 }
 
 .image-event {
@@ -173,20 +208,6 @@ button ion-icon {
   margin-bottom: 30px;
 }
 
-@media (max-width: 800px) {
-  #cards-container {
-    display: flex;
-    justify-content: center;
-  }
-  #events-container .card {
-    flex: 1;
-    min-width: 50%;
-    border-radius: 10px;
-    padding: 0;
-    margin: 5px;
-  }
-}
-
 #cards-container {
   display: flex;
   justify-content: center;
@@ -267,9 +288,6 @@ button ion-icon {
 /* Event page */
 #info-container .already-joined-msg {
   margin: 15px 0;
-  /* color: #004085;
-  background-color: #cce5ff;
-  border: 1px solid #b8daff; */
   color: #c28008;
   background-color: #ffedcc;
   border: 1px solid #ffe3b8;
@@ -367,8 +385,21 @@ button ion-icon {
 
 .edit-btn:hover {
   color: #ffffff;
-  background: rgb(8, 159, 189);
-  border-color: rgb(8, 159, 189);
+  background: #089fbd;
+  border-color: #089fbd;
+}
+
+.userDashboard {
+  display: flex;
+}
+
+.labelDashboard {
+  color: #000;
+  font-weight: bold;
+}
+
+.inputDashboard {
+  border: none;
 }
 
 /* Edit page */
@@ -398,7 +429,7 @@ button ion-icon {
 footer {
   text-align: center;
   background-color: #6aa570;
-  color: #FFF;
+  color: #ffffff;
   padding: 30px;
   position: absolute;
   bottom: 0;

@@ -3,7 +3,7 @@
 @section('title', 'APPet | Meus Pets')
 @section('content')
 <div>
-<div class="col-md-10 offset-md-1 dashboard-title-container">
+    <div class="col-md-10 offset-md-1 dashboard-title-container">
         <h1>Meus Pets</h1>
     </div>
     <div class="col-md-10 offset-md-1 dashboard-pets-container">
@@ -27,7 +27,7 @@
                         <td>{{ $pet->especie }}</td>
                         <td>{{ $pet->raca }}</td>
                         <td>{{ $pet->data_nascimento->format('d-m-Y')}}</td>
-                        <td class="display-flex">
+                        <td class="d-flex ">
                             <a class="btn btn-info edit-btn" href="/pets/edit/{{$pet->id}}">
                                     <ion-icon name="create-outline"></ion-icon>
                                     Editar

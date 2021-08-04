@@ -21,7 +21,9 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{mix('css/app.css')}}">
         @livewireStyles
-        <link rel="stylesheet" href="/css/styles.css"> 
+        <link rel="stylesheet" href="/css/globalColors.css">
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/css/responsive.css"> 
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
@@ -100,7 +102,7 @@
 
         @stack('modals')
         @livewireScripts
-              <!-- Footer -->
+        <!-- Footer -->
         <footer>
             <p>APPet &copy; 2021</p>
         </footer>

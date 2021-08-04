@@ -3,16 +3,19 @@
 @section('title', 'APPet | Agendamentos')
 @section('content')
 <div>
-    <h1>Agendamentos</h1>   
-    <div>
-        <a class="btn btn-info edit-btn" href="/appointments/create">Criar consulta</a>
-        {{-- <!-- <a class="btn btn-info edit-btn" href="/appointments/edit/{{$appointment->id}}">
-            Editar consulta
-        </a> --> --}}
-        <a class="btn btn-info edit-btn" href="/appointments/edit/1">
-            Editar consulta
-        </a>
+    <div class="col-md-10 offset-md-1 dashboard-title-container">
+        <h1>Agendamentos</h1>   
     </div>
-    <p>Total de consultas: {{count($appointment)}}</p>
+    <div class="col-md-10 offset-md-1 dashboard-pets-container">
+        <div class="form-group">
+            <a class="btn btn-primary" href="/appointments/create">Criar consulta</a>
+            <a class="btn btn-primary" href="/appointments/edit/1">
+                Editar consulta
+            </a>
+        </div>
+        <div class="form-group">
+            <p class="totalConsults">Total de consultas: {{count($appointment)}}</p>
+        </div>
+    </div>
 </div>
 @endsection

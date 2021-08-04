@@ -1,0 +1,13 @@
+@media (max-width: 800px) {
+    #cards-container {
+      display: flex;
+      justify-content: center;
+    }
+    #events-container .card {
+      flex: 1;
+      min-width: 50%;
+      border-radius: 10px;
+      padding: 0;
+      margin: 5px;
+    }
+}
