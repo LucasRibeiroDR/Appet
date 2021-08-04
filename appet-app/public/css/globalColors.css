@@ -1,0 +1,31 @@
+:root {
+    --greenAPP: #6aa570;
+
+    --lightred: #edd4d4;
+    --red: #e6c3c3;
+    --darkred: #571515;
+
+    --lightyellow: #eceeb3;
+    --yellow: #d9e466;
+    --darkyellow: #9fa10f;
+
+    --lightgreen: #bceeb3;
+    --green: #66e477;
+    --darkgreen: #218b0e;
+
+    --lightorange: #ffedcc;
+    --orange: #f2a340; 
+    --darkorange: #c28008;
+
+    --primarygray: #ececec;
+    --secondarygray: #d6d6d6;
+    --gray: #aaaaaa;
+    --darkgray: #757575;
+
+    --lightblack: #303030;
+    --black: #141414;
+    --dark: #000000;
+
+    --white: #ffffff;
+    --blue: #089fbd;
+}

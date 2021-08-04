@@ -16,7 +16,6 @@ class PetsController extends Controller
     public function store(Request $request){
 
         //dd($request);
-        
 
         $pet = new Pet;
 
@@ -36,7 +35,6 @@ class PetsController extends Controller
         
 
         return redirect('/');
-
     }
     
     public function show() {
@@ -49,9 +47,7 @@ class PetsController extends Controller
     }
 
     public function destroy($id) {
-
         Pet::findOrFail($id)->delete();
-
         return redirect('/pets/show');
     }
 
@@ -66,7 +62,6 @@ class PetsController extends Controller
         }
 
         return view('pets.edit', ['pet' => $pet]);
-        
     }
     
     public function update(Request $request) {
@@ -76,5 +71,4 @@ class PetsController extends Controller
 
         return redirect('/pets/show');
     }
-
 }

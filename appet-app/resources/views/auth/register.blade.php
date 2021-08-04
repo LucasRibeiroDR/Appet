@@ -1,7 +1,10 @@
+@section('title', 'APPet | Registrar-se')
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <a href="/" class="navbar-brand">
+                <img src="/img/pet.ico" alt="APPet Icon">
+            </a>
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -10,46 +13,46 @@
             @csrf
 
             <div>
-                <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-jet-label for="name" value="{{ __('Nome') }}" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="Seu nome..."/>
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="cpf" value="{{ __('Cpf') }}" />
-                <x-jet-input id="cpf" class="block mt-1 w-full" type="text" name="cpf" required autocomplete="new-cpf" />
+                <x-jet-label for="cpf" value="{{ __('CPF') }}" />
+                <x-jet-input id="cpf" class="block mt-1 w-full" type="text" name="cpf" required autocomplete="new-cpf" placeholder="000.000.000-00"/>
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="rg" value="{{ __('Rg') }}" />
-                <x-jet-input id="rg" class="block mt-1 w-full" type="text" name="rg" required autocomplete="new-rg" />
+                <x-jet-label for="rg" value="{{ __('RG') }}" />
+                <x-jet-input id="rg" class="block mt-1 w-full" type="text" name="rg" required autocomplete="new-rg" placeholder="00.000.000-0"/>
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="telefone" value="{{ __('Telefone') }}" />
-                <x-jet-input id="telefone" class="block mt-1 w-full" type="text" name="telefone" required autocomplete="new-telefone" />
+                <x-jet-input id="telefone" class="block mt-1 w-full" type="text" name="telefone" required autocomplete="new-telefone" placeholder="(00) 00000-0000"/>
             </div>
 
             <div class="mt-4">
             <x-jet-label for="endereco" value="{{ __('Endereco') }}" />
-                <x-jet-input id="endereco" class="block mt-1 w-full" type="text" name="endereco" required autocomplete="new-endereco" />
+                <x-jet-input id="endereco" class="block mt-1 w-full" type="text" name="endereco" required autocomplete="new-endereco" placeholder="Coloque seu endereço..."/>
             </div>
 
 
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required placeholder="Coloque seu email..."/>
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                <x-jet-label for="password" value="{{ __('Senha') }}" />
+                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" placeholder="Informe sua senha..."/>
             </div>
 
 
 
             <div class="mt-4">
-                <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                <x-jet-label for="password_confirmation" value="{{ __('Confirmar Senha') }}" />
+                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" placeholder="Confirme sua senha..."/>
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
@@ -71,11 +74,11 @@
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
+                    {{ __('Já está registrado?') }}
                 </a>
 
                 <x-jet-button class="ml-4">
-                    {{ __('Register') }}
+                    {{ __('Registre-se') }}
                 </x-jet-button>
             </div>
         </form>

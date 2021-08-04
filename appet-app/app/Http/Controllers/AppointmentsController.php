@@ -42,15 +42,18 @@ class AppointmentsController extends Controller
     {
         $appointments = new Appointment;
 
-        $appointments->horario = Carbon::now();
         $appointments->user_id = auth()->user()->id;
-        $appointments->pet_id = $request->animal;
+        $appointments->pet_id = $request->pet_id;
 
+        $appointments->date = $request->date;
+        $appointments->hour = $request->hour;
+        $appointments->area_consulta = $request->area_consulta;
+        $appointments->descricao = $request->descricao;
+        
         $appointments->save();
 
         return redirect('appointments/show');
-
-
+        // return redirect('appointments/show')->with('msg', 'Agendado com sucesso!!!');
     }
 
     /**
@@ -76,12 +79,14 @@ class AppointmentsController extends Controller
     public function edit($id)
     {
         $user = auth()->user();
+        $pets = $user->pets;
         $appointment = Appointment::findOrFail($id);
         if($user->id != $appointment->user_id) {
             return redirect('/appointments/show');
         }
         return view('appointments.edit', [
-            'appointment' => $appointment
+            'appointment' => $appointment,
+            'pets' => $pets
         ]);
     }
 
@@ -95,6 +100,8 @@ class AppointmentsController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
+        // dd($data);
+        // dd(Appointment::findOrFail($request->id));
         Appointment::findOrFail($request->id)->update($data);
         return redirect('/appointments/show');
     }
