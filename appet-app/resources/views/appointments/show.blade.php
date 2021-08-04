@@ -9,8 +9,8 @@
 <body>
     <div style="text-align:center; font-size:2rem;">
         <p>Agendamento</p>
+        
         <a href="/appointments/create">Criar consulta</a>
-
         <p>Total de consultas: {{ count($appointment) }}</p>
         <a href="/">Home</a>
     </div>
