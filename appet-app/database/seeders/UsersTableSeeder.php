@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Models\User;
 use Carbon\Carbon;
 
 class UsersTableSeeder extends Seeder
@@ -17,7 +18,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        $user = User::create([
             'name' => 'Bob Esponja',
             'cpf' => '12378945602',
             'rg' => '321654987',
@@ -26,5 +27,22 @@ class UsersTableSeeder extends Seeder
             'email' => 'bob@teste.com',
             'password' => Hash::make('12345678'),
         ]);
+
+        $user->assignRole('user');
+
+        $user = User::create([
+            'name' => 'Patrick Estrela',
+            'cpf' => '28180155617',
+            'rg' => '28180155617',
+            'telefone' =>'35422127',
+            'endereco' =>'Fenda do biquini',
+            'email' => 'patrick@teste.com',
+            'password' => Hash::make('12345678'),
+        ]);
+
+        $user->assignRole('user');
+
+        
+        
     }
 }
