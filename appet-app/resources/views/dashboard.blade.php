@@ -1,15 +1,17 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.main')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <x-jet-welcome />
-            </div>
-        </div>
+@section('title', 'APPet | Dashboard')
+@section('content')
+
+<div>
+    <h1>Dashboard</h1>
+    <label for="name">Usuário</label>
+    <input type="text" id="name" wire:model.defer="state.name" autocomplete="name" readonly value="{{Auth::user()->name}}">
+    <label for="name">Email Usuário</label>
+    <input type="text" id="name" wire:model.defer="state.name" autocomplete="name" readonly value="{{Auth::user()->email}}">
+    <div>
+        <a href="/user/profile">Profile</a>
     </div>
-</x-app-layout>
+</div>
+
+@endsection
