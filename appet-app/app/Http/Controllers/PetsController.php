@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Consult;
 use App\Models\User;
 use App\Models\Pet;
@@ -16,7 +17,6 @@ class PetsController extends Controller
     public function store(Request $request){
 
         //dd($request);
-
         $pet = new Pet;
 
         $pet->name = $request->name;
@@ -32,43 +32,54 @@ class PetsController extends Controller
 
         $pet->save();
 
-        
-
         return redirect('/');
     }
     
     public function show() {
-
         $user = auth()->user();
-
         $pets = $user->pets;
-
         return view('pets.show', ["pets" => $pets]);
     }
 
-    public function destroy($id) {
-        Pet::findOrFail($id)->delete();
-        return redirect('/pets/show');
-    }
-
+    
     public function edit($id) {
-        
         $user = auth()->user();
-
         $pet = Pet::findOrFail($id);
-
         if($user->id != $pet->user_id) {
             return redirect('/pets/show');
         }
-
         return view('pets.edit', ['pet' => $pet]);
     }
     
     public function update(Request $request) {
         $data = $request->all();
-
         Pet::findOrFail($request->id)->update($data);
-
         return redirect('/pets/show');
     }
+    
+    public function destroy($id) {
+        Pet::findOrFail($id)->delete();
+        return redirect('/pets/show')->with('msg', 'Pet excluído com sucesso!');
+    }
+
+    //     public function calcularDataNascimento($data) {
+    //     $idade = 0;
+    //     $data_nascimento = date('Y-m-d', strtotime($data));
+    //     $data = explode("-",$data_nascimento);
+    //     $anoNasc  = $data[0];
+    //     $mesNasc  = $data[1];
+    //     $diaNasc  = $data[2];
+        
+    //     $anoAtual = date("Y");
+    //     $mesAtual = date("m");
+    //     $diaAtual = date("d");
+        
+    //     $idade = $anoAtual - $anoNasc;
+    //     if ($mesAtual < $mesNasc){
+    //         $idade -= 1;
+    //     } elseif (($mesAtual == $mesNasc) && ($diaAtual <= $diaNasc)){
+    //         $idade -= 1;
+    //     }
+    //     return ($idade);
+    // }-
 }

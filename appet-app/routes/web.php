@@ -49,6 +49,7 @@ Route::group([
     Route::get('/show', [AppointmentsController::class, 'show'])->name('show');
     Route::get('/edit/{id}', [AppointmentsController::class, 'edit'])->name('edit');
     Route::put('/update/{id}', [AppointmentsController::class, 'update'])->name('update');
+    Route::delete('/{id}', [AppointmentsController::class, 'destroy'])->name('delete');
 });
 
 /**
@@ -68,6 +69,7 @@ Route::group([
  * 
  * });
  */
+
 
 /************************** JetStream **************************/
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

@@ -26,7 +26,7 @@
                         <td>{{ $pet->name }}</td>
                         <td>{{ $pet->especie }}</td>
                         <td>{{ $pet->raca }}</td>
-                        <td>{{ $pet->data_nascimento->format('d-m-Y')}}</td>
+                        <td>{{ $pet->data_nascimento->format('d-m-Y') }}</td>
                         <td class="d-flex ">
                             <a class="btn btn-info edit-btn" href="/pets/edit/{{$pet->id}}">
                                     <ion-icon name="create-outline"></ion-icon>
@@ -35,10 +35,10 @@
                             <form action="/pets/{{ $pet->id }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger delete-btn" disabled>
+                                <button type="submit" class="btn btn-danger delete-btn">
                                         <ion-icon name="trash-outline"></ion-icon>
                                         Deletar
-                                    </button>
+                                </button>
                             </form>
                         </td>
                     </tr>
