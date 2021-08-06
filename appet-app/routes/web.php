@@ -64,6 +64,8 @@ Route::group([
     ], function(){
 
     Route::get('/dashboard', [AdminController::class, 'index'])->name('index');
+    Route::get('/users', [AdminController::class, 'showUsers'])->name('showUsers');
+    Route::get('/admins', [AdminController::class, 'showAdmins'])->name('showAdmins');
 
 });
 /**

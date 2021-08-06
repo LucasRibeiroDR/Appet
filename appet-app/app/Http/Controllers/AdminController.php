@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -16,6 +17,34 @@ class AdminController extends Controller
         $this->authorize('admin-page');
         
         return view ('admin.dashboard');
+    }
+
+    public function showUsers(){
+
+        $this->authorize('admin-page');
+
+        $users = User::all();
+
+        //dd($users);
+
+        return view ('admin.showusers',[
+            'users' => $users,
+        ]);
+
+    }
+
+    public function showAdmins(){
+
+        $this->authorize('admin-page');
+
+        $admins = User::all();
+
+        //dd($users);
+
+        return view ('admin.showadmins',[
+            'admins' => $admins,
+        ]);
+
     }
 
     /**
