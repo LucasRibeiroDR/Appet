@@ -11,16 +11,19 @@ use App\Http\Controllers\AdminController;
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
 /************************** Cadastro Usuários **************************/
-// Grupo de rotas de mesmo prefixo
-Route::prefix('user')->group(function() {
-    // Grupo de rotas de mesmo nome
-    Route::name('user.')->group(function() {
-        // Rotas para cadastro do cliente
-        Route::get('/create',[UserController::class, 'create'])->name('create');
-        // Route::get('/{id}',[UserController::class, 'show'])->name('show');
-        // Route::get('/edit/{id}', [UserController::class, 'edit'])->name('edit');
-        // Route::put('/update/{id}', [UserController::class, 'update'])->name('update');
-        // Route::delete('/{id}', [UserController::class, 'destroy'])->name('delete');
+Route::middleware(['auth'])->group(function() {
+    // Grupo de rotas de mesmo prefixo
+    Route::prefix('users')->group(function() {
+        // Grupo de rotas de mesmo nome
+        Route::name('users.')->group(function() {
+            // Rotas para cadastro do cliente
+            Route::post('/', [UserController::class, 'store']);
+            Route::get('/create',[UserController::class, 'create'])->name('create');
+            Route::get('/show',[UserController::class, 'show'])->name('show');
+            Route::get('/edit/{id}', [UserController::class, 'edit'])->name('edit');
+            Route::put('/update/{id}', [UserController::class, 'update'])->name('update');
+            Route::delete('/{id}', [UserController::class, 'destroy'])->name('delete');
+        });
     });
 });
 
@@ -50,6 +53,7 @@ Route::group([
     Route::get('/show', [AppointmentsController::class, 'show'])->name('show');
     Route::get('/edit/{id}', [AppointmentsController::class, 'edit'])->name('edit');
     Route::put('/update/{id}', [AppointmentsController::class, 'update'])->name('update');
+    Route::delete('/{id}', [AppointmentsController::class, 'destroy'])->name('delete');
 });
 
 
