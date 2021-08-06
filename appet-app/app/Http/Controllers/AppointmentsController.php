@@ -66,9 +66,11 @@ class AppointmentsController extends Controller
     {
         $user = auth()->user();
         $appointment = $user->appointments;
+        $pets= $user->pets;
         //dd($user->appointments);
         return view('appointments.show', [
-            "appointment" => $appointment
+            "appointment" => $appointment,
+            "pets"=> $pets
         ]);
     }
 
