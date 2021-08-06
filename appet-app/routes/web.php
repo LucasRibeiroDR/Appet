@@ -12,9 +12,9 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 /************************** Cadastro Usuários **************************/
 Route::middleware(['auth'])->group(function() {
     // Grupo de rotas de mesmo prefixo
-    Route::prefix('user')->group(function() {
+    Route::prefix('users')->group(function() {
         // Grupo de rotas de mesmo nome
-        Route::name('user.')->group(function() {
+        Route::name('users.')->group(function() {
             // Rotas para cadastro do cliente
             Route::post('/', [UserController::class, 'store']);
             Route::get('/create',[UserController::class, 'create'])->name('create');

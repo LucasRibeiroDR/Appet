@@ -16,9 +16,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all();
+        $users = User::all();
         return view('user.show', [
-            'user' => $user
+            'users' => $users
         ]);
     }
 
@@ -29,7 +29,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.create');
+        return view('users.create');
     }
 
     /**
@@ -40,20 +40,20 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User;
+        $users = new User;
 
-        $user->name = $request->name;
-        $user->cpf = $request->cpf;
-        $user->rg = $request->rg;
-        $user->telefone = $request->telefone;
-        $user->endereco = $request->endereco;
-        $user->email = $request->email;
-        $user->password = $request->password;
+        $users->name = $request->name;
+        $users->cpf = $request->cpf;
+        $users->rg = $request->rg;
+        $users->telefone = $request->telefone;
+        $users->endereco = $request->endereco;
+        $users->email = $request->email;
+        $users->password = $request->password;
 
-        $admin = auth()->user();
-        $user->admin_id = $admin->id;
+        $user = auth()->user();
+        $users->user_id = $user->id;
 
-        $user->save();
+        $users->save();
 
         $request->validate([
             'name' => 'required',
@@ -77,10 +77,10 @@ class UserController extends Controller
      */
     public function show()
     {
-        $admin = auth()->user();
-        $user = $admin->user;
-        return view('user.show', [
-            "user" => $user
+        $user = auth()->user();
+        $users = $user->users;
+        return view('users.show', [
+            "users" => $users
         ]);
     }
 
@@ -92,12 +92,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $admin = auth()->user();
-        $user = User::findOrFail($id);
-        if($admin->id != $user->admin_id) {
-            return redirect('/user/show');
+        $user = auth()->user();
+        $users = User::findOrFail($id);
+        if($user->id != $users->user_id) {
+            return redirect('/users/show');
         }
-        return view('user.edit', ['user' => $user]);
+        return view('users.edit', ['users' => $users]);
     }
 
     /**
@@ -111,7 +111,7 @@ class UserController extends Controller
     {
         $data = $request->all();
         User::findOrFail($request->id)->update($data);
-        return redirect('/user/show');
+        return redirect('/users/show');
     }
 
     /**
@@ -123,7 +123,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         User::findOrFail($id)->delete();
-        return redirect('/user/show')
+        return redirect('/users/show')
             ->with('msg', 'Usuário excluído com sucesso!');
     }
 }

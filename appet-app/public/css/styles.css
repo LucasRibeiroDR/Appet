@@ -70,7 +70,7 @@ header {
 .thereAreNoEvents a:hover {
   text-decoration: underline;
 }
-
+.youDontHaveConsults, 
 .youDontHavePets {
   background-color: #eceeb3;
   color: #9fa10f;
@@ -81,16 +81,18 @@ header {
   padding: 10px;
 }
 
+.youDontHaveConsults a, 
 .youDontHavePets a {
   color: #9fa10f;
   font-weight: bold;
   text-decoration: none;
 }
 
+.youDontHaveConsults a:hover, 
 .youDontHavePets a:hover {
   text-decoration: underline;
 }
-
+.youHaveConsults,
 .editProfile {
   background-color: #bceeb3;
   color: #25a10f;
@@ -101,12 +103,14 @@ header {
   padding: 10px;
 }
 
+.youHaveConsults a,
 .editProfile a {
   color: #1ba10f;
   font-weight: bold;
   text-decoration: none;
 }
 
+.youHaveConsults a:hover,
 .editProfile a:hover {
   text-decoration: underline;
 }
