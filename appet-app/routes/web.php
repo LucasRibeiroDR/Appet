@@ -5,6 +5,7 @@ use App\Http\Controllers\PetsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AppointmentsController;
+use App\Http\Controllers\AdminController;
 
 // Rota de entrada do software assim que aberto cai nessa rota
 Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -51,6 +52,16 @@ Route::group([
     Route::put('/update/{id}', [AppointmentsController::class, 'update'])->name('update');
 });
 
+
+Route::group([
+    'middleware' => ['auth'],
+    'prefix' => 'admin',
+    'name' => 'admin.'
+    ], function(){
+
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('index');
+
+});
 /**
  * 4 tipos de grupos de rotas mais utilizados em laravel:
  * para autenticação -> Route::middleware(['auth'])

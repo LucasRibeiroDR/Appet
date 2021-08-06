@@ -49,9 +49,17 @@
               <li class="nav-item">
               <a href="/pets/show" class="nav-link">Meus pets</a>
               </li>
+
+              @can('user-page')
               <li class="nav-item">
                 <a href="/dashboard" class="nav-link">Dashboard</a>
               </li>
+              @elsecan('admin-page')
+              <li class="nav-item">
+                <a href="/admin/dashboard" class="nav-link">Dashboard</a>
+              </li>
+              @endcan
+              
               <li class="nav-item">
                 <form action="/logout" method="POST">
                   @csrf

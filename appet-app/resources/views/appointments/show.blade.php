@@ -9,9 +9,13 @@
     <div class="col-md-10 offset-md-1 dashboard-pets-container">
         <div class="form-group">
             <a class="btn btn-primary" href="/appointments/create">Criar consulta</a>
-            <a class="btn btn-primary" href="/appointments/edit/1">
+            
+            @can('edit-appointment')
+                <a class="btn btn-primary" href="/appointments/edit/1">
                 Editar consulta
-            </a>
+                </a>
+            @endcan
+            
         </div>
         <div class="form-group">
             <p class="totalConsults">Total de consultas: {{count($appointment)}}</p>

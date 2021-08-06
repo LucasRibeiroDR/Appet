@@ -35,7 +35,7 @@
                             <form action="/pets/{{ $pet->id }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger delete-btn" disabled>
+                                <button type="submit" class="btn btn-danger delete-btn">
                                         <ion-icon name="trash-outline"></ion-icon>
                                         Deletar
                                     </button>

@@ -10,10 +10,15 @@ use App\Models\Pet;
 class PetsController extends Controller
 {
     public function create() {
+
+        $this->authorize('create-pet');
+
         return view('pets.create');
     }
 
     public function store(Request $request){
+
+        $this->authorize('create-pet');
 
         //dd($request);
 
@@ -39,6 +44,8 @@ class PetsController extends Controller
     
     public function show() {
 
+        $this->authorize('view-pets');
+
         $user = auth()->user();
 
         $pets = $user->pets;
@@ -47,11 +54,15 @@ class PetsController extends Controller
     }
 
     public function destroy($id) {
+        $this->authorize('delete-pet');
+
         Pet::findOrFail($id)->delete();
         return redirect('/pets/show');
     }
 
     public function edit($id) {
+
+        $this->authorize('edit-pet');
         
         $user = auth()->user();
 
@@ -65,6 +76,9 @@ class PetsController extends Controller
     }
     
     public function update(Request $request) {
+
+        $this->authorize('edit-pet');
+
         $data = $request->all();
 
         Pet::findOrFail($request->id)->update($data);
