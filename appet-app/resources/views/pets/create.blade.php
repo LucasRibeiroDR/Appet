@@ -7,11 +7,11 @@
     <form action="/pets" method="POST" enctype="multipart/form-data">
     @csrf
         <div class="form-group">
-            <label for="name">Nome do Pet</label>
+            <label for="name">Nome</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Bob, Nina, Belinha, ...">
         </div>
         <div class="form-group">
-            <label for="raca">Raça do Pet</label>
+            <label for="raca">Raça</label>
             <input type="text" class="form-control" id="raca" name="raca" placeholder="Pinscher, poodle, pug, chihuahua, ...">
         </div>
         <div class="form-group">
@@ -19,8 +19,8 @@
             <input type="text" class="form-control" id="pelugem" name="pelugem" placeholder="Marrom claro, marrom escuro, preto, ...">
         </div>
         <div class="form-group">
-            <label for="especie">Especie do seu Pet</label>
-            <input type="text" class="form-control" id="especie" name="especie" placeholder="Cachorro, gato, ...">
+            <label for="especie">Especie</label>
+            <input type="text" class="form-control" id="especie" name="especie" placeholder="Caninos, felinos, ...">
         </div>
         <div class="form-group">
             <label for="data_nascimento">Data de nascimento</label>

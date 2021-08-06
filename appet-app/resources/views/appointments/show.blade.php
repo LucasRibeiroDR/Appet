@@ -43,7 +43,7 @@
                         <form action="/appointments/{{ $appointments->id }}" method="POST" >
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger delete-btn" disabled>
+                            <button type="submit" class="btn btn-danger delete-btn">
                                         <ion-icon name="trash-outline"></ion-icon>
                                         Deletar
                             </button>
@@ -55,8 +55,8 @@
         </table>
         @else
         <div class="form-group">
-            <a class="btn btn-primary" href="/appointments/create">Criar consulta</a>
-            
+            <p class="youDontHavePets">Você ainda não tem consultas marcadas, <a  href="/appointments/create">criar nova consulta</a></p>
+    
             @can('edit-appointment')
                 <a class="btn btn-primary" href="/appointments/edit/1">
                 Editar consulta
