@@ -62,7 +62,7 @@ class PetsController extends Controller
         
         $user = auth()->user();
         $pet = Pet::findOrFail($id);
-        if($user->id != $pet->user_id) {
+        if($user->id != $pet->user_id && $user->hasRole('user')) {
             return redirect('/pets/show');
         }
         return view('pets.edit', ['pet' => $pet]);

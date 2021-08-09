@@ -169,4 +169,12 @@ class AdminController extends Controller
         return redirect('/admin/dashboard')->with('msg', 'Pet criado com sucesso');
     }
 
+    public function showPets() {
+
+        $pets = Pet::all();
+        
+        return view('admin/showpets', ['pets' => $pets]);
+
+    }
+
 }

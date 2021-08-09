@@ -45,7 +45,7 @@
             </li>
             @auth
               <li class="nav-item">
-              <a href="#" class="nav-link">Pets</a>
+              <a href="/admin/pets" class="nav-link">Pets</a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">Dashboard</a>
