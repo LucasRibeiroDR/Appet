@@ -66,6 +66,14 @@ Route::group([
     Route::get('/dashboard', [AdminController::class, 'index'])->name('index');
     Route::get('/users', [AdminController::class, 'showUsers'])->name('showUsers');
     Route::get('/admins', [AdminController::class, 'showAdmins'])->name('showAdmins');
+    Route::post('/create-newuser', [UserController::class, 'store']);
+    Route::get('/create-user',[UserController::class, 'create'])->name('create');
+    Route::get('/edit-user/{id}', [UserController::class, 'edit'])->name('edit');
+    Route::put('/update-user/{id}', [UserController::class, 'update'])->name('update');
+    Route::post('/create-newadmin', [AdminController::class, 'storeAdmin']);
+    Route::get('/create-admin', [AdminController::class, 'createAdmin'])->name('createAdmin');
+    Route::get('/create-pet/{id}', [AdminController::class, 'createPet'])->name('createPet');
+    Route::post('/create-newpet/{id}', [AdminController::class, 'storePet']);
 
 });
 /**

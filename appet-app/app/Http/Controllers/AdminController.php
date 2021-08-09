@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Pet;
 
 class AdminController extends Controller
 {
@@ -52,9 +53,11 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createAdmin()
     {
-        //
+        $this->authorize('create-admin');
+
+        return view ('admin.create-adm');
     }
 
     /**
@@ -63,9 +66,35 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeAdmin(Request $request)
     {
-        //
+        $this->authorize('create-admin');
+
+        $user = new User;
+
+        $user->name = $request->name;
+        $user->cpf = $request->cpf;
+        $user->rg = $request->rg;
+        $user->telefone = $request->telefone;
+        $user->endereco = $request->endereco;
+        $user->email = $request->email;
+        $user->password = $request->password;
+
+        $user->assignRole('admin');
+        
+        $user->save();
+
+        $request->validate([
+            'name' => 'required',
+            'cpf' => 'required',
+            'rg' => 'required', 
+            'telefone' => 'required',
+            'endereco' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        return redirect('/admin/dashboard')->with('msg', 'Um novo adm foi criado com sucesso!!!');
     }
 
     /**
@@ -85,7 +114,7 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editAdmin($id)
     {
         //
     }
@@ -97,7 +126,7 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateAdmin(Request $request, $id)
     {
         //
     }
@@ -108,8 +137,36 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyAdmin($id)
     {
         //
     }
+
+    public function createPet($id){
+
+        $this->authorize('create-pet');
+
+        $user = User::findOrFail($id);
+
+        return view('admin/create-pet', ['user' => $user]);
+    }
+
+    public function storePet(Request $request, $id){
+
+        $pet = new Pet;
+
+        $pet->name = $request->name;
+        $pet->raca = $request->raca;
+        $pet->pelugem = $request->pelugem;
+        $pet->especie = $request->especie;
+        $pet->data_nascimento = $request->data_nascimento;
+        $pet->castrado = $request->castrado;
+
+        $pet->user_id = $id;
+
+        $pet->save();
+
+        return redirect('/admin/dashboard')->with('msg', 'Pet criado com sucesso');
+    }
+
 }

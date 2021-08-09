@@ -7,7 +7,7 @@
         <h1>Admins</h1>
     </div>
     <div class="col-md-10 offset-md-1 dashboard-pets-container">
-        @if(count($admins) > 0)
+        {{-- @if(count($admins) > 0) --}}
         <table class="table">
             <thead>
                 <tr>
@@ -41,9 +41,14 @@
                 @endforeach    
             </tbody>
         </table>
-        @else
+
+        <div>
+            <a class="btn btn-primary"href="/admin/create-admin">Criar novo adm</a>
+        </div>
+
+        {{-- @else
             <p class="youDontHavePets">Você ainda não tem pets, <a href="/pets/create">adicionar pets</a></p>
-        @endif
+        @endif --}}
     </div>
 </div>
 @endsection   

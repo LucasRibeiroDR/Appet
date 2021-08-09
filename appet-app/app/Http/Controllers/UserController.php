@@ -29,6 +29,9 @@ class UserController extends Controller
      */
     public function create()
     {
+
+        $this->authorize('create-user');
+
         return view('users.create');
     }
 
@@ -40,20 +43,22 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $users = new User;
 
-        $users->name = $request->name;
-        $users->cpf = $request->cpf;
-        $users->rg = $request->rg;
-        $users->telefone = $request->telefone;
-        $users->endereco = $request->endereco;
-        $users->email = $request->email;
-        $users->password = $request->password;
+        $this->authorize('create-user');
 
-        $user = auth()->user();
-        $users->user_id = $user->id;
+        $user = new User;
 
-        $users->save();
+        $user->name = $request->name;
+        $user->cpf = $request->cpf;
+        $user->rg = $request->rg;
+        $user->telefone = $request->telefone;
+        $user->endereco = $request->endereco;
+        $user->email = $request->email;
+        $user->password = $request->password;
+
+        $user->assignRole('user');
+        
+        $user->save();
 
         $request->validate([
             'name' => 'required',
@@ -92,12 +97,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = auth()->user();
-        $users = User::findOrFail($id);
-        if($user->id != $users->user_id) {
-            return redirect('/users/show');
-        }
-        return view('users.edit', ['users' => $users]);
+        $this->authorize('edit-user');
+
+        $user = User::findOrFail($id);
+        
+        return view('users.edit', ['user' => $user]);
     }
 
     /**
@@ -109,9 +113,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('edit-user');
+
         $data = $request->all();
-        User::findOrFail($request->id)->update($data);
-        return redirect('/users/show');
+        User::findOrFail($id)->update($data);
+        return redirect('/admin/dashboard');
     }
 
     /**

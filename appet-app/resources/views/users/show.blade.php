@@ -8,7 +8,7 @@
         <h1>Meus Usuário</h1>
     </div>
     <div class="col-md-10 offset-md-1 dashboard-pets-container">
-        @if(count($users) > 0)
+        {{-- @if(count($users) > 0) --}}
         <table class="table">
             <thead>
                 <tr>
@@ -39,9 +39,9 @@
                 @endforeach    
             </tbody>
         </table>
-        @else
+        {{-- @else
             <p class="youDontHavePets">Você ainda não tem usuários, <a href="/user/create">adicionar usuário</a></p>
-        @endif
+        @endif --}}
     </div>
 </div>
 @endsection
