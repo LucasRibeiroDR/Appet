@@ -137,6 +137,7 @@ input[type='file'] {
 }
 
 /* Navbar */
+
 #navbar img {
   width: 70px;
   margin-left: 1rem;
@@ -153,11 +154,12 @@ input[type='file'] {
   color: #757575;
 }
 
-#navbar a:hover{
+#navbar a:hover {
   color: #6aa570;
 }
 
 /* Search Container */
+
 #search-container {
   background-image: url("../img/banner.jpg");
   background-size: cover;
@@ -180,7 +182,7 @@ input[type='file'] {
   margin: 0 auto;
 }
 
-#search-container .form-control{
+#search-container .form-control {
   margin-right: 20px;
 }
 
@@ -195,6 +197,7 @@ button ion-icon {
 }
 
 /* Events list */
+
 #events-container {
   padding: 50px;
 }
@@ -259,6 +262,7 @@ button ion-icon {
 }
 
 /* Event create page */
+
 #event-create-container {
   padding: 30px
 }
@@ -275,9 +279,7 @@ button ion-icon {
   font-size: 20px;
 }
 
-#event-create-container input,
-#event-create-container select,
-#event-create-container textarea {
+#event-create-container input, #event-create-container select, #event-create-container textarea {
   font-size: 12px;
 }
 
@@ -286,6 +288,7 @@ button ion-icon {
 }
 
 /* Event page */
+
 #info-container .already-joined-msg {
   margin: 15px 0;
   color: #c28008;
@@ -302,8 +305,7 @@ button ion-icon {
   border-radius: 20px;
 }
 
-#image-container,
-#info-container {
+#image-container, #info-container {
   margin-top: 30px;
 }
 
@@ -323,15 +325,13 @@ button ion-icon {
   display: flex;
 }
 
-#info-container h3, 
-#description-container h3 {
+#info-container h3, #description-container h3 {
   margin-top: 20px;
   font-size: 24px;
   font-weight: bold;
 }
 
-#description-container ion-icon, 
-#info-container ion-icon {
+#description-container ion-icon, #info-container ion-icon {
   font-size: 20px;
   color: #f2a340;
   margin-right: 5px;
@@ -351,6 +351,7 @@ button ion-icon {
 }
 
 /* Dashboard */
+
 .dashboard-title-container {
   margin: 30px 0px 30px 30px;
 }
@@ -403,6 +404,7 @@ button ion-icon {
 }
 
 /* Edit page */
+
 .img-preview {
   object-fit: cover;
   width: 100px;
@@ -417,7 +419,6 @@ button ion-icon {
   border: 1px dashed #ececec;
   text-align: center;
   color: #d6d6d6;
-
   object-fit: cover;
   width: 100px;
   height: 100px;
@@ -426,6 +427,7 @@ button ion-icon {
 }
 
 /* footer */
+
 footer {
   text-align: center;
   background-color: #6aa570;
@@ -440,3 +442,22 @@ footer p {
   margin-bottom: 0;
 }
 
+/*home*/
+.imagemHome {
+  position: absolute;
+  left: 900px;
+  top: 88px;
+}
+.lista {
+  list-style-image: url('.img/paw.png');
+  color: #508055;
+}
+
+.btn{
+  border-color: #093161;
+  color: #093161;
+}
+
+.btn:hover{
+  background-color: #093161;
+}
