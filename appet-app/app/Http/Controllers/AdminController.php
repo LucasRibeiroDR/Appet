@@ -79,6 +79,7 @@ class AdminController extends Controller
         $user->endereco = $request->endereco;
         $user->email = $request->email;
         $user->password = $request->password;
+        //add hash e add o use hash
 
         $user->assignRole('admin');
         
