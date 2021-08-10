@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Middleware\Authenticate;
 use Illuminate\Http\Request;
 use App\Models\Consult;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class UserController extends Controller
@@ -54,7 +55,7 @@ class UserController extends Controller
         $user->telefone = $request->telefone;
         $user->endereco = $request->endereco;
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
 
         $user->assignRole('user');
         
