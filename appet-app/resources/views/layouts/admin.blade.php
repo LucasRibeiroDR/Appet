@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        
         <title>@yield('title')</title>
         <!-- Favicon -->
         <link rel="shortcut icon" href="./img/pet.ico" type="image/x-icon">
@@ -38,35 +38,30 @@
            </a>
            <ul class="navbar-nav">
             <li class="nav-item">
-              <a href="/" class="nav-link">APPet</a>
+              <a href="/admin/dashboard" class="nav-link">APPet</a>
             </li>
             <li class="nav-item">
-              <a href="/appointments/show" class="nav-link">Agendamentos</a>
-            </li>
-            <li>
-            <a href="/pets/create" class="nav-link">Cadastrar pet</a>
+              <a href="#" class="nav-link">Consultas</a>
             </li>
             @auth
               <li class="nav-item">
-              <a href="/pets/show" class="nav-link">Meus pets</a>
+              <a href="/admin/pets" class="nav-link">Pets</a>
               </li>
-
-              @can('user-page')
               <li class="nav-item">
-                <a href="/dashboard" class="nav-link">Dashboard</a>
+                <a href="#" class="nav-link">Dashboard</a>
               </li>
-              @elsecan('admin-page')
               <li class="nav-item">
-                <a href="/admin/dashboard" class="nav-link">Dashboard</a>
+                <a href="/admin/users" class="nav-link">Usuários</a>
               </li>
-              @endcan
-              
+              <li class="nav-item">
+                <a href="/admin/admins" class="nav-link">Administradores</a>
+              </li>
               <li class="nav-item">
                 <form action="/logout" method="POST">
                   @csrf
-                  <a
-                    href="/logout"
-                    class="nav-link"
+                  <a 
+                    href="/logout" 
+                    class="nav-link" 
                     onclick="event.preventDefault();
                       this.closest('form').submit();"
                   >
@@ -75,7 +70,7 @@
                 </form>
               </li>
             @endauth
-            @guest
+            @guest 
               <li class="nav-item">
                 <a href="/login" class="nav-link">Entrar</a>
               </li>

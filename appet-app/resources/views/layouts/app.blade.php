@@ -23,7 +23,7 @@
         @livewireStyles
         <link rel="stylesheet" href="/css/globalColors.css">
         <link rel="stylesheet" href="/css/styles.css">
-        <link rel="stylesheet" href="/css/responsive.css"> 
+        <link rel="stylesheet" href="/css/responsive.css">
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
@@ -51,25 +51,25 @@
                 <li class="nav-item">
                 <a href="/" class="nav-link">APPet</a>
                 </li>
-                <li>
-                <a href="/pets/create" class="nav-link">Novo Pet</a>
-                </li>
                 <li class="nav-item">
                 <a href="/appointments/show" class="nav-link">Agendamentos</a>
                 </li>
-                @auth
-                <li class="nav-item">
-                    <a href="/dashboard" class="nav-link">Dashboard</a>
+                <li>
+                <a href="/pets/create" class="nav-link">Novo Pet</a>
                 </li>
+                @auth
                 <li class="nav-item">
                 <a href="/pets/show" class="nav-link">Meus pets</a>
                 </li>
                 <li class="nav-item">
+                    <a href="/dashboard" class="nav-link">Dashboard</a>
+                </li>
+                <li class="nav-item">
                     <form action="/logout" method="POST">
                     @csrf
-                    <a 
-                        href="/logout" 
-                        class="nav-link" 
+                    <a
+                        href="/logout"
+                        class="nav-link"
                         onclick="event.preventDefault();
                         this.closest('form').submit();"
                     >
@@ -78,7 +78,7 @@
                     </form>
                 </li>
                 @endauth
-                @guest 
+                @guest
                 <li class="nav-item">
                     <a href="/login" class="nav-link">Entrar</a>
                 </li>
@@ -114,4 +114,4 @@
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     </body>
-</html> 
+</html>

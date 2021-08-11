@@ -5,21 +5,25 @@ use App\Http\Controllers\PetsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AppointmentsController;
+use App\Http\Controllers\AdminController;
 
 // Rota de entrada do software assim que aberto cai nessa rota
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
 /************************** Cadastro Usuários **************************/
-// Grupo de rotas de mesmo prefixo
-Route::prefix('user')->group(function() {
-    // Grupo de rotas de mesmo nome
-    Route::name('user.')->group(function() {
-        // Rotas para cadastro do cliente
-        Route::get('/create',[UserController::class, 'create'])->name('create');
-        // Route::get('/{id}',[UserController::class, 'show'])->name('show');
-        // Route::get('/edit/{id}', [UserController::class, 'edit'])->name('edit');
-        // Route::put('/update/{id}', [UserController::class, 'update'])->name('update');
-        // Route::delete('/{id}', [UserController::class, 'destroy'])->name('delete');
+Route::middleware(['auth'])->group(function() {
+    // Grupo de rotas de mesmo prefixo
+    Route::prefix('users')->group(function() {
+        // Grupo de rotas de mesmo nome
+        Route::name('users.')->group(function() {
+            // Rotas para cadastro do cliente
+            Route::post('/', [UserController::class, 'store']);
+            Route::get('/create',[UserController::class, 'create'])->name('create');
+            Route::get('/show',[UserController::class, 'show'])->name('show');
+            Route::get('/edit/{id}', [UserController::class, 'edit'])->name('edit');
+            Route::put('/update/{id}', [UserController::class, 'update'])->name('update');
+            Route::delete('/{id}', [UserController::class, 'destroy'])->name('delete');
+        });
     });
 });
 
@@ -49,8 +53,30 @@ Route::group([
     Route::get('/show', [AppointmentsController::class, 'show'])->name('show');
     Route::get('/edit/{id}', [AppointmentsController::class, 'edit'])->name('edit');
     Route::put('/update/{id}', [AppointmentsController::class, 'update'])->name('update');
+    Route::delete('/{id}', [AppointmentsController::class, 'destroy'])->name('delete');
 });
 
+
+Route::group([
+    'middleware' => ['auth'],
+    'prefix' => 'admin',
+    'name' => 'admin.'
+    ], function(){
+
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('index');
+    Route::get('/users', [AdminController::class, 'showUsers'])->name('showUsers');
+    Route::get('/admins', [AdminController::class, 'showAdmins'])->name('showAdmins');
+    Route::post('/create-newuser', [UserController::class, 'store']);
+    Route::get('/create-user',[UserController::class, 'create'])->name('create');
+    Route::get('/edit-user/{id}', [UserController::class, 'edit'])->name('edit');
+    Route::put('/update-user/{id}', [UserController::class, 'update'])->name('update');
+    Route::post('/create-newadmin', [AdminController::class, 'storeAdmin']);
+    Route::get('/create-admin', [AdminController::class, 'createAdmin'])->name('createAdmin');
+    Route::get('/create-pet/{id}', [AdminController::class, 'createPet'])->name('createPet');
+    Route::post('/create-newpet/{id}', [AdminController::class, 'storePet']);
+    Route::get('/pets', [AdminController::class, 'showPets'])->name('showPets');
+
+});
 /**
  * 4 tipos de grupos de rotas mais utilizados em laravel:
  * para autenticação -> Route::middleware(['auth'])

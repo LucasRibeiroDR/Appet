@@ -8,7 +8,7 @@
 }
 
 h1 {
-  color: #6aa570;
+  color: var(--greenAPP);
   font-weight: bold;
 }
 
@@ -19,8 +19,10 @@ body {
 }
 
 header {
+
   background-color: #6aa570;
   border-bottom: 1px solid #355738;
+
 }
 
 .row {
@@ -71,7 +73,7 @@ header {
 .thereAreNoEvents a:hover {
   text-decoration: underline;
 }
-
+.youDontHaveConsults,
 .youDontHavePets {
   background-color: #eceeb3;
   color: #9fa10f;
@@ -82,16 +84,18 @@ header {
   padding: 10px;
 }
 
+.youDontHaveConsults a,
 .youDontHavePets a {
   color: #9fa10f;
   font-weight: bold;
   text-decoration: none;
 }
 
+.youDontHaveConsults a:hover,
 .youDontHavePets a:hover {
   text-decoration: underline;
 }
-
+.youHaveConsults,
 .editProfile {
   background-color: #bceeb3;
   color: #25a10f;
@@ -102,12 +106,14 @@ header {
   padding: 10px;
 }
 
+.youHaveConsults a,
 .editProfile a {
   color: #1ba10f;
   font-weight: bold;
   text-decoration: none;
 }
 
+.youHaveConsults a:hover,
 .editProfile a:hover {
   text-decoration: underline;
 }
@@ -151,8 +157,10 @@ input[type='file'] {
 }
 
 #navbar a {
+
   font-size: 16px;
   color: #ffffff;
+
 }
 
 #navbar a:hover {
@@ -328,13 +336,17 @@ button ion-icon {
   display: flex;
 }
 
+
 #info-container h3, #description-container h3 {
+
   margin-top: 20px;
   font-size: 24px;
   font-weight: bold;
 }
 
+
 #description-container ion-icon, #info-container ion-icon {
+
   font-size: 20px;
   color: #f2a340;
   margin-right: 5px;
