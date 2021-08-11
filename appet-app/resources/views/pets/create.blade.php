@@ -3,7 +3,7 @@
 @section('title', 'APPet | Novo Pet')
 @section('content')
 <div id="event-create-container" class="col-md-6 offset-md-3">
-    <h1>Crie seu Pet</h1>
+    <h1>Cadastre seu Pet</h1>
     <form action="/pets" method="POST" enctype="multipart/form-data">
     @csrf
         <div class="form-group">
@@ -35,7 +35,7 @@
         </div>
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Adicionar Animal">
-        </div>   
+        </div>
     </form>
 </div>
 @endsection
