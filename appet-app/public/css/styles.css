@@ -70,7 +70,7 @@ header {
 .thereAreNoEvents a:hover {
   text-decoration: underline;
 }
-.youDontHaveConsults, 
+.youDontHaveConsults,
 .youDontHavePets {
   background-color: #eceeb3;
   color: #9fa10f;
@@ -81,14 +81,14 @@ header {
   padding: 10px;
 }
 
-.youDontHaveConsults a, 
+.youDontHaveConsults a,
 .youDontHavePets a {
   color: #9fa10f;
   font-weight: bold;
   text-decoration: none;
 }
 
-.youDontHaveConsults a:hover, 
+.youDontHaveConsults a:hover,
 .youDontHavePets a:hover {
   text-decoration: underline;
 }
@@ -148,13 +148,14 @@ input[type='file'] {
 
 #navbar {
   justify-content: space-between;
-  background-color: #ffffff;
+  background-color: #6aa570;
   padding: 5px 0;
 }
 
 #navbar a {
-  font-size: 14px;
-  color: #757575;
+  font-size: 18px;
+  color: #ffffff;
+  margin-left: 5px;
 }
 
 #navbar a:hover{
@@ -327,14 +328,14 @@ button ion-icon {
   display: flex;
 }
 
-#info-container h3, 
+#info-container h3,
 #description-container h3 {
   margin-top: 20px;
   font-size: 24px;
   font-weight: bold;
 }
 
-#description-container ion-icon, 
+#description-container ion-icon,
 #info-container ion-icon {
   font-size: 20px;
   color: #f2a340;
