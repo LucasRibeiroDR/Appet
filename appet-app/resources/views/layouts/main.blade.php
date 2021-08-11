@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+
         <title>@yield('title')</title>
         <!-- Favicon -->
         <link rel="shortcut icon" href="./img/pet.ico" type="image/x-icon">
@@ -44,7 +44,7 @@
               <a href="/appointments/show" class="nav-link">Agendamentos</a>
             </li>
             <li>
-            <a href="/pets/create" class="nav-link">Novo Pet</a>
+            <a href="/pets/create" class="nav-link">Cadastrar pet</a>
             </li>
             @auth
               <li class="nav-item">
@@ -64,9 +64,9 @@
               <li class="nav-item">
                 <form action="/logout" method="POST">
                   @csrf
-                  <a 
-                    href="/logout" 
-                    class="nav-link" 
+                  <a
+                    href="/logout"
+                    class="nav-link"
                     onclick="event.preventDefault();
                       this.closest('form').submit();"
                   >
@@ -75,7 +75,7 @@
                 </form>
               </li>
             @endauth
-            @guest 
+            @guest
               <li class="nav-item">
                 <a href="/login" class="nav-link">Entrar</a>
               </li>

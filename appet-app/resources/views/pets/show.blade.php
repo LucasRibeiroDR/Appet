@@ -42,12 +42,12 @@
                             </form>
                         </td>
                     </tr>
-                @endforeach    
+                @endforeach
             </tbody>
         </table>
         @else
-            <p class="youDontHavePets">Você ainda não tem pets, <a href="/pets/create">adicionar pets</a></p>
+            <p class="youDontHavePets">Você ainda não tem pets cadastrados, <a href="/pets/create">adicionar pets</a></p>
         @endif
     </div>
 </div>
-@endsection   
+@endsection
