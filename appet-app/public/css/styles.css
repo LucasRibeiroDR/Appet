@@ -19,8 +19,10 @@ body {
 }
 
 header {
-  background-color: var(--white);
-  border-bottom: 1px solid #dddddd;
+
+  background-color: #6aa570;
+  border-bottom: 1px solid #355738;
+
 }
 
 .row {
@@ -32,8 +34,9 @@ header {
 }
 
 .btn-primary {
-  background-color: var(--greenAPP);
-  border: 2px solid #508055;
+  background-color: #6aa570;
+  border: 2px solid #004b07;
+
 }
 
 .btn-primary:hover {
@@ -141,6 +144,7 @@ input[type='file'] {
 }
 
 /* Navbar */
+
 #navbar img {
   width: 70px;
   margin-left: 1rem;
@@ -153,16 +157,19 @@ input[type='file'] {
 }
 
 #navbar a {
-  font-size: 18px;
+
+  font-size: 16px;
   color: #ffffff;
-  margin-left: 5px;
+
 }
 
-#navbar a:hover{
-  color: #6aa570;
+#navbar a:hover {
+  color: #ffffff;
+  font-weight: bolder;
 }
 
 /* Search Container */
+
 #search-container {
   background-image: url("../img/banner.jpg");
   background-size: cover;
@@ -185,7 +192,7 @@ input[type='file'] {
   margin: 0 auto;
 }
 
-#search-container .form-control{
+#search-container .form-control {
   margin-right: 20px;
 }
 
@@ -193,6 +200,7 @@ button .btn {
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 button ion-icon {
@@ -200,6 +208,7 @@ button ion-icon {
 }
 
 /* Events list */
+
 #events-container {
   padding: 50px;
 }
@@ -264,6 +273,7 @@ button ion-icon {
 }
 
 /* Event create page */
+
 #event-create-container {
   padding: 30px
 }
@@ -280,9 +290,7 @@ button ion-icon {
   font-size: 20px;
 }
 
-#event-create-container input,
-#event-create-container select,
-#event-create-container textarea {
+#event-create-container input, #event-create-container select, #event-create-container textarea {
   font-size: 12px;
 }
 
@@ -291,6 +299,7 @@ button ion-icon {
 }
 
 /* Event page */
+
 #info-container .already-joined-msg {
   margin: 15px 0;
   color: #c28008;
@@ -307,8 +316,7 @@ button ion-icon {
   border-radius: 20px;
 }
 
-#image-container,
-#info-container {
+#image-container, #info-container {
   margin-top: 30px;
 }
 
@@ -328,15 +336,17 @@ button ion-icon {
   display: flex;
 }
 
-#info-container h3,
-#description-container h3 {
+
+#info-container h3, #description-container h3 {
+
   margin-top: 20px;
   font-size: 24px;
   font-weight: bold;
 }
 
-#description-container ion-icon,
-#info-container ion-icon {
+
+#description-container ion-icon, #info-container ion-icon {
+
   font-size: 20px;
   color: #f2a340;
   margin-right: 5px;
@@ -356,6 +366,7 @@ button ion-icon {
 }
 
 /* Dashboard */
+
 .dashboard-title-container {
   margin: 30px 0px 30px 30px;
 }
@@ -386,12 +397,14 @@ button ion-icon {
 .edit-btn {
   color: #ffffff;
   font-weight: 400;
+  font-size: 14;
 }
 
 .edit-btn:hover {
   color: #ffffff;
   background: #089fbd;
   border-color: #089fbd;
+  font-size: 14;
 }
 
 .userDashboard {
@@ -408,6 +421,7 @@ button ion-icon {
 }
 
 /* Edit page */
+
 .img-preview {
   object-fit: cover;
   width: 100px;
@@ -422,7 +436,6 @@ button ion-icon {
   border: 1px dashed #ececec;
   text-align: center;
   color: #d6d6d6;
-
   object-fit: cover;
   width: 100px;
   height: 100px;
@@ -431,6 +444,7 @@ button ion-icon {
 }
 
 /* footer */
+
 footer {
   text-align: center;
   background-color: #6aa570;
@@ -445,3 +459,26 @@ footer p {
   margin-bottom: 0;
 }
 
+/*home*/
+.imagemHome {
+  position: absolute;
+  left: 900px;
+  top: 88px;
+}
+.lista {
+  list-style-image: url('.img/paw.png');
+  color: #508055;
+}
+
+.btn{
+  border-color: #6aa570;
+  color: #ffffff;
+  background-color: #6aa570;
+  font-size: 14;
+}
+
+.btn:hover{
+  background-color: #6aa570;
+  font-weight: bolder;
+  font-size: 14;
+}
