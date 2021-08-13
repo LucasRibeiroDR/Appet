@@ -58,13 +58,13 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
 
         $user->assignRole('user');
-        
+
         $user->save();
 
         $request->validate([
             'name' => 'required',
             'cpf' => 'required',
-            'rg' => 'required', 
+            'rg' => 'required',
             'telefone' => 'required',
             'endereco' => 'required',
             'email' => 'required',
@@ -101,7 +101,7 @@ class UserController extends Controller
         $this->authorize('edit-user');
 
         $user = User::findOrFail($id);
-        
+
         return view('users.edit', ['user' => $user]);
     }
 
@@ -132,5 +132,10 @@ class UserController extends Controller
         User::findOrFail($id)->delete();
         return redirect('/users/show')
             ->with('msg', 'Usuário excluído com sucesso!');
+    }
+
+    public function dashboard()
+    {
+        return view('users.dashboard');
     }
 }
