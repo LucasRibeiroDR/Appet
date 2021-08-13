@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Pet;
+use App\Models\Appointment;
 
 class AdminController extends Controller
 {
@@ -16,7 +17,7 @@ class AdminController extends Controller
     public function index()
     {
         $this->authorize('admin-page');
-        
+
         return view ('admin.dashboard');
     }
 
@@ -82,13 +83,13 @@ class AdminController extends Controller
         //add hash e add o use hash
 
         $user->assignRole('admin');
-        
+
         $user->save();
 
         $request->validate([
             'name' => 'required',
             'cpf' => 'required',
-            'rg' => 'required', 
+            'rg' => 'required',
             'telefone' => 'required',
             'endereco' => 'required',
             'email' => 'required',
@@ -172,9 +173,22 @@ class AdminController extends Controller
 
     public function showPets() {
 
+        $this->authorize('view-pets');
+
         $pets = Pet::all();
-        
+
         return view('admin/showpets', ['pets' => $pets]);
+
+    }
+
+    public function showAppoitments(){
+
+        $this->authorize('view-appointments');
+
+        $appointments = Appointment::all();
+
+
+        return view ('admin/showappointments', ['appointments' => $appointments]);
 
     }
 

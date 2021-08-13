@@ -75,6 +75,7 @@ Route::group([
     Route::get('/create-pet/{id}', [AdminController::class, 'createPet'])->name('createPet');
     Route::post('/create-newpet/{id}', [AdminController::class, 'storePet']);
     Route::get('/pets', [AdminController::class, 'showPets'])->name('showPets');
+    Route::get('/appointments',[AdminController::class, 'showAppoitments'])->name('showAppoitments');
 
 });
 /**
@@ -83,7 +84,7 @@ Route::group([
  * para mesmo prefixo -> Route::prefix('clinic')
  * para mesmo namespace(nome de pasta ex) -> Route::namespace('Admin')
  * para o nome da rota -> Route::name('clinic.')
- * 
+ *
  * grupo mais completo para melhor visualização
  * Route::group([
  *  'middleware' => [],
@@ -91,7 +92,7 @@ Route::group([
  *  'namespace' => 'Admin',
  *  'name' => 'clinic.'
  * ], function(){
- * 
+ *
  * });
  */
 

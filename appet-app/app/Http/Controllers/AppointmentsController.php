@@ -56,7 +56,7 @@ class AppointmentsController extends Controller
         $appointments->hour = $request->hour;
         $appointments->area_consulta = $request->area_consulta;
         $appointments->descricao = $request->descricao;
-        
+
         $appointments->save();
 
         return redirect('appointments/show');
@@ -74,12 +74,10 @@ class AppointmentsController extends Controller
         $this->authorize('view-appointments');
 
         $user = auth()->user();
-        $appointment = $user->appointments;
-        $pets= $user->pets;
-        //dd($user->appointments);
+        $appointments = $user->appointments;
+
         return view('appointments.show', [
-            "appointment" => $appointment,
-            "pets"=> $pets
+            "appointments" => $appointments
         ]);
     }
 

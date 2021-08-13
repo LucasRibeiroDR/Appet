@@ -12,7 +12,7 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Id do dono</th>
+                    <th scope="col">Nome do dono</th>
                     <th scope="col">Nome do Animal</th>
                     <th scope="col">Ações</th>
                 </tr>
@@ -38,7 +38,7 @@
                                 </form>
                             </td>
                         </tr>
-                @endforeach    
+                @endforeach
             </tbody>
         </table>
 
@@ -47,4 +47,4 @@
         @endif --}}
     </div>
 </div>
-@endsection   
+@endsection
