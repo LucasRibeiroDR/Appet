@@ -177,7 +177,7 @@ class AdminController extends Controller
 
         $pets = Pet::all();
 
-        return view('admin/showpets', ['pets' => $pets]);
+        return view('admin.showpets', ['pets' => $pets]);
 
     }
 
@@ -188,8 +188,36 @@ class AdminController extends Controller
         $appointments = Appointment::all();
 
 
-        return view ('admin/showappointments', ['appointments' => $appointments]);
+        return view ('admin.showappointments', ['appointments' => $appointments]);
 
     }
+
+    public function createAppointments($id){
+
+        $this->authorize('create-appointment');
+
+        $user = User::findOrfail($id);
+
+        return view ('admin.createAppointments', ['user' => $user]);
+    }
+
+    public function storeAppointments(Request $request, $id){
+        $this->authorize('create-appointment');
+
+        $appointments = new Appointment;
+
+        $appointments->user_id = $id;
+        $appointments->pet_id = $request->pet_id;
+        $appointments->date = $request->date;
+        $appointments->hour = $request->hour;
+        $appointments->area_consulta = $request->area_consulta;
+        $appointments->descricao = $request->descricao;
+
+        $appointments->save();
+
+        return redirect('admin/dashboard')->with('msg', 'Agendado com sucesso!!!');
+    }
+
+
 
 }

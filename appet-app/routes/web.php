@@ -77,6 +77,9 @@ Route::group([
     Route::post('/create-newpet/{id}', [AdminController::class, 'storePet']);
     Route::get('/pets', [AdminController::class, 'showPets'])->name('showPets');
     Route::get('/appointments',[AdminController::class, 'showAppoitments'])->name('showAppoitments');
+    Route::get('/createAppointments/{id}', [AdminController::class, 'createAppointments'])->name('createAppointments');
+    Route::post('/create-Appointments/{id}', [AdminController::class, 'storeAppointments']);
+
 
 });
 /**

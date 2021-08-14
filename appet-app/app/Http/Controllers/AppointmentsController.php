@@ -45,7 +45,7 @@ class AppointmentsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->authorize('create-pet');
+        $this->authorize('create-appointment');
 
         $appointments = new Appointment;
 
@@ -59,8 +59,7 @@ class AppointmentsController extends Controller
 
         $appointments->save();
 
-        return redirect('appointments/show');
-        // return redirect('appointments/show')->with('msg', 'Agendado com sucesso!!!');
+        return redirect('appointments/show')->with('msg', 'Agendado com sucesso!!!');
     }
 
     /**
