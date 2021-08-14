@@ -71,6 +71,16 @@ class AdminController extends Controller
     {
         $this->authorize('create-admin');
 
+        $request->validate([
+            'name' => 'required',
+            'cpf' => 'required',
+            'rg' => 'required',
+            'telefone' => 'required',
+            'endereco' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
         $user = new User;
 
         $user->name = $request->name;
@@ -86,15 +96,7 @@ class AdminController extends Controller
 
         $user->save();
 
-        $request->validate([
-            'name' => 'required',
-            'cpf' => 'required',
-            'rg' => 'required',
-            'telefone' => 'required',
-            'endereco' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-        ]);
+
 
         return redirect('/admin/dashboard')->with('msg', 'Um novo adm foi criado com sucesso!!!');
     }
@@ -157,6 +159,15 @@ class AdminController extends Controller
 
         $pet = new Pet;
 
+        $request->validate([
+            'name' => 'required',
+            'raca' => 'required',
+            'pelugem' => 'required',
+            'especie' => 'required',
+            'data_nascimento' => 'required',
+            'castrado' => 'required',
+        ]);
+
         $pet->name = $request->name;
         $pet->raca = $request->raca;
         $pet->pelugem = $request->pelugem;
@@ -205,6 +216,15 @@ class AdminController extends Controller
         $this->authorize('create-appointment');
 
         $appointments = new Appointment;
+
+        $request->validate([
+            'pet_id' => 'required',
+            'date' => 'required',
+            'hour' => 'required',
+            'area_consulta' => 'required',
+            'descricao' => 'required',
+
+        ]);
 
         $appointments->user_id = $id;
         $appointments->pet_id = $request->pet_id;

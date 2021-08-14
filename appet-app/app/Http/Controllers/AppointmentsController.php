@@ -47,6 +47,15 @@ class AppointmentsController extends Controller
     {
         $this->authorize('create-appointment');
 
+        $request->validate([
+            'pet_id' => 'required',
+            'date' => 'required',
+            'hour' => 'required',
+            'area_consulta' => 'required',
+            'descricao' => 'required',
+
+        ]);
+
         $appointments = new Appointment;
 
         $appointments->user_id = auth()->user()->id;

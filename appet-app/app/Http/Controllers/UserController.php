@@ -49,6 +49,16 @@ class UserController extends Controller
 
         $user = new User;
 
+        $request->validate([
+            'name' => 'required',
+            'cpf' => 'required',
+            'rg' => 'required',
+            'telefone' => 'required',
+            'endereco' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
         $user->name = $request->name;
         $user->cpf = $request->cpf;
         $user->rg = $request->rg;
@@ -61,15 +71,7 @@ class UserController extends Controller
 
         $user->save();
 
-        $request->validate([
-            'name' => 'required',
-            'cpf' => 'required',
-            'rg' => 'required',
-            'telefone' => 'required',
-            'endereco' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-        ]);
+
 
         return redirect('/')
             ->with('msg', 'Um novo usuário foi criado com sucesso!!!');
