@@ -8,6 +8,7 @@
     </div>
     <div class="col-md-10 offset-md-1 dashboard-pets-container">
         @if(count($pets) > 0)
+        
         <table class="table">
             <thead>
                 <tr>

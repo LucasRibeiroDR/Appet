@@ -568,3 +568,23 @@ form {
   align-items: center;
   text-align: center;
 }
+
+/*Cadastro Pet*/
+
+.btnPet{
+  width: 100%;
+}
+
+.containerCadPet{
+  width: 500px;
+  height: 450px;
+  position: absolute;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: #e5f1e2;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  justify-content: center;
+}
