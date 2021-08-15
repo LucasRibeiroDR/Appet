@@ -16,6 +16,9 @@ class AppointmentsController extends Controller
      */
     public function index()
     {
+
+        $this->authorize('view-appointments');
+
         return view('appointments.appointments');
     }
 
@@ -26,6 +29,8 @@ class AppointmentsController extends Controller
      */
     public function create()
     {
+        $this->authorize('create-pet');
+
         $user = auth()->user();
         $pets = $user->pets;
 
@@ -40,6 +45,17 @@ class AppointmentsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create-appointment');
+
+        $request->validate([
+            'pet_id' => 'required',
+            'date' => 'required',
+            'hour' => 'required',
+            'area_consulta' => 'required',
+            'descricao' => 'required',
+
+        ]);
+
         $appointments = new Appointment;
 
         $appointments->user_id = auth()->user()->id;
@@ -49,11 +65,10 @@ class AppointmentsController extends Controller
         $appointments->hour = $request->hour;
         $appointments->area_consulta = $request->area_consulta;
         $appointments->descricao = $request->descricao;
-        
+
         $appointments->save();
 
-        return redirect('appointments/show');
-        // return redirect('appointments/show')->with('msg', 'Agendado com sucesso!!!');
+        return redirect('appointments/show')->with('msg', 'Agendado com sucesso!!!');
     }
 
     /**
@@ -64,10 +79,14 @@ class AppointmentsController extends Controller
      */
     public function show()
     {
+        $this->authorize('view-appointments');
+
         $user = auth()->user();
-        $appointment = $user->appointments;
-        //dd($user->appointments);
-        return view('appointments.show', ["appointment" => $appointment]);
+        $appointments = $user->appointments;
+
+        return view('appointments.show', [
+            "appointments" => $appointments
+        ]);
     }
 
     /**
@@ -78,6 +97,8 @@ class AppointmentsController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('edit-appointment');
+
         $user = auth()->user();
         $pets = $user->pets;
         $appointment = Appointment::findOrFail($id);
@@ -99,6 +120,8 @@ class AppointmentsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('edit-appointment');
+
         $data = $request->all();
         // dd($data);
         // dd(Appointment::findOrFail($request->id));
@@ -114,6 +137,8 @@ class AppointmentsController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('delete-appointment');
+
         Appointment::findOrFail($id)->delete();
         return redirect('/appointments/show');
     }

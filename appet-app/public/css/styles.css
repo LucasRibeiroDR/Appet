@@ -8,7 +8,7 @@
 }
 
 h1 {
-  color: #6aa570;
+  color: var(--greenAPP);
   font-weight: bold;
 }
 
@@ -19,8 +19,10 @@ body {
 }
 
 header {
-  background-color: #ffffff;
-  border-bottom: 1px solid #dddddd;
+
+  background-color: #6aa570;
+  border-bottom: 1px solid #355738;
+
 }
 
 .row {
@@ -33,7 +35,8 @@ header {
 
 .btn-primary {
   background-color: #6aa570;
-  border: 2px solid #508055;
+  border: 2px solid #004b07;
+
 }
 
 .btn-primary:hover {
@@ -70,7 +73,7 @@ header {
 .thereAreNoEvents a:hover {
   text-decoration: underline;
 }
-
+.youDontHaveConsults,
 .youDontHavePets {
   background-color: #eceeb3;
   color: #9fa10f;
@@ -81,16 +84,18 @@ header {
   padding: 10px;
 }
 
+.youDontHaveConsults a,
 .youDontHavePets a {
   color: #9fa10f;
   font-weight: bold;
   text-decoration: none;
 }
 
+.youDontHaveConsults a:hover,
 .youDontHavePets a:hover {
   text-decoration: underline;
 }
-
+.youHaveConsults,
 .editProfile {
   background-color: #bceeb3;
   color: #25a10f;
@@ -101,12 +106,14 @@ header {
   padding: 10px;
 }
 
+.youHaveConsults a,
 .editProfile a {
   color: #1ba10f;
   font-weight: bold;
   text-decoration: none;
 }
 
+.youHaveConsults a:hover,
 .editProfile a:hover {
   text-decoration: underline;
 }
@@ -145,17 +152,20 @@ input[type='file'] {
 
 #navbar {
   justify-content: space-between;
-  background-color: #ffffff;
+  background-color: #6aa570;
   padding: 5px 0;
 }
 
 #navbar a {
-  font-size: 14px;
-  color: #757575;
+
+  font-size: 16px;
+  color: #ffffff;
+
 }
 
 #navbar a:hover {
-  color: #6aa570;
+  color: #ffffff;
+  font-weight: bolder;
 }
 
 /* Search Container */
@@ -190,6 +200,7 @@ button .btn {
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 button ion-icon {
@@ -325,13 +336,17 @@ button ion-icon {
   display: flex;
 }
 
+
 #info-container h3, #description-container h3 {
+
   margin-top: 20px;
   font-size: 24px;
   font-weight: bold;
 }
 
+
 #description-container ion-icon, #info-container ion-icon {
+
   font-size: 20px;
   color: #f2a340;
   margin-right: 5px;
@@ -382,12 +397,14 @@ button ion-icon {
 .edit-btn {
   color: #ffffff;
   font-weight: 400;
+  font-size: 14;
 }
 
 .edit-btn:hover {
   color: #ffffff;
   background: #089fbd;
   border-color: #089fbd;
+  font-size: 14;
 }
 
 .userDashboard {
@@ -454,10 +471,14 @@ footer p {
 }
 
 .btn{
-  border-color: #093161;
-  color: #093161;
+  border-color: #6aa570;
+  color: #ffffff;
+  background-color: #6aa570;
+  font-size: 14;
 }
 
 .btn:hover{
-  background-color: #093161;
+  background-color: #6aa570;
+  font-weight: bolder;
+  font-size: 14;
 }
