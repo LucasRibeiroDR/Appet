@@ -5,7 +5,6 @@
 
     <link rel="stylesheet" href="/css/styles.css">
 
-
     @if (session('status'))
     <div class="mb-4 font-medium text-sm text-green-600">
         {{ session('status') }}
@@ -20,7 +19,7 @@
             <div class="login-content">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
-                    <h2>Login</h2>
+                    <h2 class="titleText">Login</h2>
                     <div>
                         <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus placeholder="E-mail" style="border-color: #1D4B80;"/>
                     </div>
