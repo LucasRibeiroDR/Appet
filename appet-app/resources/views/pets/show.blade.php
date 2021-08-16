@@ -2,51 +2,53 @@
 
 @section('title', 'APPet | Meus Pets')
 @section('content')
-<div>
-    <div class="col-md-10 offset-md-1 dashboard-title-container">
+<div class="containerMPets">
+    <div class="text-center p-3">
         <h1>Meus Pets</h1>
     </div>
-    <div class="col-md-10 offset-md-1 dashboard-pets-container">
+
+    <div class="dashboard-pets-container">
         @if(count($pets) > 0)
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Especie</th>
-                    <th scope="col">Raça</th>
-                    <th scope="col">Data de nasc.</th>
-                    <th scope="col">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($pets as $pet)
-                    <tr>
-                        <td scropt="row">{{ $loop->index + 1 }}</td>
-                        <td>{{ $pet->name }}</td>
-                        <td>{{ $pet->especie }}</td>
-                        <td>{{ $pet->raca }}</td>
-                        <td>{{ $pet->data_nascimento->format('d-m-Y') }}</td>
-                        <td class="d-flex ">
-                            <a class="btn btn-info edit-btn" href="/pets/edit/{{$pet->id}}">
-                                    <ion-icon name="create-outline"></ion-icon>
-                                    Editar
-                            </a>
-                            <form action="/pets/{{ $pet->id }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger delete-btn">
-                                        <ion-icon name="trash-outline"></ion-icon>
-                                        Deletar
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+        @foreach($pets as $pet)
+        <!-- <td scropt="row">{{ $loop->index + 1 }}</td> -->
+        <ul style="list-style-type: none;">
+            <li style="display: inline; margin: 0 0 0 15px;">
+                <div class="card" style="width: 18rem; background-color: #e5f1e2;">
+                    <div class="card-body">
+                        <h2 class="card-title" style="color: #305a34;">{{ $pet->name }}</h2>
+                        <h5 class="card-subtitle mb-2 text-muted">{{ $pet->especie }}</h5>
+                        <h5 class="card-subtitle mb-2 text-muted">{{ $pet->raca }}</h5>
+                        <h5 class="card-subtitle mb-2 text-muted">{{ $pet->data_nascimento->format('d-m-Y') }}</h5>
+
+                        <table>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <a class="btn btn-info edit-btn" href="/pets/edit/{{$pet->id}}">
+                                            <ion-icon name="create-outline"></ion-icon>
+                                            Editar
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div action="/pets/{{ $pet->id }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger delete-btn">
+                                            <ion-icon name="trash-outline"></ion-icon>
+                                            Deletar
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        @endforeach
         @else
-            <p class="youDontHavePets">Você ainda não tem pets cadastrados, <a href="/pets/create">adicionar pets</a></p>
+        <p class="youDontHavePets">Você ainda não tem pets cadastrados, <a href="/pets/create">adicionar pets</a></p>
         @endif
     </div>
 </div>

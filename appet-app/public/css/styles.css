@@ -8,7 +8,7 @@
 }
 
 h1 {
-  color: var(--greenAPP);
+  color: #1D4B80;
   font-weight: bold;
 }
 
@@ -19,10 +19,8 @@ body {
 }
 
 header {
-
   background-color: #6aa570;
   border-bottom: 1px solid #355738;
-
 }
 
 .row {
@@ -36,7 +34,6 @@ header {
 .btn-primary {
   background-color: #6aa570;
   border: 2px solid #004b07;
-
 }
 
 .btn-primary:hover {
@@ -73,8 +70,8 @@ header {
 .thereAreNoEvents a:hover {
   text-decoration: underline;
 }
-.youDontHaveConsults,
-.youDontHavePets {
+
+.youDontHaveConsults, .youDontHavePets {
   background-color: #eceeb3;
   color: #9fa10f;
   border: 1px solid #d9e466;
@@ -84,19 +81,17 @@ header {
   padding: 10px;
 }
 
-.youDontHaveConsults a,
-.youDontHavePets a {
+.youDontHaveConsults a, .youDontHavePets a {
   color: #9fa10f;
   font-weight: bold;
   text-decoration: none;
 }
 
-.youDontHaveConsults a:hover,
-.youDontHavePets a:hover {
+.youDontHaveConsults a:hover, .youDontHavePets a:hover {
   text-decoration: underline;
 }
-.youHaveConsults,
-.editProfile {
+
+.youHaveConsults, .editProfile {
   background-color: #bceeb3;
   color: #25a10f;
   border: 1px solid #66e477;
@@ -106,15 +101,13 @@ header {
   padding: 10px;
 }
 
-.youHaveConsults a,
-.editProfile a {
+.youHaveConsults a, .editProfile a {
   color: #1ba10f;
   font-weight: bold;
   text-decoration: none;
 }
 
-.youHaveConsults a:hover,
-.editProfile a:hover {
+.youHaveConsults a:hover, .editProfile a:hover {
   text-decoration: underline;
 }
 
@@ -157,10 +150,8 @@ input[type='file'] {
 }
 
 #navbar a {
-
   font-size: 16px;
   color: #ffffff;
-
 }
 
 #navbar a:hover {
@@ -200,7 +191,6 @@ button .btn {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 button ion-icon {
@@ -336,17 +326,13 @@ button ion-icon {
   display: flex;
 }
 
-
 #info-container h3, #description-container h3 {
-
   margin-top: 20px;
   font-size: 24px;
   font-weight: bold;
 }
 
-
 #description-container ion-icon, #info-container ion-icon {
-
   font-size: 20px;
   color: #f2a340;
   margin-right: 5px;
@@ -460,25 +446,168 @@ footer p {
 }
 
 /*home*/
+
 .imagemHome {
   position: absolute;
   left: 900px;
   top: 88px;
 }
+
 .lista {
   list-style-image: url('.img/paw.png');
-  color: #508055;
+  color: #1D4B80;
 }
 
-.btn{
-  border-color: #6aa570;
+.btn {
+  border-color: #1D4B80;
   color: #ffffff;
-  background-color: #6aa570;
+  background-color: #1D4B80;
   font-size: 14;
 }
 
-.btn:hover{
-  background-color: #6aa570;
+.btn:hover {
+  background-color: #0a2f5a;
+  border-color: #0a2f5a;
   font-weight: bolder;
   font-size: 14;
+}
+
+/*entrar*/
+
+.imgLogin {
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  width: 900px;
+  height: 500px;
+  position: absolute;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: #e5f1e2;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+}
+
+.justify{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+
+.imgLogin img {
+  width: 500px;
+}
+
+form {
+  width: 360px;
+}
+
+form a{
+  color: #000;
+  font-size: 14px;
+}
+
+form a:hover{
+  color: #1D4B80;
+  font-size: 15px;
+}
+
+
+.titleText {
+  margin: 15px 0;
+  color: #1D4B80;
+  text-transform: uppercase;
+  font-size: 2.9rem;
+}
+
+/*cadastrar*/
+
+form .blc{
+  position:relative;
+  float:left;
+  width:50%;
+}
+
+form {
+  color: #1D4B80;
+}
+
+.alignText{
+  text-align: start;
+}
+
+.containerCad {
+  width: 900px;
+  height: 600px;
+  position: absolute;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: #e5f1e2;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  justify-content: center;
+}
+
+.cadastro-content{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+
+/*Cadastro Pet*/
+
+.btnPet{
+  width: 100%;
+}
+
+.containerCadPet{
+  width: 500px;
+  height: 450px;
+  position: absolute;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: #e5f1e2;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  justify-content: center;
+}
+
+/*Meus Pets*/
+
+.btn-danger{
+  background-color: #B60000;
+  border-color: #B60000;
+}
+
+.btn-danger:hover{
+  background-color: #750000;
+  border-color: #750000;
+}
+
+.containerMPets li {
+  width: 230px;
+  height: 200px;
+  margin: 0;
+  border-radius: 5px;
+  border: none;
+  background: #e5f1e2;
+  float: left;
+  overflow: hidden;
 }

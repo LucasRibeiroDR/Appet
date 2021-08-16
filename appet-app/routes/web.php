@@ -23,6 +23,7 @@ Route::middleware(['auth'])->group(function() {
             Route::get('/edit/{id}', [UserController::class, 'edit'])->name('edit');
             Route::put('/update/{id}', [UserController::class, 'update'])->name('update');
             Route::delete('/{id}', [UserController::class, 'destroy'])->name('delete');
+            Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
         });
     });
 });
@@ -75,6 +76,10 @@ Route::group([
     Route::get('/create-pet/{id}', [AdminController::class, 'createPet'])->name('createPet');
     Route::post('/create-newpet/{id}', [AdminController::class, 'storePet']);
     Route::get('/pets', [AdminController::class, 'showPets'])->name('showPets');
+    Route::get('/appointments',[AdminController::class, 'showAppoitments'])->name('showAppoitments');
+    Route::get('/createAppointments/{id}', [AdminController::class, 'createAppointments'])->name('createAppointments');
+    Route::post('/create-Appointments/{id}', [AdminController::class, 'storeAppointments']);
+
 
 });
 /**
@@ -83,7 +88,7 @@ Route::group([
  * para mesmo prefixo -> Route::prefix('clinic')
  * para mesmo namespace(nome de pasta ex) -> Route::namespace('Admin')
  * para o nome da rota -> Route::name('clinic.')
- * 
+ *
  * grupo mais completo para melhor visualização
  * Route::group([
  *  'middleware' => [],
@@ -91,11 +96,12 @@ Route::group([
  *  'namespace' => 'Admin',
  *  'name' => 'clinic.'
  * ], function(){
- * 
+ *
  * });
  */
 
 /************************** JetStream **************************/
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

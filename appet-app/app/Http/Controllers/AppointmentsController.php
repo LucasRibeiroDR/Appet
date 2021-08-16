@@ -45,7 +45,16 @@ class AppointmentsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->authorize('create-pet');
+        $this->authorize('create-appointment');
+
+        $request->validate([
+            'pet_id' => 'required',
+            'date' => 'required',
+            'hour' => 'required',
+            'area_consulta' => 'required',
+            'descricao' => 'required',
+
+        ]);
 
         $appointments = new Appointment;
 
@@ -56,11 +65,10 @@ class AppointmentsController extends Controller
         $appointments->hour = $request->hour;
         $appointments->area_consulta = $request->area_consulta;
         $appointments->descricao = $request->descricao;
-        
+
         $appointments->save();
 
-        return redirect('appointments/show');
-        // return redirect('appointments/show')->with('msg', 'Agendado com sucesso!!!');
+        return redirect('appointments/show')->with('msg', 'Agendado com sucesso!!!');
     }
 
     /**
@@ -74,12 +82,10 @@ class AppointmentsController extends Controller
         $this->authorize('view-appointments');
 
         $user = auth()->user();
-        $appointment = $user->appointments;
-        $pets= $user->pets;
-        //dd($user->appointments);
+        $appointments = $user->appointments;
+
         return view('appointments.show', [
-            "appointment" => $appointment,
-            "pets"=> $pets
+            "appointments" => $appointments
         ]);
     }
 

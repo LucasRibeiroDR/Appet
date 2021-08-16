@@ -30,7 +30,12 @@
                                 <a class="btn btn-dark create-btn" href="/admin/create-pet/{{$user->id}}">
                                     <ion-icon name="create-outline"></ion-icon>
                                     Criar Pet
-                            </a>
+                                </a>
+                                <a class="btn btn-dark create-btn" href="/admin/createAppointments/{{$user->id}}">
+                                    <ion-icon name="create-outline"></ion-icon>
+                                    Criar Consulta
+                                </a>
+
                                 {{-- <form action="/pets/{{ $user->id }}" method="POST">
                                     @csrf
                                     @method('DELETE')
@@ -42,7 +47,7 @@
                             </td>
                         </tr>
                     @endif
-                @endforeach    
+                @endforeach
             </tbody>
         </table>
 
@@ -55,4 +60,4 @@
         @endif
     </div>
 </div>
-@endsection   
+@endsection
