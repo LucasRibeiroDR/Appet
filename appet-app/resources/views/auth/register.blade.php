@@ -3,6 +3,8 @@
 
 <x-guest-layout>
 
+<link rel="stylesheet" href="/css/styles.css">
+
     <div class="justify">
         <div class="containerCad">
 
