@@ -25,7 +25,15 @@ class AdminController extends Controller
 
         $this->authorize('admin-page');
 
-        $users = User::all();
+        $search = request('search');
+
+        if($search){
+            $users = User::where([
+                ['name', 'like', '%' .$search. '%']
+            ])->get();
+        }else{
+            $users = User::all();
+        }
 
         //dd($users);
 
