@@ -162,19 +162,16 @@ input[type='file'] {
 /* Search Container */
 
 #search-container {
-  background-image: url("../img/banner.jpg");
-  background-size: cover;
-  background-position: center;
   width: 100%;
-  height: 400px;
-  padding: 50px;
+  height: 150px;
+  padding: 20px;
   text-align: center;
 }
 
 #search-container h1 {
-  color: #F2A340;
+  color: #218b0e;
   margin-bottom: 30px;
-  font-weight: 900;
+  font-weight: 500;
 }
 
 #search-container form {

@@ -6,6 +6,14 @@
     <div class="col-md-10 offset-md-1 dashboard-title-container">
         <h1>Usuarios</h1>
     </div>
+
+    <div id="search-container" class="col-md-3">
+        <h1>Busque um usuário</h1>
+        <form action="/admin/users" method="GET">
+            <input type="text" name="search" id="search" class="form-control" placeholder="Procurar">
+        </form>
+    </div>
+
     <div class="col-md-10 offset-md-1 dashboard-pets-container">
         @if(count($users) > 0)
         <table class="table">
