@@ -56,6 +56,8 @@ class UserController extends Controller
             'telefone' => 'required',
             'endereco' => 'required',
             'email' => 'required',
+            'student' => 'required',
+            'ra' => 'required',
             'password' => 'required',
         ]);
 
@@ -65,6 +67,8 @@ class UserController extends Controller
         $user->telefone = $request->telefone;
         $user->endereco = $request->endereco;
         $user->email = $request->email;
+        $user->student = $request->student;
+        $user->ra = $request->ra;
         $user->password = Hash::make($request->password);
 
         $user->assignRole('user');
