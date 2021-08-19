@@ -48,6 +48,7 @@
         @else
             <p class="youDontHavePets">Você ainda não tem pets cadastrados, <a href="/pets/create">adicionar pets</a></p>
         @endif
+        <a href="/pets/create" class="btn btn-primary">Cadastrar pet</a>
     </div>
 </div>
 @endsection
