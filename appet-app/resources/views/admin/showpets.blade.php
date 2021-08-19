@@ -6,8 +6,15 @@
     <div class="col-md-10 offset-md-1 dashboard-title-container">
         <h1>Pets</h1>
     </div>
+    <div id="search-container" class="col-md-3">
+        <h1>Busque um animal</h1>
+        <form action="/admin/pets" method="GET">
+            <input type="text" name="search" id="search" class="form-control" placeholder="Procurar">
+            <a href="/admin/pets" class="btn btn-primary">Limpar</a>
+        </form>
+    </div>
     <div class="col-md-10 offset-md-1 dashboard-pets-container">
-        {{-- @if(count($admins) > 0) --}}
+        @if (count($pets) > 0)
         <table class="table">
             <thead>
                 <tr>
@@ -41,10 +48,11 @@
                 @endforeach
             </tbody>
         </table>
-
-        {{-- @else
+        @elseif (count($pets) == 0 && $search)
+            <span>{{ $search  }} não encontrado</span>
+        @else
             <p class="youDontHavePets">Você ainda não tem pets, <a href="/pets/create">adicionar pets</a></p>
-        @endif --}}
+        @endif
     </div>
 </div>
 @endsection

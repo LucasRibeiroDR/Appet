@@ -40,13 +40,11 @@ class UsersTableSeeder extends Seeder
             'endereco' =>'Fenda do biquini',
             'email' => 'patrick@teste.com',
             'student'=>'Não',
-            'ra'=>'321654896613',
+            'ra'=>'321654896699',
             'password' => Hash::make('12345678'),
         ]);
 
         $user->assignRole('user');
 
-        
-        
     }
 }

@@ -39,6 +39,7 @@ class AdminController extends Controller
 
         return view ('admin.showusers',[
             'users' => $users,
+            'search' => $search
         ]);
 
     }
@@ -167,6 +168,7 @@ class AdminController extends Controller
 
         $pet = new Pet;
 
+
         $request->validate([
             'name' => 'required',
             'raca' => 'required',
@@ -194,9 +196,17 @@ class AdminController extends Controller
 
         $this->authorize('view-pets');
 
-        $pets = Pet::all();
+        $search = request('search');
 
-        return view('admin.showpets', ['pets' => $pets]);
+        if($search){
+            $pets = Pet::where([
+                ['name', 'like', '%' .$search. '%']
+            ])->get();
+        }else{
+            $pets = Pet::all();
+        }
+
+        return view('admin.showpets', ['pets' => $pets, 'search' => $search]);
 
     }
 

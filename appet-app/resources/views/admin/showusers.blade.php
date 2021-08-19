@@ -11,6 +11,7 @@
         <h1>Busque um usuário</h1>
         <form action="/admin/users" method="GET">
             <input type="text" name="search" id="search" class="form-control" placeholder="Procurar">
+            <a href="/admin/users" class="btn btn-primary">Limpar</a>
         </form>
     </div>
 
@@ -63,6 +64,8 @@
             <a class="btn btn-primary"href="/admin/create-user">Criar novo usuário</a>
         </div>
 
+        @elseif(count($users) == 0 && $search)
+            <p>{{ $search }} não encontrado</p>
         @else
             <p class="youDontHavePets">Você ainda não tem pets, <a href="/pets/create">adicionar pets</a></p>
         @endif
