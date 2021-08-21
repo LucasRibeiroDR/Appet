@@ -20,8 +20,51 @@
         </div>
         <div class="form-group">
             <label for="especie">Especie do seu Pet</label>
-            <input type="text" class="form-control" id="especie" name="especie" placeholder="Cachorro, gato, ...">
+            <select name="especie" id="especie" class="form-control">
+              <option>Gato</option>
+              <option >Cachorro</option>
+            </select>
         </div>
+
+
+        <div class="form-group">
+                <label for="porte">Porte do dog</label>
+                <select name="porte" id="porte" class="form-control">
+                    <option>Mini</option>
+                    <option>Pequeno</option>
+                    <option>Medio</option>
+                    <option>Grande</option>
+                    <option>Gigante</option>
+                    
+                </select>
+            </div>
+
+      {{-- @if($pet->especie->value==1)
+            <div class="form-group">
+                <label for="porte">Porte do dog</label>
+                <select name="porte" id="porte" class="form-control">
+                    <option>Mini</option>
+                    <option>Pequeno</option>
+                    <option>Medio</option>
+                    <option>Grande</option>
+                    <option>Gigante</option>
+                    
+                </select>
+            </div>
+            @else
+            <div class="form-group" style="display:hidden;">
+                <label for="porte">Porte do dog</label>
+                <select name="porte" id="porte" class="form-control">
+                    <option>Mini</option>
+                    <option>Pequeno</option>
+                    <option>Medio</option>
+                    <option>Grande</option>
+                    <option>Gigante</option>
+                    
+                </select>
+            </div>
+            @endif --}}
+
         <div class="form-group">
             <label for="data_nascimento">Data de nascimento</label>
             <input type="date" class="form-control" name="data_nascimento" id="data_nascimento">

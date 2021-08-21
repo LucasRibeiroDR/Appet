@@ -14,6 +14,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Especie</th>
+                    <th scope="col">Porte</th>
                     <th scope="col">Raça</th>
                     <th scope="col">Data de nasc.</th>
                     <th scope="col">Ações</th>
@@ -25,6 +26,7 @@
                         <td scropt="row">{{ $loop->index + 1 }}</td>
                         <td>{{ $pet->name }}</td>
                         <td>{{ $pet->especie }}</td>
+                        <td>{{ $pet->porte }}</td>
                         <td>{{ $pet->raca }}</td>
                         <td>{{ $pet->data_nascimento->format('d-m-Y') }}</td>
                         <td class="d-flex ">

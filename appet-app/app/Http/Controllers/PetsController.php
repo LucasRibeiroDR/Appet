@@ -29,6 +29,7 @@ class PetsController extends Controller
            'raca' => 'required',
            'pelugem' => 'required',
            'especie' => 'required',
+           'porte' => 'required',
            'data_nascimento' => 'required',
            'castrado' => 'required',
         ]);
@@ -37,6 +38,7 @@ class PetsController extends Controller
         $pet->raca = $request->raca;
         $pet->pelugem = $request->pelugem;
         $pet->especie = $request->especie;
+        $pet->porte= $request->porte;
         $pet->data_nascimento = $request->data_nascimento;
         $pet->castrado = $request->castrado;
 
