@@ -57,7 +57,6 @@ class UserController extends Controller
             'endereco' => 'required',
             'email' => 'required',
             'student' => 'required',
-            'ra' => 'required',
             'password' => 'required',
         ]);
 

@@ -31,17 +31,6 @@
             <label for="email">Email</label>
             <input type="text" class="form-control" name="email" id="email" placeholder="exempla@gmail.com .....">
         </div>
-        <div class="mt-4">
-            <label for="student">Estudante UENP?</label>
-            <select id="student" class="form-control" type="text" name="student" required autocomplete="new-student">
-                <option value="0">Não</option>
-                <option value="1">Sim</option>
-            </select>
-        </div>
-        <div class="mt-4">
-            <label for="ra">ra</label>
-            <input input type="text" class="form-control" name="ra" id="ra" placeholder="20XX111130300XX">
-        </div>
         <div class="form-group">
             <label for="password">Senha</label>
             <input type="text" class="form-control" name="password" id="password" placeholder="Senha ....">

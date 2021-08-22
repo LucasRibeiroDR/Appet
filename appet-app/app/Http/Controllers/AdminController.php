@@ -98,6 +98,7 @@ class AdminController extends Controller
         $user->telefone = $request->telefone;
         $user->endereco = $request->endereco;
         $user->email = $request->email;
+        $user->student="Não";
         $user->password = $request->password;
         //add hash e add o use hash
 
