@@ -15,6 +15,9 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link rel="stylesheet" href="/css/app.css">
+        <link rel="stylesheet" href="/css/globalColors.css">
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/css/responsive.css">
         <style>
             body {
                 background-color: #f2f2f2;
@@ -23,6 +26,7 @@
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="/js/index.js"></script>
     </head>
     <body class="pt-4 mb-4">
         <div class="font-sans text-gray-900 antialiased">

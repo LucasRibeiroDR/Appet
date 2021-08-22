@@ -45,17 +45,17 @@
 
             <div class="mt-4">
                 <x-jet-label for="student" value="{{ __('Estudante UENP') }}" />
-                <select id="student" class="block mt-1 w-full" type="text" name="student" required autocomplete="new-student">
+                <select id="student" class="block mt-1 w-full" type="text" name="student" required autocomplete="new-student" onchange="exibir_ocultar()">
                     <option value="0">Não</option>
                     <option value="1">Sim</option>
                 </select>
             </div>
 
-            <div class="mt-4">
+            <div class="mt-4 ra" id="ra_value">
                 <x-jet-label for="ra" value="{{ __('RA') }}" />
                 <x-jet-input id="ra" class="block mt-1 w-full" type="text" name="ra"  autocomplete="new-ra" placeholder="20XX111130300XX" />
             </div>
-            
+
            {{-- @if($user->student->value==1)
             <div class="mt-4">
                 <x-jet-label for="ra" value="{{ __('RA') }}" />
