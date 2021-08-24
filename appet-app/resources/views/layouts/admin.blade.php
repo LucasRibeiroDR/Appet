@@ -26,6 +26,7 @@
         </style>
         <!-- Scripts -->
         <script src="/js/main.js"></script>
+        <script src="/js/index.js"></script>
         <script src="/js/idade.js"></script>
     </head>
     <body>

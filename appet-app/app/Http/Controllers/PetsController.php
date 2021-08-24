@@ -29,7 +29,6 @@ class PetsController extends Controller
            'raca' => 'required',
            'pelugem' => 'required',
            'especie' => 'required',
-           'porte' => 'required',
            'data_nascimento' => 'required',
            'castrado' => 'required',
         ]);
