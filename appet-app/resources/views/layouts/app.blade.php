@@ -31,6 +31,7 @@
         </style>
         <!-- Scripts -->
         <script src="/js/main.js"></script>
+        <script src="/js/index.js"></script>
         <script src="{{ mix('js/app.js') }}" defer></script>
         <style>
             body {

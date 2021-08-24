@@ -13,12 +13,13 @@
         </div>
         <div class="form-group">
             <label for="especie">Especie do seu Pet</label>
-            <select name="especie" id="especie" class="form-control">
-                <option>Gato</option>
-                <option>Cachorro</option>
+            <select name="especie" id="especie" class="form-control" onchange="hidden_show()">
+                <option value="0">Gato</option>
+                <option value="1">Cachorro</option>
             </select>
         </div>
-        <div class="form-group">
+
+        <div class="form-group porte" id="porte_value">
             <label for="porte">Porte do dog</label>
             <select name="porte" id="porte" class="form-control">
                 <option>Mini</option>
@@ -26,7 +27,6 @@
                 <option>Medio</option>
                 <option>Grande</option>
                 <option>Gigante</option>
-
             </select>
         </div>
 
