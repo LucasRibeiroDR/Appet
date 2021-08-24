@@ -2,11 +2,12 @@
 
 @section('title', 'APPet | Meus Pets')
 @section('content')
-<div>
-    <div class="col-md-10 offset-md-1 dashboard-title-container">
+<div class="containerMPets">
+    <div class="text-center p-3">
         <h1>Meus Pets</h1>
     </div>
-    <div class="col-md-10 offset-md-1 dashboard-pets-container">
+
+    <div class="dashboard-pets-container">
         @if(count($pets) > 0)
         <table class="table">
             <thead>
@@ -49,7 +50,7 @@
         </table>
         <p class="youHaveConsults"><a href="/pets/create">Cadastrar novo pet</a></p>
         @else
-            <p class="youDontHavePets">Você ainda não tem pets cadastrados, <a href="/pets/create">adicionar pets</a></p>
+        <p class="youDontHavePets">Você ainda não tem pets cadastrados, <a href="/pets/create">adicionar pets</a></p>
         @endif
     </div>
 </div>

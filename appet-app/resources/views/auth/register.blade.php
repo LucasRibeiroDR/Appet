@@ -1,25 +1,25 @@
 @section('title', 'APPet | Registrar-se')
+@section('content')
+                                     
 <x-guest-layout>
-    <x-jet-authentication-card>
+    <x-jet-authentication-card class="containerCad">
         <x-slot name="logo">
-            <a href="/" class="navbar-brand">
-                <img src="/img/pet.ico" alt="APPet Icon">
-            </a>
+            
         </x-slot>
 
-        <x-jet-validation-errors class="mb-4" />
+        <x-jet-validation-errors class="mb-4 cadastro-content" />
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
-
+            <h2 class="titleText">Cadastrar</h2>
             <div>
-                <x-jet-label for="name" value="{{ __('Nome') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="Seu nome..." />
+                <x-jet-label class="alignText" for="name" value="{{ __('Nome completo:') }}" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="Seu nome..." style="border-color: #1D4B80;" />
             </div>
-
-            <div class="mt-4">
-                <x-jet-label for="cpf" value="{{ __('CPF') }}" />
-                <x-jet-input id="cpf" class="block mt-1 w-full" type="text" name="cpf" required autocomplete="new-cpf" placeholder="000.000.000-00" />
+            
+            <div class="blc">
+                <x-jet-label class="alignText" for="cpf" value="{{ __('CPF:') }}" />
+                <x-jet-input id="cpf" class="block mt-1 w-full" type="text" name="cpf" required autocomplete="new-cpf" placeholder="000.000.000-00" style="border-color: #1D4B80;" />
             </div>
 
             <div class="mt-4">
@@ -84,13 +84,37 @@
             @endif
 
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Já está registrado?') }}
-                </a>
+                    <br><br><br>
+                    @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                    <div class="mt-4">
+                        <x-jet-label for="terms">
+                            <div class="flex items-center">
+                                <x-jet-checkbox name="terms" id="terms" />
 
-                <x-jet-button class="ml-4">
-                    {{ __('Registre-se') }}
-                </x-jet-button>
+                                <div class="ml-2">
+                                    {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                                    'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
+                                    'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
+                                    ]) !!}
+                                </div>
+                            </div>
+                        </x-jet-label>
+                    </div>
+                    @endif
+
+                    <div class="flex items-center justify-end mt-4">
+                        <a href="{{ route('login') }}">
+                            {{ __('Já está registrado?') }}
+                        </a>
+
+                        <x-jet-button class="btn btn-primary ml-4">
+                            {{ __('Cadastrar-se') }}
+                        </x-jet-button>
+                    </div>
+                </form>
+            </div>
+            <div class="imgLogin">
+                <img src="./img/2.png" alt="calendario">
             </div>
         </form>
     </x-jet-authentication-card>
