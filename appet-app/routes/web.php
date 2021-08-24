@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PetsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AppointmentsController;
 use App\Http\Controllers\AdminController;
@@ -23,6 +24,7 @@ Route::middleware(['auth'])->group(function() {
             Route::get('/edit/{id}', [UserController::class, 'edit'])->name('edit');
             Route::put('/update/{id}', [UserController::class, 'update'])->name('update');
             Route::delete('/{id}', [UserController::class, 'destroy'])->name('delete');
+            Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
         });
     });
 });
@@ -62,7 +64,7 @@ Route::group([
     'prefix' => 'admin',
     'name' => 'admin.'
     ], function(){
-
+    Route::get('/welcome', [AdminController::class, 'welcome']);
     Route::get('/dashboard', [AdminController::class, 'index'])->name('index');
     Route::get('/users', [AdminController::class, 'showUsers'])->name('showUsers');
     Route::get('/admins', [AdminController::class, 'showAdmins'])->name('showAdmins');
@@ -72,10 +74,14 @@ Route::group([
     Route::put('/update-user/{id}', [UserController::class, 'update'])->name('update');
     Route::post('/create-newadmin', [AdminController::class, 'storeAdmin']);
     Route::get('/create-admin', [AdminController::class, 'createAdmin'])->name('createAdmin');
+    Route::get('/edit-admin/{id}', [AdminController::class, 'editAdmin'])->name('editAdmin');
+    Route::put('/update-admin/{id}', [UserController::class, 'updateAdmin'])->name('updateAdmin');
     Route::get('/create-pet/{id}', [AdminController::class, 'createPet'])->name('createPet');
     Route::post('/create-newpet/{id}', [AdminController::class, 'storePet']);
     Route::get('/pets', [AdminController::class, 'showPets'])->name('showPets');
-
+    Route::get('/appointments',[AdminController::class, 'showAppoitments'])->name('showAppoitments');
+    Route::get('/createAppointments/{id}', [AdminController::class, 'createAppointments'])->name('createAppointments');
+    Route::post('/create-Appointments/{id}', [AdminController::class, 'storeAppointments']);
 });
 /**
  * 4 tipos de grupos de rotas mais utilizados em laravel:
@@ -83,7 +89,7 @@ Route::group([
  * para mesmo prefixo -> Route::prefix('clinic')
  * para mesmo namespace(nome de pasta ex) -> Route::namespace('Admin')
  * para o nome da rota -> Route::name('clinic.')
- * 
+ *
  * grupo mais completo para melhor visualização
  * Route::group([
  *  'middleware' => [],
@@ -91,11 +97,15 @@ Route::group([
  *  'namespace' => 'Admin',
  *  'name' => 'clinic.'
  * ], function(){
- * 
+ *
  * });
  */
 
 /************************** JetStream **************************/
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::group([
+    'middleware' => ['auth:sanctum', 'verified'],
+    ], function (){
+        Route::get('/dashboard', [Controller::class, 'index'])->name('index');
+});
+
+

@@ -25,6 +25,8 @@ class UsersTableSeeder extends Seeder
             'telefone' =>'35422127',
             'endereco' =>'Fenda do biquini',
             'email' => 'bob@teste.com',
+            'student'=>'Sim',
+            
             'password' => Hash::make('12345678'),
         ]);
 
@@ -37,12 +39,12 @@ class UsersTableSeeder extends Seeder
             'telefone' =>'35422127',
             'endereco' =>'Fenda do biquini',
             'email' => 'patrick@teste.com',
+            'student'=>'Não',
+            
             'password' => Hash::make('12345678'),
         ]);
 
         $user->assignRole('user');
 
-        
-        
     }
 }

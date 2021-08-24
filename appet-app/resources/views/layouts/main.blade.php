@@ -26,6 +26,7 @@
         </style>
         <!-- Scripts -->
         <script src="/js/main.js"></script>
+        <script src="/js/index.js"></script>
         <script src="/js/idade.js"></script>
     </head>
     <body>
@@ -43,24 +44,20 @@
             <li class="nav-item">
               <a href="/appointments/show" class="nav-link">Agendamentos</a>
             </li>
-            <li>
-            <a href="/pets/create" class="nav-link">Cadastrar pet</a>
-            </li>
             @auth
+            @can('user-page')
               <li class="nav-item">
-              <a href="/pets/show" class="nav-link">Meus pets</a>
+                <a href="/pets/show" class="nav-link">Meus pets</a>
               </li>
-
-              @can('user-page')
               <li class="nav-item">
-                <a href="/dashboard" class="nav-link">Dashboard</a>
+                <a href="/dashboard" class="nav-link">Perfil</a>
               </li>
               @elsecan('admin-page')
               <li class="nav-item">
                 <a href="/admin/dashboard" class="nav-link">Dashboard</a>
               </li>
               @endcan
-              
+
               <li class="nav-item">
                 <form action="/logout" method="POST">
                   @csrf

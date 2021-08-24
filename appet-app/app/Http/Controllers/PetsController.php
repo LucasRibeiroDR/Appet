@@ -24,10 +24,20 @@ class PetsController extends Controller
         //dd($request);
         $pet = new Pet;
 
+        $request->validate([
+           'name' => 'required',
+           'raca' => 'required',
+           'pelugem' => 'required',
+           'especie' => 'required',
+           'data_nascimento' => 'required',
+           'castrado' => 'required',
+        ]);
+
         $pet->name = $request->name;
         $pet->raca = $request->raca;
         $pet->pelugem = $request->pelugem;
         $pet->especie = $request->especie;
+        $pet->porte= $request->porte;
         $pet->data_nascimento = $request->data_nascimento;
         $pet->castrado = $request->castrado;
 
@@ -37,9 +47,9 @@ class PetsController extends Controller
 
         $pet->save();
 
-        return redirect('/');
+        return redirect('/pets/show');
     }
-    
+
     public function show() {
 
         $this->authorize('view-pets');
@@ -59,7 +69,7 @@ class PetsController extends Controller
     public function edit($id) {
 
         $this->authorize('edit-pet');
-        
+
         $user = auth()->user();
         $pet = Pet::findOrFail($id);
         if($user->id != $pet->user_id && $user->hasRole('user')) {
@@ -67,7 +77,7 @@ class PetsController extends Controller
         }
         return view('pets.edit', ['pet' => $pet]);
     }
-    
+
     public function update(Request $request) {
 
         $this->authorize('edit-pet');
@@ -76,7 +86,7 @@ class PetsController extends Controller
         Pet::findOrFail($request->id)->update($data);
         return redirect('/pets/show');
     }
-    
+
     // public function destroy($id) {
     //     Pet::findOrFail($id)->delete();
     //     return redirect('/pets/show')->with('msg', 'Pet excluído com sucesso!');
@@ -89,11 +99,11 @@ class PetsController extends Controller
     //     $anoNasc  = $data[0];
     //     $mesNasc  = $data[1];
     //     $diaNasc  = $data[2];
-        
+
     //     $anoAtual = date("Y");
     //     $mesAtual = date("m");
     //     $diaAtual = date("d");
-        
+
     //     $idade = $anoAtual - $anoNasc;
     //     if ($mesAtual < $mesNasc){
     //         $idade -= 1;

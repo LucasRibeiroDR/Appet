@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Pet;
+use App\Models\Appointment;
 
 class AdminController extends Controller
 {
@@ -13,10 +14,17 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function welcome()
+    {
+        $this->authorize('admin-page');
+
+        return view ('admin.welcome');
+    }
+    
     public function index()
     {
         $this->authorize('admin-page');
-        
+
         return view ('admin.dashboard');
     }
 
@@ -24,12 +32,21 @@ class AdminController extends Controller
 
         $this->authorize('admin-page');
 
-        $users = User::all();
+        $search = request('search');
+
+        if($search){
+            $users = User::where([
+                ['name', 'like', '%' .$search. '%']
+            ])->get();
+        }else{
+            $users = User::all();
+        }
 
         //dd($users);
 
         return view ('admin.showusers',[
             'users' => $users,
+            'search' => $search
         ]);
 
     }
@@ -70,6 +87,16 @@ class AdminController extends Controller
     {
         $this->authorize('create-admin');
 
+        $request->validate([
+            'name' => 'required',
+            'cpf' => 'required',
+            'rg' => 'required',
+            'telefone' => 'required',
+            'endereco' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
         $user = new User;
 
         $user->name = $request->name;
@@ -78,22 +105,15 @@ class AdminController extends Controller
         $user->telefone = $request->telefone;
         $user->endereco = $request->endereco;
         $user->email = $request->email;
+        $user->student="Não";
         $user->password = $request->password;
         //add hash e add o use hash
 
         $user->assignRole('admin');
-        
+
         $user->save();
 
-        $request->validate([
-            'name' => 'required',
-            'cpf' => 'required',
-            'rg' => 'required', 
-            'telefone' => 'required',
-            'endereco' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-        ]);
+
 
         return redirect('/admin/dashboard')->with('msg', 'Um novo adm foi criado com sucesso!!!');
     }
@@ -156,6 +176,16 @@ class AdminController extends Controller
 
         $pet = new Pet;
 
+
+        $request->validate([
+            'name' => 'required',
+            'raca' => 'required',
+            'pelugem' => 'required',
+            'especie' => 'required',
+            'data_nascimento' => 'required',
+            'castrado' => 'required',
+        ]);
+
         $pet->name = $request->name;
         $pet->raca = $request->raca;
         $pet->pelugem = $request->pelugem;
@@ -172,10 +202,68 @@ class AdminController extends Controller
 
     public function showPets() {
 
-        $pets = Pet::all();
-        
-        return view('admin/showpets', ['pets' => $pets]);
+        $this->authorize('view-pets');
+
+        $search = request('search');
+
+        if($search){
+            $pets = Pet::where([
+                ['name', 'like', '%' .$search. '%']
+            ])->get();
+        }else{
+            $pets = Pet::all();
+        }
+
+        return view('admin.showpets', ['pets' => $pets, 'search' => $search]);
 
     }
+
+    public function showAppoitments(){
+
+        $this->authorize('view-appointments');
+
+        $appointments = Appointment::all();
+
+
+        return view ('admin.showappointments', ['appointments' => $appointments]);
+
+    }
+
+    public function createAppointments($id){
+
+        $this->authorize('create-appointment');
+
+        $user = User::findOrfail($id);
+
+        return view ('admin.createAppointments', ['user' => $user]);
+    }
+
+    public function storeAppointments(Request $request, $id){
+        $this->authorize('create-appointment');
+
+        $appointments = new Appointment;
+
+        $request->validate([
+            'pet_id' => 'required',
+            'date' => 'required',
+            'hour' => 'required',
+            'area_consulta' => 'required',
+            'descricao' => 'required',
+
+        ]);
+
+        $appointments->user_id = $id;
+        $appointments->pet_id = $request->pet_id;
+        $appointments->date = $request->date;
+        $appointments->hour = $request->hour;
+        $appointments->area_consulta = $request->area_consulta;
+        $appointments->descricao = $request->descricao;
+
+        $appointments->save();
+
+        return redirect('admin/dashboard')->with('msg', 'Agendado com sucesso!!!');
+    }
+
+
 
 }

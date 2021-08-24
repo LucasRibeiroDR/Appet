@@ -49,27 +49,32 @@ class UserController extends Controller
 
         $user = new User;
 
+        $request->validate([
+            'name' => 'required',
+            'cpf' => 'required',
+            'rg' => 'required',
+            'telefone' => 'required',
+            'endereco' => 'required',
+            'email' => 'required',
+            'student' => 'required',
+            'password' => 'required',
+        ]);
+
         $user->name = $request->name;
         $user->cpf = $request->cpf;
         $user->rg = $request->rg;
         $user->telefone = $request->telefone;
         $user->endereco = $request->endereco;
         $user->email = $request->email;
+        $user->student = $request->student;
+        $user->ra = $request->ra;
         $user->password = Hash::make($request->password);
 
         $user->assignRole('user');
-        
+
         $user->save();
 
-        $request->validate([
-            'name' => 'required',
-            'cpf' => 'required',
-            'rg' => 'required', 
-            'telefone' => 'required',
-            'endereco' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-        ]);
+
 
         return redirect('/')
             ->with('msg', 'Um novo usuário foi criado com sucesso!!!');
@@ -101,7 +106,7 @@ class UserController extends Controller
         $this->authorize('edit-user');
 
         $user = User::findOrFail($id);
-        
+
         return view('users.edit', ['user' => $user]);
     }
 
@@ -132,5 +137,10 @@ class UserController extends Controller
         User::findOrFail($id)->delete();
         return redirect('/users/show')
             ->with('msg', 'Usuário excluído com sucesso!');
+    }
+
+    public function dashboard()
+    {
+        return view('users.dashboard');
     }
 }

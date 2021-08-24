@@ -6,6 +6,15 @@
     <div class="col-md-10 offset-md-1 dashboard-title-container">
         <h1>Usuarios</h1>
     </div>
+
+    <div id="search-container" class="col-md-3">
+        <h1>Busque um usuário</h1>
+        <form action="/admin/users" method="GET">
+            <input type="text" name="search" id="search" class="form-control" placeholder="Procurar">
+            <a href="/admin/users" class="btn btn-primary">Limpar</a>
+        </form>
+    </div>
+
     <div class="col-md-10 offset-md-1 dashboard-pets-container">
         @if(count($users) > 0)
         <table class="table">
@@ -30,7 +39,12 @@
                                 <a class="btn btn-dark create-btn" href="/admin/create-pet/{{$user->id}}">
                                     <ion-icon name="create-outline"></ion-icon>
                                     Criar Pet
-                            </a>
+                                </a>
+                                <a class="btn btn-dark create-btn" href="/admin/createAppointments/{{$user->id}}">
+                                    <ion-icon name="create-outline"></ion-icon>
+                                    Criar Consulta
+                                </a>
+
                                 {{-- <form action="/pets/{{ $user->id }}" method="POST">
                                     @csrf
                                     @method('DELETE')
@@ -42,17 +56,19 @@
                             </td>
                         </tr>
                     @endif
-                @endforeach    
+                @endforeach
             </tbody>
         </table>
 
         <div>
-            <a class="btn btn-primary"href="/admin/create-user">Criar novo usuário</a>
+            <p class="youHaveConsults"><a href="/admin/create-user">Criar novo usuário</a></p>
         </div>
 
+        @elseif(count($users) == 0 && $search)
+            <p>{{ $search }} não encontrado</p>
         @else
-            <p class="youDontHavePets">Você ainda não tem pets, <a href="/pets/create">adicionar pets</a></p>
+            <p class="youDontHavePets">Você ainda não usuários, <a href="/admin/create-user">adicionar usuário</a></p>
         @endif
     </div>
 </div>
-@endsection   
+@endsection

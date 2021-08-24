@@ -8,7 +8,7 @@
     </div>
     <div class="col-md-10 offset-md-1 dashboard-pets-container">
 
-        @if(count($appointment) > 0)
+        @if(count($appointments) > 0)
         <table class="table">
             <div class="form-group">
                 <p class="youHaveConsults"><a href="/appointments/create">Marcar consulta</a></p>
@@ -25,22 +25,19 @@
             </thead>
             <tbody>
 
-                @foreach($appointment as $appointments)
+                @foreach($appointments as $appointment)
                 <tr>
-                    <td scropt="row">{{ $loop->remaining + 1 }}</td>
-                    @foreach ($pets as $pet)
-                        @if($pet->id=== $appointments->pet_id )
-                            <td>{{$pet->name }}</td>
-                        @endif
-                    @endforeach
-                    <td>{{ $appointments->date->format('d/m/Y') }}</td>
-                    <td>{{ $appointments->hour }}</td>
-                    <td>{{ $appointments->descricao }}</td>
+{{--                    <td scropt="row">{{ $loop->remaining + 1 }}</td>--}}
+                    <td>#</td>
+                    <td>{{$appointment->pet->name }}</td>
+                    <td>{{ $appointment->date->format('d/m/Y') }}</td>
+                    <td>{{ $appointment->hour }}</td>
+                    <td>{{ $appointment->descricao }}</td>
                     <td class="d-flex ">
-                        <a class="btn btn-info edit-btn" href="/appointments/edit/{{ $appointments->id }}">
+                        <a class="btn btn-info edit-btn" href="/appointments/edit/{{ $appointment->id }}">
                             <ion-icon name="create-outline"></ion-icon>Editar
                         </a>
-                        <form action="/appointments/{{ $appointments->id }}" method="POST" >
+                        <form action="/appointments/{{ $appointment->id }}" method="POST" >
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger delete-btn">
@@ -56,18 +53,18 @@
         @else
         <div class="form-group">
             <p class="youDontHavePets">Você ainda não tem consultas marcadas, <a  href="/appointments/create">criar nova consulta</a></p>
-    
+
             @can('edit-appointment')
                 <a class="btn btn-primary" href="/appointments/edit/1">
                 Editar consulta
                 </a>
             @endcan
-            
+
         </div>
         @endif
-        <div class="form-group">
-            <p class="totalConsults">Total de consultas: {{count($appointment)}}</p>
-        </div>
+{{--        <div class="form-group">--}}
+{{--            <p class="totalConsults">Total de consultas: {{count($appointment)}}</p>--}}
+{{--        </div>--}}
     </div>
 </div>
 @endsection

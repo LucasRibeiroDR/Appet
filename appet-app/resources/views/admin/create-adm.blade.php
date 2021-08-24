@@ -6,7 +6,7 @@
 <div id="event-create-container" class="col-md-6 offset-md-3">
     <h1>Criar Adm</h1>
     <form action="/admin/create-newadmin" method="POST" enctype="multipart/form-data">
-    @csrf
+        @csrf
         <div class="form-group">
             <label for="name">Nome</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Nome do novo usuário....">
@@ -38,7 +38,7 @@
 
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Adicionar Adm">
-        </div>   
+        </div>
     </form>
 </div>
 @endsection

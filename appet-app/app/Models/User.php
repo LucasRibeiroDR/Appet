@@ -32,6 +32,8 @@ class User extends Authenticatable
         'telefone',
         'endereco',
         'email',
+        'student',
+        'ra',
         'password',
     ];
 
