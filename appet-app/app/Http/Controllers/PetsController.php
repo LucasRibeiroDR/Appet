@@ -48,7 +48,7 @@ class PetsController extends Controller
 
         $pet->save();
 
-        return redirect('/');
+        return redirect('/pets/show');
     }
 
     public function show() {

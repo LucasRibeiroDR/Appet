@@ -14,6 +14,13 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function welcome()
+    {
+        $this->authorize('admin-page');
+
+        return view ('admin.welcome');
+    }
+    
     public function index()
     {
         $this->authorize('admin-page');

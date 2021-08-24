@@ -50,8 +50,6 @@
         </table>
         @elseif (count($pets) == 0 && $search)
             <span>{{ $search  }} não encontrado</span>
-        @else
-            <p class="youDontHavePets">Você ainda não tem pets, <a href="/pets/create">adicionar pets</a></p>
         @endif
     </div>
 </div>

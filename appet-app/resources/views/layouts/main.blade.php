@@ -44,13 +44,12 @@
               <a href="/appointments/show" class="nav-link">Agendamentos</a>
             </li>
             @auth
+            @can('user-page')
               <li class="nav-item">
-              <a href="/pets/show" class="nav-link">Meus pets</a>
+                <a href="/pets/show" class="nav-link">Meus pets</a>
               </li>
-
-              @can('user-page')
               <li class="nav-item">
-                <a href="/dashboard" class="nav-link">Dashboard</a>
+                <a href="/dashboard" class="nav-link">Perfil</a>
               </li>
               @elsecan('admin-page')
               <li class="nav-item">

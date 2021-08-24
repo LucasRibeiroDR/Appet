@@ -50,11 +50,11 @@
         </table>
 
         <div>
-            <a class="btn btn-primary"href="/admin/create-admin">Criar novo adm</a>
+        <p class="youHaveConsults"><a href="/admin/create-admin">Criar novo adm</a></p>
         </div>
 
         {{-- @else
-            <p class="youDontHavePets">Você ainda não tem pets, <a href="/pets/create">adicionar pets</a></p>
+            <p class="youDontHavePets">Você ainda não Admins, <a href="/admin/create-admin">adicionar novo admin</a></p>
         @endif --}}
     </div>
 </div>

@@ -8,7 +8,7 @@
     </div>
     <div class="col-md-10 offset-md-1 dashboard-pets-container">
 
-{{--        @if(count($appointment) > 0)--}}
+        @if(count($appointments) > 0)
         <table class="table">
             <div class="form-group">
                 <p class="youHaveConsults"><a href="/appointments/create">Marcar consulta</a></p>
@@ -50,7 +50,7 @@
                 @endforeach
             </tbody>
         </table>
-{{--        @else--}}
+        @else
         <div class="form-group">
             <p class="youDontHavePets">Você ainda não tem consultas marcadas, <a  href="/appointments/create">criar nova consulta</a></p>
 
@@ -61,7 +61,7 @@
             @endcan
 
         </div>
-{{--        @endif--}}
+        @endif
 {{--        <div class="form-group">--}}
 {{--            <p class="totalConsults">Total de consultas: {{count($appointment)}}</p>--}}
 {{--        </div>--}}

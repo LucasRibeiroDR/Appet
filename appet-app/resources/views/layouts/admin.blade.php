@@ -33,28 +33,28 @@
       <header>
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="collapse navbar-collapse" id="navbar">
-           <a href="/" class="navbar-brand">
+           <a href="/admin/welcome" class="navbar-brand">
             <img src="/img/pet.ico" alt="APPet Icon">
            </a>
            <ul class="navbar-nav">
             <li class="nav-item">
-              <a href="/admin/dashboard" class="nav-link">APPet</a>
+              <a href="/admin/welcome" class="nav-link">APPet</a>
             </li>
             <li class="nav-item">
               <a href="/admin/appointments" class="nav-link">Consultas</a>
             </li>
             @auth
               <li class="nav-item">
-              <a href="/admin/pets" class="nav-link">Pets</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">Dashboard</a>
+                <a href="/admin/pets" class="nav-link">Pets</a>
               </li>
               <li class="nav-item">
                 <a href="/admin/users" class="nav-link">Usuários</a>
               </li>
               <li class="nav-item">
                 <a href="/admin/admins" class="nav-link">Administradores</a>
+              </li>
+              <li class="nav-item">
+                <a href="/admin/dashboard" class="nav-link">Perfil</a>
               </li>
               <li class="nav-item">
                 <form action="/logout" method="POST">
@@ -69,6 +69,7 @@
                   </a>
                 </form>
               </li>
+
             @endauth
             @guest
               <li class="nav-item">

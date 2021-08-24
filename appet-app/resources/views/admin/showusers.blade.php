@@ -61,13 +61,13 @@
         </table>
 
         <div>
-            <a class="btn btn-primary"href="/admin/create-user">Criar novo usuário</a>
+            <p class="youHaveConsults"><a href="/admin/create-user">Criar novo usuário</a></p>
         </div>
 
         @elseif(count($users) == 0 && $search)
             <p>{{ $search }} não encontrado</p>
         @else
-            <p class="youDontHavePets">Você ainda não tem pets, <a href="/pets/create">adicionar pets</a></p>
+            <p class="youDontHavePets">Você ainda não usuários, <a href="/admin/create-user">adicionar usuário</a></p>
         @endif
     </div>
 </div>

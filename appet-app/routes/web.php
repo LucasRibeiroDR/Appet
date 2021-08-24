@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PetsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AppointmentsController;
 use App\Http\Controllers\AdminController;
@@ -63,7 +64,7 @@ Route::group([
     'prefix' => 'admin',
     'name' => 'admin.'
     ], function(){
-
+    Route::get('/welcome', [AdminController::class, 'welcome']);
     Route::get('/dashboard', [AdminController::class, 'index'])->name('index');
     Route::get('/users', [AdminController::class, 'showUsers'])->name('showUsers');
     Route::get('/admins', [AdminController::class, 'showAdmins'])->name('showAdmins');
@@ -81,8 +82,6 @@ Route::group([
     Route::get('/appointments',[AdminController::class, 'showAppoitments'])->name('showAppoitments');
     Route::get('/createAppointments/{id}', [AdminController::class, 'createAppointments'])->name('createAppointments');
     Route::post('/create-Appointments/{id}', [AdminController::class, 'storeAppointments']);
-
-
 });
 /**
  * 4 tipos de grupos de rotas mais utilizados em laravel:
@@ -103,7 +102,10 @@ Route::group([
  */
 
 /************************** JetStream **************************/
+Route::group([
+    'middleware' => ['auth:sanctum', 'verified'],
+    ], function (){
+        Route::get('/dashboard', [Controller::class, 'index'])->name('index');
+});
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
