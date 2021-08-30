@@ -20,7 +20,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+{{--                    <th scope="col">#</th>--}}
                     <th scope="col">Nome</th>
                     <th scope="col">Ações</th>
                 </tr>
@@ -29,7 +29,7 @@
                 @foreach($users as $user)
                     @if($user->hasRole('user'))
                         <tr>
-                            <td scropt="row">{{ $loop->index + 1 }}</td>
+{{--                            <td scropt="row">{{ $loop->index + 1 }}</td>--}}
                             <td>{{ $user->name }}</td>
                             <td class="d-flex ">
                                 <a class="btn btn-info edit-btn" href="/admin/edit-user/{{$user->id}}">

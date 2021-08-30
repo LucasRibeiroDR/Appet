@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Pet;
 use App\Models\Appointment;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -20,7 +21,7 @@ class AdminController extends Controller
 
         return view ('admin.welcome');
     }
-    
+
     public function index()
     {
         $this->authorize('admin-page');
@@ -39,10 +40,8 @@ class AdminController extends Controller
                 ['name', 'like', '%' .$search. '%']
             ])->get();
         }else{
-            $users = User::all();
+            $users = User::all()->sortBy('name');
         }
-
-        //dd($users);
 
         return view ('admin.showusers',[
             'users' => $users,
@@ -55,7 +54,7 @@ class AdminController extends Controller
 
         $this->authorize('admin-page');
 
-        $admins = User::all();
+        $admins = User::all()->sortBy('name');
 
         //dd($users);
 
