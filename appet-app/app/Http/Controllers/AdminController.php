@@ -176,7 +176,6 @@ class AdminController extends Controller
 
         $pet = new Pet;
 
-
         $request->validate([
             'name' => 'required',
             'raca' => 'required',

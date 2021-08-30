@@ -20,4 +20,8 @@ class Appointment extends Model
     public function pet(){
         return $this->belongsTo('App\Models\Pet');
     }
+
+    public function hourDate(){
+        return $this->belongsTo('App\Models\Hour');
+    }
 }

@@ -17,7 +17,7 @@ class CreateAppointmentsTable extends Migration
             $table->id();
 
             $table->dateTime('date');
-            // $table->enum('hour', ['8:00', '10:00', '14:00', '16:00']);
+            // $table->enum('appointments', ['08:00', '10:00', '14:00', '16:00']);
             $table->time('hour');
 
             $table->string('area_consulta');
@@ -25,7 +25,6 @@ class CreateAppointmentsTable extends Migration
 
             $table->timestamp('start_date')->nullable();
             $table->timestamp('end_date')->nullable();
-
             $table->timestamps();
         });
     }
