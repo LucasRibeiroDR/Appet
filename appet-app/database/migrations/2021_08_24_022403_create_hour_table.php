@@ -14,13 +14,13 @@ class CreateHourTable extends Migration
     public function up()
     {
         Schema::create('hour', function (Blueprint $table) {
-            // $table->foreignId('appointment_id')->references('id')->on('appointments');
             // $table->dateTime('date');
             // $table->time('hour');
             // $table->primary(['date', 'hour'])->unique();
             // $table->timestamps();
             $table->id();
-            $table->enum('hour', ['08:00', '10:00', '14:00', '16:00']);
+            $table->foreignId('appointment_id')->references('id')->on('appointments');
+            $table->enum('hour', ['08:00','09:00','10:00','11:00','14:00','15:00','16:00','17:00']);
         });
     }
 
