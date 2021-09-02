@@ -100,7 +100,11 @@ Route::group([
  *
  * });
  */
-
+/************************** Calendar **************************/ 
+Route::get('/calendar', function () {
+    return view('calendar');
+});
+// Route::view('/calendar', 'calendar');
 /************************** JetStream **************************/
 Route::group([
     'middleware' => ['auth:sanctum', 'verified'],

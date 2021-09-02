@@ -16,9 +16,8 @@ class CreateAppointmentsTable extends Migration
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
 
-            $table->dateTime('date');
-            // $table->enum('appointments', ['08:00', '10:00', '14:00', '16:00']);
-            $table->time('hour');
+            $table->date('date')->nullable(false);
+            $table->time('hour')->nullable(false);
 
             $table->string('area_consulta');
             $table->text('descricao');
