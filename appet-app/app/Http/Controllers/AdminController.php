@@ -168,7 +168,11 @@ class AdminController extends Controller
 
         $user = User::findOrFail($id);
 
-        return view('admin/create-pet', ['user' => $user]);
+        $pelugens = DB::table('pelugens')
+            ->select('name')
+            ->get();
+
+        return view('admin/create-pet', ['user' => $user, 'pelugens' => $pelugens]);
     }
 
     public function storePet(Request $request, $id){
