@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pelugem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Consult;
@@ -14,7 +15,12 @@ class PetsController extends Controller
 
         $this->authorize('create-pet');
 
-        return view('pets.create');
+        $pelugens = DB::table('pelugens')
+            ->select('name')
+            ->get();
+
+
+        return view('pets.create', ['pelugens' => $pelugens]);
     }
 
     public function store(Request $request){

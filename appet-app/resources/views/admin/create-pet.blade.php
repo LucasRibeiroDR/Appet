@@ -16,7 +16,11 @@
         </div>
         <div class="form-group">
             <label for="pelugem">Cor da pelagem</label>
-            <input type="text" class="form-control" id="pelugem" name="pelugem" placeholder="Marrom claro, marrom escuro, preto, ...">
+            <select name="pelugem" id="pelugem" class="form-control">
+                @foreach ($pelugens as $pelugem)
+                    <option value="{{ $pelugem->name }}">{{ $pelugem->name }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
             <label for="especie">Especie do seu Pet</label>

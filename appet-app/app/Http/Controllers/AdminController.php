@@ -136,7 +136,11 @@ class AdminController extends Controller
      */
     public function editAdmin($id)
     {
-        //
+        $this->authorize('edit-admin');
+
+        $admin = User::findOrFail($id);
+
+        return view('admin.edit-adm', ['admin' => $admin]);
     }
 
     /**
@@ -148,7 +152,12 @@ class AdminController extends Controller
      */
     public function updateAdmin(Request $request, $id)
     {
-        //
+        $this->authorize('edit-admin');
+
+        $data = $request->all();
+        User::findOrFail($request->id)->update($data);
+
+        return redirect('/admin/admins');
     }
 
     /**
@@ -168,7 +177,11 @@ class AdminController extends Controller
 
         $user = User::findOrFail($id);
 
-        return view('admin/create-pet', ['user' => $user]);
+        $pelugens = DB::table('pelugens')
+            ->select('name')
+            ->get();
+
+        return view('admin/create-pet', ['user' => $user, 'pelugens' => $pelugens]);
     }
 
     public function storePet(Request $request, $id){

@@ -75,7 +75,7 @@ Route::group([
     Route::post('/create-newadmin', [AdminController::class, 'storeAdmin']);
     Route::get('/create-admin', [AdminController::class, 'createAdmin'])->name('createAdmin');
     Route::get('/edit-admin/{id}', [AdminController::class, 'editAdmin'])->name('editAdmin');
-    Route::put('/update-admin/{id}', [UserController::class, 'updateAdmin'])->name('updateAdmin');
+    Route::put('/update-admin/{id}', [AdminController::class, 'updateAdmin'])->name('updateAdmin');
     Route::get('/create-pet/{id}', [AdminController::class, 'createPet'])->name('createPet');
     Route::post('/create-newpet/{id}', [AdminController::class, 'storePet']);
     Route::get('/pets', [AdminController::class, 'showPets'])->name('showPets');
