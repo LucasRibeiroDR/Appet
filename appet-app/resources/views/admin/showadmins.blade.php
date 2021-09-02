@@ -27,7 +27,7 @@
                             <td>{{ $admin->name }}</td>
                             @can('edit-admin')
                                 <td class="d-flex ">
-                                    <a class="btn btn-info edit-btn" href="/pets/edit/{{$admin->id}}">
+                                    <a class="btn btn-info edit-btn" href="/admin/edit-admin/{{$admin->id}}">
                                         <ion-icon name="create-outline"></ion-icon>
                                         Editar
                                     </a>

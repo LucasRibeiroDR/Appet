@@ -136,7 +136,11 @@ class AdminController extends Controller
      */
     public function editAdmin($id)
     {
-        //
+        $this->authorize('edit-admin');
+
+        $admin = User::findOrFail($id);
+
+        return view('admin.edit-adm', ['admin' => $admin]);
     }
 
     /**
@@ -148,7 +152,12 @@ class AdminController extends Controller
      */
     public function updateAdmin(Request $request, $id)
     {
-        //
+        $this->authorize('edit-admin');
+
+        $data = $request->all();
+        User::findOrFail($request->id)->update($data);
+
+        return redirect('/admin/admins');
     }
 
     /**
