@@ -46,9 +46,9 @@ class AppointmentsController extends Controller
     {
         $this->authorize('create-appointment');
 
+        // 'hour' => 'required',
         $request->validate([
             'pet_id' => 'required',
-            'hour' => 'required',
             'timeslot' => 'required',
             'area_consulta' => 'required',
             'descricao' => 'required',
@@ -62,7 +62,7 @@ class AppointmentsController extends Controller
         $appointments->pet_id = $request->pet_id;
 
         $appointments->date = $request->date;
-        $appointments->hour = $request->hour;
+        // $appointments->hour = $request->hour;
         $appointments->timeslot = $request->timeslot;
         $appointments->area_consulta = $request->area_consulta;
         $appointments->descricao = $request->descricao;

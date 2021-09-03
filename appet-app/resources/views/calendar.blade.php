@@ -70,15 +70,14 @@
             $dayName = strtolower(date('l', strtotime($date))); 
             $enventNum = 0;
             $today = $date == date('Y-m-d')? 'today' : '';
-            if($date<date('Y-m-d')){
+            if($dayName == 'saturday' || $dayName == 'sunday') {
+                $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-danger btn-xs' disabled>X</a></td>"; 
+            } else if($date<date('Y-m-d')) {
                 $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-outline-danger btn-xs' disabled>X</a></td>"; 
-            }
-            // elseif(in_array($date, $appointments)){
-            //     $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-outline-danger btn-xs'>Reservado</a></td>"; 
-            // }
-            else{
+            } else {
                 $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='/appointments/create?date=".$date."' class='btn btn-outline-secondary btn-xs'>  + </a></td>"; 
             }
+            // elseif(in_array($date, $appointments)){ $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-outline-danger btn-xs'>Reservado</a></td>"; }
             //Increment counters 
             $currentDay++; 
             $dayOfWeek++; 

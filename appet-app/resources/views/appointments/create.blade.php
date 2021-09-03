@@ -14,21 +14,29 @@
         $appointments = array();
         if($stmt->execute()){
             $result = $stmt->get_result();
-        }
-    } 
+            if($result->num_rows>0){
+                while($row = $result->fetch_assoc()){
+                    $appointments[] = $row['timeslot'];
+                }
+                $stmt->close();
+            }
+        } 
+    }
 
     if(isset($_POST['submit'])) {
-        $stmt = $mysqli->prepare("SELECT * FROM appointments WHERE 'date' = ?");
-        $stmt->bind_param('s', $date);
+        $timeslot = $_POST['timeslot'];
+        $stmt = $mysqli->prepare("SELECT * FROM appointments WHERE 'date' = ? AND timeslot=?");
+        $stmt->bind_param('ss', $date, $timeslot);
         if($stmt->execute()){
             $result = $stmt->get_result();
             if($result->num_rows>0){
                 $msg = "<div class='alert alert-danger'>Já reservado</div>";
             } else {
-                $stmt = $mysqli->prepare("INSERT INTO appointments ('date') VALUES (?])");
-                $stmt->bind_param('s', $date);
+                $stmt = $mysqli->prepare("INSERT INTO appointments ('date', 'timeslot') VALUES (?, ?)");
+                $stmt->bind_param('ss', $date, $timeslot);
                 $stmt->execute();
                 $msg = "<div class='alert alert-success'>Agendado com sucesso</div>";
+                $appointments[] = $timeslot;
                 $stmt->close();
                 $mysqli->close();
             }
@@ -77,6 +85,7 @@
             color: white;
         }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         // $(".appointment_hour").click(function(){
         //     var timeslot = $(this).attr('data-timeslot');
@@ -84,18 +93,17 @@
         //     $("#timeslot").val(timeslot);
         //     $("#myModal").modal("show");
         // });
-
-        var header = document.getElementById("myDIV");
-        var btns = header.getElementsByClassName("btn");
-        for (var i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", function() {
-                var current = document.getElementsByClassName("active");
-                if (current.length > 0) { 
-                    current[0].className = current[0].className.replace(" active", "");
-                }
-                this.className += " active";
+        $(document).ready(_ => {
+            const added = [],
+            input = document.getElementById("timeslot");
+            $('button').on('click', ev => {
+                const recurso = ev.currentTarget.innerText,    
+                idx = added.indexOf(recurso);
+                if (idx === -1) {added.push(recurso);}
+                else {added.splice(idx, 1);}
+                input.value = added.join(',');
             });
-        }
+        });
     </script>
 
 <div id="event-create-container" class="col-md-6 offset-md-3">
@@ -109,28 +117,30 @@
             <input required readonly type="date" name="date" id="date" class="form-control" value="<?php echo $date; ?>">
         </div>
 
-        
-
         <?php $timeslots = timeslots($duration, $cleanup, $start, $end); 
             foreach($timeslots as $ts){
         ?>
-        <div id="myDIV" class="hours">
-            <div id="myDIV" class="form-group">
-                @if($ts == "12:00PM - 13:00PM" || $ts == "13:00PM - 14:00PM")
-                <input disabled readonly class="btnbtn btn btn-outline-secondary" <?php echo $ts; ?> value="<?php echo $ts; ?>">
-                @else
-                    <input readonly class="btnbtn btn btn-outline-secondary" <?php echo $ts; ?> value="<?php echo $ts; ?>">
-                @endif
+            <div id="" class="hours">
+                <div id="" class="form-group">
+                    @if($ts == "12:00PM - 13:00PM" || $ts == "13:00PM - 14:00PM")
+                    <input disabled readonly class="btnbtn btn btn-outline-secondary" <?php echo $ts; ?> value="<?php echo $ts; ?>">
+                    @else
+                        <?php if(in_array($ts, $appointments)) { ?>
+                            <button disabled class="btnbtn btn btn-danger"><?php echo $ts; ?></button>
+                        <?php }else{ ?>
+                            <button class="btnbtn btn btn-outline-secondary appointment_hour" data-timeslot="<?php echo $ts; ?>"><?php echo $ts; ?></button>
+                        <?php }  ?>
+                    @endif
+                </div>
             </div>
-        </div>
         <?php } ?>
 
         <div class="form-group">
             <label for="timeslot">Horário da consulta:</label>
-            <input readonly type="text" name="timeslot" id="timeslot" class="form-control" value="<?php echo $ts; ?>">
+            <input readonly maxlength='1' type="text" name="timeslot" id="timeslot" class="form-control" value="">
         </div>
 
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label for="hour">Selecione o horário da consulta:</label>
             <select name="hour" id="hour" class="form-control">
                 <option value="08:00:00">8:00</option>
@@ -138,7 +148,7 @@
                 <option value="14:00:00">14:00</option>
                 <option value="16:00:00">16:00</option>
             </select>
-        </div>
+        </div> --}}
         <div class="form-group">
             <label for="area_consulta">Selecione a area de consulta:</label>
             <select name="area_consulta" id="area_consulta" class="form-control">
@@ -153,22 +163,21 @@
                 name="descricao" 
                 class="form-control" 
                 id="descricao" 
+                maxlength=200
                 placeholder="Faça uma breve observação sobre o que seu pet tem..."
-                value="Test de agendamento"
                 ></textarea>
             </div>
             <div class="form-group">
                 <label for="pet_id">Selecione seu Pet</label>
                 <select name="pet_id" id="pet_id" class="form-control">
                     @foreach ($pets as $pet)
-                    <option value="{{ $pet->id }}">{{ $pet->name }}</option>
+                        <option value="{{ $pet->id }}">{{ $pet->name }}</option>
                     @endforeach
                 </select>
             </div>
             <div class="form-group">
                 <input name="submit" type="submit" class="btn btn-primary" value="Criar nova consulta">
-                <!-- <button name="submit" type="submit" class="btn btn-primary" value="">Criar nova consulta - test</button> -->
             </div> 
         </form>
     </div>
-    @endsection
+@endsection

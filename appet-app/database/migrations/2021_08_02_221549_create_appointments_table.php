@@ -15,14 +15,11 @@ class CreateAppointmentsTable extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-
             $table->date('date')->nullable(false);
-            $table->time('hour')->nullable(false);
-            $table->string('timeslot')->nullable(false);
-
+            // $table->time('hour')->nullable(false);
+            $table->string('timeslot', 17)->nullable(false);
             $table->string('area_consulta');
             $table->text('descricao');
-
             $table->timestamp('start_date')->nullable();
             $table->timestamp('end_date')->nullable();
             $table->timestamps();

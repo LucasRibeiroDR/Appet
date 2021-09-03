@@ -8,7 +8,7 @@
         @csrf
         <div class="form-group">
             <label for="name">Nome do Pet</label>
-            <input required type="text" class="form-control" id="name" name="name" placeholder="Bob, Nina, Belinha, ...">
+            <input required type="text" class="form-control" id="name" name="name" placeholder="Bob, Nina, Belinha, ..." maxlength=50>
         </div>
         <div class="form-group">
             <label for="raca">Raça do Pet</label>

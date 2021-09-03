@@ -9,7 +9,7 @@
         @method('PUT')
         <div class="form-group">
             <label for="name">Nome do Pet</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Bob, Nina, Belinha, ..." value="{{ $pet->name }}">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Bob, Nina, Belinha, ..." value="{{ $pet->name }}" maxlength=50>
         </div>
         <div class="form-group">
             <label for="especie">Especie do seu Pet</label>
