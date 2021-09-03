@@ -17,15 +17,14 @@
     } 
 
     if(isset($_POST['submit'])) {
-        $hour = $_POST['hour'];
-        $area_consulta = $_POST['area_consulta'];
-        $descricao = $_POST['descricao'];
-        $stmt = $mysqli->prepare("INSERT INTO appointments (hour, area_consulta, descricao, date) VALUES (?,?,?,?)");
-                $stmt->bind_param('ssss', $hour, $area_consulta, $descricao, $date);
-                $stmt->execute();
-                $msg = "<div class='alert alert-success'>Agendado com suceso</div>";
-                $stmt->close();
-                $mysqli->close();}
+        $stmt = $mysqli->prepare("INSERT INTO appointments ('date') VALUES (?)");
+        $stmt->bind_param('s', $date);
+        $stmt->execute();
+        $msg = "<div class='alert alert-success'>Agendado com suceso</div>";
+        $stmt->close();
+        $mysqli->close();
+    }
+
     //     $stmt = $mysqli->prepare("SELECT * FROM appointments WHERE date = ?");
     //     $stmt->bind_param('s', $date);
     //     if($stmt->execute()){
@@ -49,8 +48,8 @@
     <form action="/appointments" method="POST" enctype="multipart/form-data">
     @csrf
         <div class="form-group">
-            <label for="date">Selecione uma data para para consulta: </label>
-            <input type="date" name="date" id="date" class="form-control" value="<?php echo date('dd-mm-aaaa', strtotime($date)); ?>">
+            <label for="date">Data da consulta: </label>
+            <input required readonly type="date" name="date" id="date" class="form-control" value="<?php echo $date; ?>">
         </div>
         <div class="form-group">
             <label for="hour">Selecione o horário da consulta:</label>

@@ -52,7 +52,7 @@
         </table>
         @else
         <div class="form-group">
-            <p class="youDontHavePets">Você ainda não tem consultas marcadas, <a  href="/appointments/create">criar nova consulta</a></p>
+            <p class="youDontHavePets">Você ainda não tem consultas marcadas, <a  href="/calendar">criar nova consulta</a></p>
 
             @can('edit-appointment')
                 <a class="btn btn-primary" href="/appointments/edit/1">
