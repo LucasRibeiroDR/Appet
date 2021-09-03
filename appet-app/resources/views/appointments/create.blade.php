@@ -17,40 +17,75 @@
     } 
 
     if(isset($_POST['submit'])) {
-        $stmt = $mysqli->prepare("INSERT INTO appointments ('date') VALUES (?)");
+        $stmt = $mysqli->prepare("SELECT * FROM appointments WHERE 'date' = ?");
         $stmt->bind_param('s', $date);
-        $stmt->execute();
-        $msg = "<div class='alert alert-success'>Agendado com suceso</div>";
-        $stmt->close();
-        $mysqli->close();
+        if($stmt->execute()){
+            $result = $stmt->get_result();
+            if($result->num_rows>0){
+                $msg = "<div class='alert alert-danger'>Já reservado</div>";
+            } else {
+                $stmt = $mysqli->prepare("INSERT INTO appointments ('date') VALUES (?])");
+                $stmt->bind_param('s', $date);
+                $stmt->execute();
+                $msg = "<div class='alert alert-success'>Agendado com sucesso</div>";
+                $stmt->close();
+                $mysqli->close();
+            }
+        }
     }
 
-    //     $stmt = $mysqli->prepare("SELECT * FROM appointments WHERE date = ?");
-    //     $stmt->bind_param('s', $date);
-    //     if($stmt->execute()){
-    //         $result = $stmt->get_result();
-    //         if($result->num_rows>0){
-    //             $msg = "<div class='alert alert-danger'>Já reservado</div>";
-    //         } else {
-    //             $stmt = $mysqli->prepare("INSERT INTO appointments (hour, area_consulta, descricao, date) VALUES (?,?,?,?)");
-    //             $stmt->bind_param('ssss', $hour, $area_consulta, $descricao, $date);
-    //             $stmt->execute();
-    //             $msg = "<div class='alert alert-success'>Agendado com suceso</div>";
-    //             $stmt->close();
-    //             $mysqli->close();
-    //         }
-    //     }
-    // }
+    $duration = 60;
+    $cleanup = 0;
+    $start = "08:00";
+    $end = "18:00";
+
+    function timeslots($duration, $cleanup, $start, $end) {
+        $tz = new DateTimeZone('America/Sao_Paulo');
+        $start = new DateTime($start, $tz);
+        $end = new DateTime($end, $tz);
+        $interval = new DateInterval("PT".$duration."M");
+        $cleanupInterval = new DateInterval("PT".$cleanup."M");
+        $slots = array();
+        
+        for($intStart = $start; $intStart<$end; $intStart->add($interval)->add($cleanupInterval)){
+            $endPeriod = clone $intStart;
+            $endPeriod->add($interval);
+            if($endPeriod>$end){
+                break;
+            }
+            
+            $slots[] = $intStart->format("H:iA")." - ". $endPeriod->format("H:iA");
+            
+        }
+        
+        return $slots;
+    }
 ?>
 <div id="event-create-container" class="col-md-6 offset-md-3">
     <h1>Agendar nova consulta: <?php echo strftime('%B %d, %Y', strtotime($date)); ?></h1>
     <?php echo isset($msg)?$msg:'';?>
+    
     <form action="/appointments" method="POST" enctype="multipart/form-data">
     @csrf
         <div class="form-group">
             <label for="date">Data da consulta: </label>
             <input required readonly type="date" name="date" id="date" class="form-control" value="<?php echo $date; ?>">
         </div>
+
+        <?php $timeslots = timeslots($duration, $cleanup, $start, $end); 
+            foreach($timeslots as $ts){
+        ?>
+        <div class="hours">
+            <div class="form-group">
+            @if($ts == "12:00PM - 13:00PM" || $ts == "13:00PM - 14:00PM")
+                <button disabled hidden class="btn btn-secondary " <?php echo $ts; ?>><?php echo $ts; ?></button>
+            @else
+            <button class="btn btn-outline-secondary" <?php echo $ts; ?>><?php echo $ts; ?></button>
+            @endif
+            </div>
+        </div>
+        <?php } ?>
+
         <div class="form-group">
             <label for="hour">Selecione o horário da consulta:</label>
             <select name="hour" id="hour" class="form-control">

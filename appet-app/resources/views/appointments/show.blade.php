@@ -40,9 +40,9 @@
                         <form action="/appointments/{{ $appointment->id }}" method="POST" >
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger delete-btn">
+                            <button type="submit" class="btn btn-secondary delete-btn">
                                         <ion-icon name="trash-outline"></ion-icon>
-                                        Deletar
+                                        Cancelar
                             </button>
                         </form>
                     </td>

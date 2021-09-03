@@ -490,3 +490,10 @@ footer p {
 .porte {
     display: none;
 }
+
+.hours {
+    display: inline;
+}
+.hours button {
+    font-size: 10px;
+}
