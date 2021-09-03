@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AppointmentsController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CalendarController;
 
 // Rota de entrada do software assim que aberto cai nessa rota
 Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -101,10 +102,12 @@ Route::group([
  * });
  */
 /************************** Calendar **************************/ 
-Route::get('/calendar', function () {
-    return view('calendar');
+Route::group([
+    'middleware' => ['auth']
+    ], function(){
+        Route::get('/calendar',[CalendarController::class, 'calendar'])->name('calendar');
 });
-// Route::view('/calendar', 'calendar');
+
 /************************** JetStream **************************/
 Route::group([
     'middleware' => ['auth:sanctum', 'verified'],

@@ -8,7 +8,7 @@
         @csrf
         <div class="form-group">
             <label for="name">Nome do Pet</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Bob, Nina, Belinha, ...">
+            <input required type="text" class="form-control" id="name" name="name" placeholder="Bob, Nina, Belinha, ...">
         </div>
         <div class="form-group">
             <label for="raca">Raça do Pet</label>
@@ -44,7 +44,7 @@
 
         <div class="form-group">
             <label for="data_nascimento">Data de nascimento</label>
-            <input type="date" class="form-control" name="data_nascimento" id="data_nascimento">
+            <input required type="date" class="form-control" name="data_nascimento" id="data_nascimento">
         </div>
         <div class="form-group">
             <label for="castrado">O animal é castrado?</label>

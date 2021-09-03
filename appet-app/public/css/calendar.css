@@ -91,14 +91,13 @@ margin-top: 20px;
 }
 /* --------------------- Today --------------------- */
 td.today {
-    background: var(--greenAPP);
-    border: 1px solid var(--greenAPP2);
-    color: var(--white);
+    border: 5px solid var(--greenAPP);
+    color: var(--greenAPP);
 }
-td.today:hover {
-    background-color: var(--greenAPP2);
-    border-color: var(--greenAPP2);
-}
+/* td.today:hover {
+    background-color: var(--green);
+    border-color: var(--green);
+} */
 
 /* --------------------- btn --------------------- */
 .btn-primary {

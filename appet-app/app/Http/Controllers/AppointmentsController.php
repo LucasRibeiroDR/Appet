@@ -49,12 +49,12 @@ class AppointmentsController extends Controller
 
         $request->validate([
             'pet_id' => 'required',
-            'date' => 'required',
             'hour' => 'required',
             'area_consulta' => 'required',
             'descricao' => 'required',
-
+            
         ]);
+        // 'date' => 'required',
 
         $appointments = new Appointment;
 

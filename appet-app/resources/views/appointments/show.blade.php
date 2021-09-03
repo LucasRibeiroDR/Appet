@@ -11,7 +11,7 @@
         @if(count($appointments) > 0)
         <table class="table">
             <div class="form-group">
-                <p class="youHaveConsults"><a href="/appointments/create">Marcar consulta</a></p>
+                <p class="youHaveConsults"><a href="/calendar">Marcar consulta</a></p>
             </div>
             <thead>
                 <tr>

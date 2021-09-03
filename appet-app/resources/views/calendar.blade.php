@@ -1,9 +1,12 @@
 <?php
     function build_calendar($month, $year) {
 
+        date_default_timezone_set('America/Sao_Paulo');
+        setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+        
         // Database 
         $mysqli = new mysqli('localhost', 'root', '', 'petsbd');
-        $stmt = $mysqli->prepare("select * from appointments where MONTH(date) = ? AND YEAR(date)=?");
+        $stmt = $mysqli->prepare("SELECT * FROM appointments WHERE MONTH(date) = ? AND YEAR(date)= ?");
         $stmt->bind_param('ss', $month, $year);
         $appointments = array();
         if($stmt->execute()){
@@ -32,14 +35,10 @@
         // Create the table tag opener and day headers 
         $dateToday = date('Y-m-d'); 
         
-        $prev_month = date('m', mktime(0,0,0,$month-1,1,$year));
-        $prev_year = date('Y', mktime(0,0,0,$month-1,1,$year));
-        $next_month = date('m', mktime(0,0,0,$month+1,1,$year));
-        $next_year = date('Y', mktime(0,0,0,$month+1,1,$year));
         $calendar = "<center><h1>$monthName $year</h1>"; 
-        $calendar .= "<a class='btn btn-primary btn-xs' href='?month=".$prev_month."&year=".$prev_year."'>←</a> ";
+        $calendar .= "<a class='btn btn-primary btn-xs' href='?month=".date('m', mktime(0,0,0,$month-1,1,$year))."&year=".date('Y', mktime(0,0,0,$month-1,1,$year))."'>←</a> ";
         $calendar .= "<a class='btn btn-primary btn-xs' href='?month=".date('m')."&year=".date('Y')."'>Mês Atual</a> ";
-        $calendar .= "<a class='btn btn-primary btn-xs' href='?month=".$next_month."&year=".$next_year."'>→</a></center> ";
+        $calendar .= "<a class='btn btn-primary btn-xs' href='?month=".date('m', mktime(0,0,0,$month+1,1,$year))."&year=".date('Y', mktime(0,0,0,$month+1,1,$year))."'>→</a></center> ";
 
         $calendar .= "</br></br><table class='table table-bordered'>"; 
         $calendar .= "<tr>"; 
@@ -69,11 +68,14 @@
             $currentDayRel = str_pad($currentDay, 2, "0", STR_PAD_LEFT); 
             $date = "$year-$month-$currentDayRel"; 
             $dayName = strtolower(date('l', strtotime($date))); 
+            $enventNum = 0;
             $today = $date == date('Y-m-d')? 'today' : '';
-            if(in_array($date, $appointments)) {
-                $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-danger btn-xs'>Reservado</a></td>"; 
-            } else {
-                $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-secondary btn-xs'>Disponível</a></td>"; 
+            if($date<date('Y-m-d')){
+                $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-outline-warning btn-xs'disabled>X</a></td>"; 
+            }elseif(in_array($date, $appointments)){
+                $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-outline-danger btn-xs'>Reservado</a></td>"; 
+            }else{
+                $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='/appointments/create?date=".$date."' class='btn btn-outline-secondary btn-xs'>Disponível</a></td>"; 
             }
             //Increment counters 
             $currentDay++; 
