@@ -1,23 +1,10 @@
 <?php
     function build_calendar($month, $year) {
-
-        date_default_timezone_set('America/Sao_Paulo');
-        setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+        $mysqli = new mysqli('localhost', 'root', '', 'petsbd');
         
         // Database 
-        $mysqli = new mysqli('localhost', 'root', '', 'petsbd');
-        // $stmt = $mysqli->prepare("SELECT * FROM appointments WHERE MONTH(date) = ? AND YEAR(date)= ?");
-        // $stmt->bind_param('ss', $month, $year);
-        // $appointments = array();
-        // if($stmt->execute()){
-        //     $result = $stmt->get_result();
-        //     if($result->num_rows>0){
-        //         while($row = $result->fetch_assoc()){
-        //             $appointments[] = $row['date'];
-        //         }
-        //         $stmt->close();
-        //     }
-        // }
+        date_default_timezone_set('America/Sao_Paulo');
+        setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
 
         $daysOfWeek = array('Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado');
         // What is the first day of the month in question?
@@ -73,11 +60,18 @@
             if($dayName == 'saturday' || $dayName == 'sunday') {
                 $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-danger btn-xs' disabled>X</a></td>"; 
             } else if($date<date('Y-m-d')) {
-                $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-outline-danger btn-xs' disabled>X</a></td>"; 
+                $totalAppointments = checkSlots($mysqli, $date);
+                $availableSlots = 8 - $totalAppointments;
+                $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-outline-danger btn-xs' disabled>X</a> <small><i>$availableSlots</i></small> </td>"; 
             } else {
-                $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='/appointments/create?date=".$date."' class='btn btn-outline-secondary btn-xs'>  + </a></td>"; 
+                $totalAppointments = checkSlots($mysqli, $date);
+                if($totalAppointments == 8) {
+                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='#' class='btn btn-secondary btn-xs'>  X </a></td>"; 
+                } else {
+                    $availableSlots = 8 - $totalAppointments;
+                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='/appointments/create?date=".$date."' class='btn btn-outline-secondary btn-xs'>  + </a> <small><i>$availableSlots</i></small> </td>";  
+                }
             }
-            // elseif(in_array($date, $appointments)){ $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-outline-danger btn-xs'>Reservado</a></td>"; }
             //Increment counters 
             $currentDay++; 
             $dayOfWeek++; 
@@ -93,6 +87,23 @@
         $calendar .= "</tr></table>"; 
 
         return $calendar;
+    }
+
+    function checkSlots($mysqli, $date) {
+        $mysqli = new mysqli('localhost', 'root', '', 'petsbd');
+        $stmt = $mysqli->prepare("SELECT * FROM appointments WHERE date = ?");
+        $stmt->bind_param('s', $date);
+        $totalAppointments = 0;
+        if($stmt->execute()){
+            $result = $stmt->get_result();
+            if($result->num_rows>0){
+                while($result->fetch_assoc()){
+                    $totalAppointments++;
+                }
+                $stmt->close();
+            }
+        }
+        return $totalAppointments;
     }
 ?>
 <!DOCTYPE html>

@@ -25,7 +25,7 @@
 
     if(isset($_POST['submit'])) {
         $timeslot = $_POST['timeslot'];
-        $stmt = $mysqli->prepare("SELECT * FROM appointments WHERE 'date' = ? AND timeslot=?");
+        $stmt = $mysqli->prepare("SELECT * FROM appointments WHERE date = ? AND timeslot = ?");
         $stmt->bind_param('ss', $date, $timeslot);
         if($stmt->execute()){
             $result = $stmt->get_result();
