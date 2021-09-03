@@ -2,6 +2,7 @@
 
 @section('title', 'APPet | Agendar nova consulta')
 @section('content')
+
 <?php
     date_default_timezone_set('America/Sao_Paulo');
     setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
@@ -57,10 +58,46 @@
             $slots[] = $intStart->format("H:iA")." - ". $endPeriod->format("H:iA");
             
         }
-        
         return $slots;
     }
 ?>
+
+    <style>
+        .btnbtn {
+            border: none;
+            outline: none;
+            padding: 8px 14px;
+            background-color: #f1f1f1;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        /* Style the active class, and buttons on mouse-over */
+        .active {
+            background-color: #666;
+            color: white;
+        }
+    </style>
+    <script>
+        // $(".appointment_hour").click(function(){
+        //     var timeslot = $(this).attr('data-timeslot');
+        //     $("#slot").html(timeslot);
+        //     $("#timeslot").val(timeslot);
+        //     $("#myModal").modal("show");
+        // });
+
+        var header = document.getElementById("myDIV");
+        var btns = header.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function() {
+                var current = document.getElementsByClassName("active");
+                if (current.length > 0) { 
+                    current[0].className = current[0].className.replace(" active", "");
+                }
+                this.className += " active";
+            });
+        }
+    </script>
+
 <div id="event-create-container" class="col-md-6 offset-md-3">
     <h1>Agendar nova consulta: <?php echo strftime('%B %d, %Y', strtotime($date)); ?></h1>
     <?php echo isset($msg)?$msg:'';?>
@@ -72,19 +109,26 @@
             <input required readonly type="date" name="date" id="date" class="form-control" value="<?php echo $date; ?>">
         </div>
 
+        
+
         <?php $timeslots = timeslots($duration, $cleanup, $start, $end); 
             foreach($timeslots as $ts){
         ?>
-        <div class="hours">
-            <div class="form-group">
-            @if($ts == "12:00PM - 13:00PM" || $ts == "13:00PM - 14:00PM")
-                <button disabled hidden class="btn btn-secondary " <?php echo $ts; ?>><?php echo $ts; ?></button>
-            @else
-            <button class="btn btn-outline-secondary" <?php echo $ts; ?>><?php echo $ts; ?></button>
-            @endif
+        <div id="myDIV" class="hours">
+            <div id="myDIV" class="form-group">
+                @if($ts == "12:00PM - 13:00PM" || $ts == "13:00PM - 14:00PM")
+                <input disabled readonly class="btnbtn btn btn-outline-secondary" <?php echo $ts; ?> value="<?php echo $ts; ?>">
+                @else
+                    <input readonly class="btnbtn btn btn-outline-secondary" <?php echo $ts; ?> value="<?php echo $ts; ?>">
+                @endif
             </div>
         </div>
         <?php } ?>
+
+        <div class="form-group">
+            <label for="timeslot">Horário da consulta:</label>
+            <input readonly type="text" name="timeslot" id="timeslot" class="form-control" value="<?php echo $ts; ?>">
+        </div>
 
         <div class="form-group">
             <label for="hour">Selecione o horário da consulta:</label>
@@ -110,6 +154,7 @@
                 class="form-control" 
                 id="descricao" 
                 placeholder="Faça uma breve observação sobre o que seu pet tem..."
+                value="Test de agendamento"
                 ></textarea>
             </div>
             <div class="form-group">

@@ -18,6 +18,7 @@ class CreateAppointmentsTable extends Migration
 
             $table->date('date')->nullable(false);
             $table->time('hour')->nullable(false);
+            $table->string('timeslot')->nullable(false);
 
             $table->string('area_consulta');
             $table->text('descricao');

@@ -12,11 +12,11 @@
         </div>
         <div class="form-group">
             <label for="raca">Raça do Pet</label>
-            <input type="text" class="form-control" id="raca" name="raca" placeholder="Pinscher, poodle, pug, chihuahua, ...">
+            <input required type="text" class="form-control" id="raca" name="raca" placeholder="Pinscher, poodle, pug, chihuahua, ...">
         </div>
         <div class="form-group">
             <label for="pelugem">Cor da pelagem</label>
-            <select name="pelugem" id="pelugem" class="form-control">
+            <select required name="pelugem" id="pelugem" class="form-control">
                 @foreach ($pelugens as $pelugem)
                     <option value="{{ $pelugem->name }}">{{ $pelugem->name }}</option>
                 @endforeach

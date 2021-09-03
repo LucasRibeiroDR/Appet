@@ -31,7 +31,7 @@
                     <td>#</td>
                     <td>{{$appointment->pet->name }}</td>
                     <td>{{ $appointment->date->format('d/m/Y') }}</td>
-                    <td>{{ $appointment->hour }}</td>
+                    <td>{{ $appointment->timeslot }}</td>
                     <td>{{ $appointment->descricao }}</td>
                     <td class="d-flex ">
                         <a class="btn btn-info edit-btn" href="/appointments/edit/{{ $appointment->id }}">

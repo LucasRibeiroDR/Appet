@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Appointment;
 use Carbon\Carbon;
 
-
 class AppointmentsController extends Controller
 {
     /**
@@ -50,6 +49,7 @@ class AppointmentsController extends Controller
         $request->validate([
             'pet_id' => 'required',
             'hour' => 'required',
+            'timeslot' => 'required',
             'area_consulta' => 'required',
             'descricao' => 'required',
             
@@ -63,6 +63,7 @@ class AppointmentsController extends Controller
 
         $appointments->date = $request->date;
         $appointments->hour = $request->hour;
+        $appointments->timeslot = $request->timeslot;
         $appointments->area_consulta = $request->area_consulta;
         $appointments->descricao = $request->descricao;
 

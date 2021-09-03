@@ -6,18 +6,18 @@
         
         // Database 
         $mysqli = new mysqli('localhost', 'root', '', 'petsbd');
-        $stmt = $mysqli->prepare("SELECT * FROM appointments WHERE MONTH(date) = ? AND YEAR(date)= ?");
-        $stmt->bind_param('ss', $month, $year);
-        $appointments = array();
-        if($stmt->execute()){
-            $result = $stmt->get_result();
-            if($result->num_rows>0){
-                while($row = $result->fetch_assoc()){
-                    $appointments[] = $row['date'];
-                }
-                $stmt->close();
-            }
-        }
+        // $stmt = $mysqli->prepare("SELECT * FROM appointments WHERE MONTH(date) = ? AND YEAR(date)= ?");
+        // $stmt->bind_param('ss', $month, $year);
+        // $appointments = array();
+        // if($stmt->execute()){
+        //     $result = $stmt->get_result();
+        //     if($result->num_rows>0){
+        //         while($row = $result->fetch_assoc()){
+        //             $appointments[] = $row['date'];
+        //         }
+        //         $stmt->close();
+        //     }
+        // }
 
         $daysOfWeek = array('Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado');
         // What is the first day of the month in question?
@@ -71,11 +71,13 @@
             $enventNum = 0;
             $today = $date == date('Y-m-d')? 'today' : '';
             if($date<date('Y-m-d')){
-                $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-outline-warning btn-xs'disabled>X</a></td>"; 
-            }elseif(in_array($date, $appointments)){
-                $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-outline-danger btn-xs'>Reservado</a></td>"; 
-            }else{
-                $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='/appointments/create?date=".$date."' class='btn btn-outline-secondary btn-xs'>Disponível</a></td>"; 
+                $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-outline-danger btn-xs' disabled>X</a></td>"; 
+            }
+            // elseif(in_array($date, $appointments)){
+            //     $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-outline-danger btn-xs'>Reservado</a></td>"; 
+            // }
+            else{
+                $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='/appointments/create?date=".$date."' class='btn btn-outline-secondary btn-xs'>  + </a></td>"; 
             }
             //Increment counters 
             $currentDay++; 
