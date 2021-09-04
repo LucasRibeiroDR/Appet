@@ -1,5 +1,10 @@
+@extends('layouts.admin')
+
+@section('title', 'APPet | Calendário')
+@section('content')
+
 <?php
-    function build_calendar($month, $year) {
+    function build_calendar($month, $year, $id) {
         $mysqli = new mysqli('localhost', 'root', '', 'petsbd');
         
         // Database 
@@ -23,9 +28,11 @@
         $dateToday = date('Y-m-d'); 
         
         $calendar = "<center><h1>$monthName $year</h1>"; 
-        $calendar .= "<a class='btn btn-primary btn-xs' href='?month=".date('m', mktime(0,0,0,$month-1,1,$year))."&year=".date('Y', mktime(0,0,0,$month-1,1,$year))."'>←</a> ";
-        $calendar .= "<a class='btn btn-primary btn-xs' href='?month=".date('m')."&year=".date('Y')."'>Mês Atual</a> ";
-        $calendar .= "<a class='btn btn-primary btn-xs' href='?month=".date('m', mktime(0,0,0,$month+1,1,$year))."&year=".date('Y', mktime(0,0,0,$month+1,1,$year))."'>→</a></center> ";
+        $calendar .= "<a class='btn btn-primary btn-xs' href='".$id."?month=".date('m', mktime(0,0,0,$month-1,1,$year))."&year=".date('Y', mktime(0,0,0,$month-1,1,$year))."'>←</a> ";
+
+        $calendar .= "<a class='btn btn-primary btn-xs' href='".$id."?month=".date('m')."&year=".date('Y')."'>Mês Atual</a> ";
+
+        $calendar .= "<a class='btn btn-primary btn-xs' href='".$id."?month=".date('m', mktime(0,0,0,$month+1,1,$year))."&year=".date('Y', mktime(0,0,0,$month+1,1,$year))."'>→</a></center> ";
 
         $calendar .= "</br></br><table class='table table-bordered'>"; 
         $calendar .= "<tr>"; 
@@ -55,19 +62,20 @@
             $currentDayRel = str_pad($currentDay, 2, "0", STR_PAD_LEFT); 
             $date = "$year-$month-$currentDayRel"; 
             $dayName = strtolower(date('l', strtotime($date))); 
-            $enventNum = 0;
             $today = $date == date('Y-m-d')? 'today' : '';
             if($dayName == 'saturday' || $dayName == 'sunday') {
                 $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-danger btn-xs' disabled>X</a></td>"; 
             } else if($date<date('Y-m-d')) {
-                $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-outline-danger btn-xs' disabled>X</a></td>"; 
+                $totalAppointments = checkSlots($mysqli, $date);
+                $availableSlots = 8 - $totalAppointments;
+                $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-outline-danger btn-xs' disabled>X</a> <small><i>$availableSlots</i></small> </td>"; 
             } else {
                 $totalAppointments = checkSlots($mysqli, $date);
                 if($totalAppointments == 8) {
                     $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='#' class='btn btn-secondary btn-xs'>  X </a></td>"; 
                 } else {
-                    // $availableSlots = 8 - $totalAppointments;
-                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='/appointments/create?date=".$date."' class='btn btn-outline-secondary btn-xs'>  + </a></td>";  
+                    $availableSlots = 8 - $totalAppointments;
+                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='/admin/createAppointments/$id?date=".$date."' class='btn btn-outline-secondary btn-xs'>  + </a> <small><i>$availableSlots</i></small> </td>";  
                 }
             }
             //Increment counters 
@@ -104,10 +112,8 @@
         return $totalAppointments;
     }
 ?>
-@extends('layouts.main')
 
-@section('title', 'PetsOn | Calendário')
-@section('content')
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/globalColors.css">
 <link rel="stylesheet" href="/css/styles.css">
@@ -122,11 +128,13 @@
       if(isset($_GET['month']) && isset($_GET['year'])) {
           $month = $_GET['month'];
           $year = $_GET['year'];
+          $id = $user->id;
       } else {
           $month = $dateComponents['mon']; 
           $year = $dateComponents['year']; 
+          $id = $user->id;
       }
-      echo build_calendar($month,$year); 
+      echo build_calendar($month, $year, $id); 
      ?> 
     </div> 
    </div> 

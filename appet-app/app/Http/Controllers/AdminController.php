@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Pet;
+use App\Models\Calendar;
 use App\Models\Appointment;
 use Illuminate\Support\Facades\DB;
 
@@ -111,8 +112,6 @@ class AdminController extends Controller
         $user->assignRole('admin');
 
         $user->save();
-
-
 
         return redirect('/admin/dashboard')->with('msg', 'Um novo adm foi criado com sucesso!!!');
     }
@@ -244,7 +243,9 @@ class AdminController extends Controller
 
         $this->authorize('create-appointment');
 
-        $user = User::findOrfail($id);
+        // $user = User::all();
+        $user = User::findOrFail($id);
+        // dd($user);
 
         return view ('admin.createAppointments', ['user' => $user]);
     }
@@ -254,19 +255,19 @@ class AdminController extends Controller
 
         $appointments = new Appointment;
 
-        $request->validate([
-            'pet_id' => 'required',
-            'date' => 'required',
-            'hour' => 'required',
-            'area_consulta' => 'required',
-            'descricao' => 'required',
+        // $request->validate([
+        //     'pet_id' => 'required',
+        //     'date' => 'required',
+        //     'hour' => 'required',
+        //     'area_consulta' => 'required',
+        //     'descricao' => 'required',
 
-        ]);
+        // ]);
 
         $appointments->user_id = $id;
         $appointments->pet_id = $request->pet_id;
         $appointments->date = $request->date;
-        $appointments->hour = $request->hour;
+        $appointments->timeslot = $request->timeslot;
         $appointments->area_consulta = $request->area_consulta;
         $appointments->descricao = $request->descricao;
 
@@ -274,7 +275,15 @@ class AdminController extends Controller
 
         return redirect('admin/dashboard')->with('msg', 'Agendado com sucesso!!!');
     }
-
-
-
+    
+    public function adminCalendar($id) 
+    { 
+        // $user = auth()->user();
+        // $user = User::all();
+        $user = User::findOrFail($id);
+        // dd($user);
+        return view('admin.calendar', [
+            'user' => $user,
+        ]);
+    }
 }

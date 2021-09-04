@@ -26,22 +26,22 @@
                         <td>{{ $appointment->user->name }}</td>
                         <td>{{ $appointment->pet->name}}</td>
                         <td>{{ $appointment->date->format('d/m/Y') }}</td>
-                        <td>{{ $appointment->hour }}</td>
+                        <td>{{ $appointment->timeslot }}</td>
                         <td>{{ $appointment->descricao }}</td>
-{{--                        <td class="d-flex ">--}}
-{{--                            <a class="btn btn-info edit-btn" href="/pets/edit/{{$pet->id}}">--}}
-{{--                                <ion-icon name="create-outline"></ion-icon>--}}
-{{--                                Editar--}}
-{{--                            </a>--}}
-{{--                            <form action="/pets/{{ $pet->id }}" method="POST">--}}
-{{--                                @csrf--}}
-{{--                                @method('DELETE')--}}
-{{--                                <button type="submit" class="btn btn-danger delete-btn">--}}
-{{--                                    <ion-icon name="trash-outline"></ion-icon>--}}
-{{--                                    Deletar--}}
-{{--                                </button>--}}
-{{--                            </form>--}}
-{{--                        </td>--}}
+                        <td class="d-flex ">
+                            {{--<a class="btn btn-info edit-btn" href="/pets/edit/{{$pet->id}}">
+                                <ion-icon name="create-outline"></ion-icon>
+                                Editar
+                            </a>--}}
+                            {{--<form action="/pets/{{ $user->id }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger delete-btn">
+                                    <ion-icon name="trash-outline"></ion-icon>
+                                    Deletar
+                               </button>
+                            </form>--}}
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

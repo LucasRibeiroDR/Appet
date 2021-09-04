@@ -83,6 +83,8 @@ Route::group([
     Route::get('/appointments',[AdminController::class, 'showAppoitments'])->name('showAppoitments');
     Route::get('/createAppointments/{id}', [AdminController::class, 'createAppointments'])->name('createAppointments');
     Route::post('/create-Appointments/{id}', [AdminController::class, 'storeAppointments']);
+
+    Route::get('/calendar/{id}',[AdminController::class, 'adminCalendar'])->name('adminCalendar');
 });
 /**
  * 4 tipos de grupos de rotas mais utilizados em laravel:

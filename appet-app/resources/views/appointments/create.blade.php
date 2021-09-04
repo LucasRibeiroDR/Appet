@@ -140,15 +140,6 @@
             <input readonly maxlength='1' type="text" name="timeslot" id="timeslot" class="form-control" value="">
         </div>
 
-        {{-- <div class="form-group">
-            <label for="hour">Selecione o horário da consulta:</label>
-            <select name="hour" id="hour" class="form-control">
-                <option value="08:00:00">8:00</option>
-                <option value="10:00:00">10:00</option>
-                <option value="14:00:00">14:00</option>
-                <option value="16:00:00">16:00</option>
-            </select>
-        </div> --}}
         <div class="form-group">
             <label for="area_consulta">Selecione a area de consulta:</label>
             <select name="area_consulta" id="area_consulta" class="form-control">

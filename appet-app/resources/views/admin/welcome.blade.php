@@ -11,7 +11,7 @@
       <li>Salve os dados do seu animal no nosso sistema</li>
       <li>Receba notificações no dia da consulta</li>
     </ul>
-    <form method="get" action="/admin/appointments">
+    <form method="get" action="/admin/calendar">
       <button type="submit" class="w-100 btn btn-outline-primary mt-3">Agendar consulta</button>
     </form>
   </div>
