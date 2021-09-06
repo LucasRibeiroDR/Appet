@@ -65,7 +65,7 @@ Route::group([
     'prefix' => 'admin',
     'name' => 'admin.'
     ], function(){
-    Route::get('/welcome', [AdminController::class, 'welcome']);
+    Route::get('/welcome', [AdminController::class, 'welcome'])->name('welcome');
     Route::get('/dashboard', [AdminController::class, 'index'])->name('index');
     Route::get('/users', [AdminController::class, 'showUsers'])->name('showUsers');
     Route::get('/admins', [AdminController::class, 'showAdmins'])->name('showAdmins');
@@ -107,7 +107,7 @@ Route::group([
 Route::group([
     'middleware' => ['auth']
     ], function(){
-        Route::get('/calendar',[CalendarController::class, 'calendar'])->name('calendar');
+        Route::get('/calendar',[CalendarController::class, 'calendar'])->name('user.calendar');
 });
 
 /************************** JetStream **************************/

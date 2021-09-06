@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'APPet | Consultas')
+@section('title', 'PetsOn | Consultas')
 @section('content')
     <div>
         <div class="col-md-10 offset-md-1 dashboard-title-container">

@@ -15,7 +15,6 @@ class AppointmentsController extends Controller
      */
     public function index()
     {
-
         $this->authorize('view-appointments');
 
         return view('appointments.appointments');
@@ -52,9 +51,7 @@ class AppointmentsController extends Controller
             'timeslot' => 'required',
             'area_consulta' => 'required',
             'descricao' => 'required',
-            
         ]);
-        // 'date' => 'required',
 
         $appointments = new Appointment;
 

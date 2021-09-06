@@ -48,7 +48,6 @@ class AdminController extends Controller
             'users' => $users,
             'search' => $search
         ]);
-
     }
 
     public function showAdmins(){
@@ -172,7 +171,7 @@ class AdminController extends Controller
 
     public function createPet($id){
 
-        $this->authorize('create-pet');
+        $this->authorize('admin-create-pet');
 
         $user = User::findOrFail($id);
 
@@ -184,6 +183,8 @@ class AdminController extends Controller
     }
 
     public function storePet(Request $request, $id){
+
+        $this->authorize('admin-page');
 
         $pet = new Pet;
 
@@ -212,6 +213,7 @@ class AdminController extends Controller
 
     public function showPets() {
 
+        $this->authorize('admin-page');
         $this->authorize('view-pets');
 
         $search = request('search');
@@ -225,44 +227,39 @@ class AdminController extends Controller
         }
 
         return view('admin.showpets', ['pets' => $pets, 'search' => $search]);
-
     }
 
     public function showAppoitments(){
 
+        $this->authorize('admin-page');
         $this->authorize('view-appointments');
 
         $appointments = Appointment::all();
 
-
         return view ('admin.showappointments', ['appointments' => $appointments]);
-
     }
 
     public function createAppointments($id){
 
-        $this->authorize('create-appointment');
-
-        // $user = User::all();
+        $this->authorize('admin-page');
+        // $this->authorize('admin-create-appointment');
         $user = User::findOrFail($id);
-        // dd($user);
 
         return view ('admin.createAppointments', ['user' => $user]);
     }
 
     public function storeAppointments(Request $request, $id){
-        $this->authorize('create-appointment');
+        $this->authorize('admin-page');
+        $this->authorize('admin-create-appointment');
 
         $appointments = new Appointment;
 
-        // $request->validate([
-        //     'pet_id' => 'required',
-        //     'date' => 'required',
-        //     'hour' => 'required',
-        //     'area_consulta' => 'required',
-        //     'descricao' => 'required',
-
-        // ]);
+        $request->validate([
+            'pet_id' => 'required',
+            'timeslot' => 'required',
+            'area_consulta' => 'required',
+            'descricao' => 'required',
+        ]);
 
         $appointments->user_id = $id;
         $appointments->pet_id = $request->pet_id;
@@ -278,10 +275,8 @@ class AdminController extends Controller
     
     public function adminCalendar($id) 
     { 
-        // $user = auth()->user();
-        // $user = User::all();
+        $this->authorize('admin-page');
         $user = User::findOrFail($id);
-        // dd($user);
         return view('admin.calendar', [
             'user' => $user,
         ]);

@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'APPet | Editando Pet')
+@section('title', 'PetsOn | Editando Pet')
 @section('content')
 <div id="event-create-container" class="col-md-6 offset-md-3">
     <h1>Editando seu Pet</h1>

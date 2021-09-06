@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'PetsOn | Agendar nova consulta')
+@section('title', 'PetsOn | Nova consulta')
 @section('content')
 
 <?php

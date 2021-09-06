@@ -1,6 +1,6 @@
-@extends('layouts.main')
+@extends('layouts.admin')
 
-@section('title', 'APPet | Apresentar Usuário')
+@section('title', 'PetsOn | Apresentar Usuário')
 @section('content')
 
 <div>
@@ -39,9 +39,9 @@
                 @endforeach    
             </tbody>
         </table>
-        {{-- @else
-            <p class="youDontHavePets">Você ainda não tem usuários, <a href="/user/create">adicionar usuário</a></p>
-        @endif --}}
+        @else
+            <p class="youDontHavePets">Ainda não tem usuários, <a href="/admin/create-user">adicionar usuário</a></p>
+        @endif
     </div>
 </div>
 @endsection

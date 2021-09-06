@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'APPet | Agendar nova consulta')
+@section('title', 'PetsOn | Nova consulta')
 @section('content')
 
 <?php

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Pelugem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Consult;
 use App\Models\User;
 use App\Models\Pet;
 
@@ -92,30 +91,4 @@ class PetsController extends Controller
         Pet::findOrFail($request->id)->update($data);
         return redirect('/pets/show');
     }
-
-    // public function destroy($id) {
-    //     Pet::findOrFail($id)->delete();
-    //     return redirect('/pets/show')->with('msg', 'Pet excluído com sucesso!');
-    // }
-
-    //     public function calcularDataNascimento($data) {
-    //     $idade = 0;
-    //     $data_nascimento = date('Y-m-d', strtotime($data));
-    //     $data = explode("-",$data_nascimento);
-    //     $anoNasc  = $data[0];
-    //     $mesNasc  = $data[1];
-    //     $diaNasc  = $data[2];
-
-    //     $anoAtual = date("Y");
-    //     $mesAtual = date("m");
-    //     $diaAtual = date("d");
-
-    //     $idade = $anoAtual - $anoNasc;
-    //     if ($mesAtual < $mesNasc){
-    //         $idade -= 1;
-    //     } elseif (($mesAtual == $mesNasc) && ($diaAtual <= $diaNasc)){
-    //         $idade -= 1;
-    //     }
-    //     return ($idade);
-    // }-
 }

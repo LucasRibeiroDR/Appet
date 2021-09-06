@@ -1,7 +1,28 @@
 @extends('layouts.main')
 
-@section('title', 'APPet | Meus Pets')
+@section('title', 'PetsOn | Meus Pets')
 @section('content')
+
+{{--public function calcularDataNascimento($data) {
+    $idade = 0;
+    $data_nascimento = date('Y-m-d', strtotime($data));
+    $data = explode("-",$data_nascimento);
+    $anoNasc  = $data[0];
+    $mesNasc  = $data[1];
+    $diaNasc  = $data[2];
+
+    $anoAtual = date("Y");
+    $mesAtual = date("m");
+    $diaAtual = date("d");
+
+    $idade = $anoAtual - $anoNasc;
+    if ($mesAtual < $mesNasc){
+        $idade -= 1;
+    } elseif (($mesAtual == $mesNasc) && ($diaAtual <= $diaNasc)){
+             $idade -= 1;
+    }
+    return ($idade);
+}--}}
 <div>
     <div class="col-md-10 offset-md-1 dashboard-title-container">
         <h1>Meus Pets</h1>

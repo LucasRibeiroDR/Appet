@@ -1,11 +1,11 @@
 @extends('layouts.main')
 
-@section('title', 'APPet | Dashboard')
+@section('title', 'PetsOn | Perfil')
 @section('content')
 
 <div>
     <div class="col-md-10 offset-md-1 dashboard-title-container">
-        <h1>Dashboard</h1>
+        <h1>Perfil</h1>
     </div>
     <div class="col-md-10 offset-md-1 dashboard-pets-container">
         <div class="userDashboard">

@@ -1,4 +1,4 @@
-@section('title', 'APPet | Registrar-se')
+@section('title', 'PetsOn | Registrar-se')
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">

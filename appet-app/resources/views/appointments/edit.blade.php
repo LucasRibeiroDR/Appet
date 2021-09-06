@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'APPet | Editando consulta')
+@section('title', 'PetsOn | Editando consulta')
 @section('content')
 <div id="event-create-container" class="col-md-6 offset-md-3">
     <h1>Editar consulta</h1>

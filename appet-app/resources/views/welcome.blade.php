@@ -11,15 +11,12 @@
       <li>Salve os dados do seu animal no nosso sistema</li>
       <li>Receba notificações no dia da consulta</li>
     </ul>
-
-    {{-- <form method="get" action="/appointments/show"> --}}
-    <form method="get" action="/calendar">
+    <form method="get" action="{{ route('user.calendar') }}">
       <button type="submit" class="w-100 btn btn-outline-primary mt-3">Agendar consulta</button>
     </form>
   </div>
   <div class="col-md-6 offset-md-1 dashboard-pets-container">
     <img class="imagemHome" src="./img/tel.png" alt="">
   </div>
-  <!-- <a href="/user/create">User create</a> -->
 </div>
 @endsection

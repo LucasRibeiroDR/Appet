@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'APPet | Criar Adm')
+@section('title', 'PetsOn | Criar Adm')
 @section('content')
 
 <div id="event-create-container" class="col-md-6 offset-md-3">

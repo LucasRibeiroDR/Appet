@@ -20,13 +20,13 @@ class AdminCreateSeeder extends Seeder
     {
         $admin = User::create([
             'name' => 'Super Admin',
-            'cpf' => '0000011100',
-            'rg' => '101334567',
-            'telefone' => '4335421200',
+            'cpf' => '999.999.999-99',
+            'rg' => '99.999.999-9',
+            'telefone' => '(99)99999-9999',
             'endereco' => 'admin',
             'email' => 'super@admin.com',
             'student'=>'Não',
-            'ra'=>'3216548963321',
+            'ra'=>'202111113030099',
             'password' => Hash::make('superadmin'),
         ]);
 
@@ -34,13 +34,13 @@ class AdminCreateSeeder extends Seeder
 
         $admin = User::create([
             'name' => 'admin',
-            'cpf' => '0000000000',
-            'rg' => '101234567',
-            'telefone' => '4335420000',
+            'cpf' => '888.888.888-88',
+            'rg' => '88.888.888-8',
+            'telefone' => '(88)88888-8888',
             'endereco' => 'admin',
             'email' => 'admin@admin.com',
             'student'=>'Não',
-            'ra'=>'3216548966121',
+            'ra'=>'202111113030098',
             'password' => Hash::make('adminadmin'),
         ]);
 

@@ -1,4 +1,4 @@
-@section('title', 'APPet | Redefinir senha')
+@section('title', 'PetsOn | Redefinir senha')
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">

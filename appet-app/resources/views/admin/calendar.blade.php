@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'APPet | Calendário')
+@section('title', 'PetsOn | Calendário')
 @section('content')
 
 <?php
