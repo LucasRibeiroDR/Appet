@@ -1,4 +1,13 @@
 @section('title', 'PetsOn | Redefinir senha')
+@if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error) 
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">

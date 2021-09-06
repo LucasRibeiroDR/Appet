@@ -2,6 +2,17 @@
 
 @section('title', 'PetsOn | Consultas')
 @section('content')
+
+@if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error) 
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
 <div>
     <div class="col-md-10 offset-md-1 dashboard-title-container">
         <h1>Agendamentos</h1>

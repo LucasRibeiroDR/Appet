@@ -3,6 +3,17 @@
 @section('title', 'PetsOn')
 @section('content')
 
+{{--@dump($errors->all())--}}
+@if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error) 
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
 <div>
   <div class="col-md-6 offset-md-1 " style="margin-top: 100px;">
     <h1>Agende a consulta do seu animalzinho pelo site do HV UENP!</h1>

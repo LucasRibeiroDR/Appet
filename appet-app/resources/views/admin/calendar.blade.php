@@ -3,6 +3,16 @@
 @section('title', 'PetsOn | Calendário')
 @section('content')
 
+@if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error) 
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
 <?php
     function build_calendar($month, $year, $id) {
         $mysqli = new mysqli('localhost', 'root', '', 'petsbd');
@@ -28,7 +38,7 @@
         $dateToday = date('Y-m-d'); 
         
         $calendar = "<center><h1>$monthName $year</h1>"; 
-        $calendar .= "<a class='btn btn-primary btn-xs' href='".$id."?month=".date('m', mktime(0,0,0,$month-1,1,$year))."&year=".date('Y', mktime(0,0,0,$month-1,1,$year))."'>←</a> ";
+        $calendar .= "<a class='btn btn-primary btn-xs' href='".$id."?month=".date('m', mktime(0,0,0,$month-1,1,$year))."&year=".date('Y', mktime(0,0,0,$month-1,1,$year))."'>←zz</a> ";
 
         $calendar .= "<a class='btn btn-primary btn-xs' href='".$id."?month=".date('m')."&year=".date('Y')."'>Mês Atual</a> ";
 
@@ -112,7 +122,6 @@
         return $totalAppointments;
     }
 ?>
-
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="/css/globalColors.css">

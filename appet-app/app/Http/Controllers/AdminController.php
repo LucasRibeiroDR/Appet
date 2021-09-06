@@ -260,7 +260,7 @@ class AdminController extends Controller
 
         $appointments->save();
 
-        return redirect('admin/dashboard')->with('msg', 'Agendado com sucesso!!!');
+        return redirect('/admin/appointments')->with('msg', 'Agendado com sucesso!!!');
     }
     
     public function adminCalendar($id) 

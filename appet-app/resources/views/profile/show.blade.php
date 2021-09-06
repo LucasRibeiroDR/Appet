@@ -1,4 +1,13 @@
 @section('title', 'PetsOn | Edite Perfil')
+@if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error) 
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
 <x-app-layout>
     <div>
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">

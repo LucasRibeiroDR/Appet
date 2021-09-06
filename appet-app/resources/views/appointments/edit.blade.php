@@ -2,6 +2,17 @@
 
 @section('title', 'PetsOn | Editando consulta')
 @section('content')
+
+@if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error) 
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
 <div id="event-create-container" class="col-md-6 offset-md-3">
     <h1>Editar consulta</h1>
     <form action="/appointments/update/{{ $appointment->id }}" method="POST">

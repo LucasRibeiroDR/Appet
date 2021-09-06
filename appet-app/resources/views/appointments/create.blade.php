@@ -3,6 +3,16 @@
 @section('title', 'PetsOn | Nova consulta')
 @section('content')
 
+@if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error) 
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
 <?php
     date_default_timezone_set('America/Sao_Paulo');
     setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
@@ -87,12 +97,6 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        // $(".appointment_hour").click(function(){
-        //     var timeslot = $(this).attr('data-timeslot');
-        //     $("#slot").html(timeslot);
-        //     $("#timeslot").val(timeslot);
-        //     $("#myModal").modal("show");
-        // });
         $(document).ready(_ => {
             const added = [],
             input = document.getElementById("timeslot");
@@ -137,7 +141,7 @@
 
         <div class="form-group">
             <label for="timeslot">Horário da consulta:</label>
-            <input readonly maxlength='1' type="text" name="timeslot" id="timeslot" class="form-control" value="">
+            <input required readonly maxlength='17' type="text" name="timeslot" id="timeslot" class="form-control" value="">
         </div>
 
         <div class="form-group">
@@ -153,7 +157,8 @@
                 required
                 name="descricao" 
                 class="form-control" 
-                id="descricao" 
+                id="descricao"
+                minlength="1" 
                 maxlength=200
                 placeholder="Faça uma breve observação sobre o que seu pet tem..."
                 ></textarea>

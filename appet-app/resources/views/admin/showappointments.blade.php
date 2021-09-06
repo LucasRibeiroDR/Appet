@@ -2,6 +2,17 @@
 
 @section('title', 'PetsOn | Consultas')
 @section('content')
+
+@if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error) 
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
     <div>
         <div class="col-md-10 offset-md-1 dashboard-title-container">
             <h1>Pets</h1>
@@ -29,18 +40,16 @@
                         <td>{{ $appointment->timeslot }}</td>
                         <td>{{ $appointment->descricao }}</td>
                         <td class="d-flex ">
-                            {{--<a class="btn btn-info edit-btn" href="/pets/edit/{{$pet->id}}">
-                                <ion-icon name="create-outline"></ion-icon>
-                                Editar
-                            </a>--}}
-                            {{--<form action="/pets/{{ $user->id }}" method="POST">
+                            <a class="btn btn-info edit-btn" href="#" name="Editar">
+                                <ion-icon name="create-outline"></ion-icon> Editar
+                            </a>
+                            <form action="#" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger delete-btn">
-                                    <ion-icon name="trash-outline"></ion-icon>
-                                    Deletar
+                                <button type="submit" name="candelar" class="btn btn-danger delete-btn" disabled>
+                                    <ion-icon name="close"></ion-icon> Cancelar
                                </button>
-                            </form>--}}
+                            </form>
                         </td>
                     </tr>
                 @endforeach

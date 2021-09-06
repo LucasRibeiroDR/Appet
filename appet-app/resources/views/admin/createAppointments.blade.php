@@ -3,6 +3,16 @@
 @section('title', 'PetsOn | Nova consulta')
 @section('content')
 
+@if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error) 
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
 <?php
     date_default_timezone_set('America/Sao_Paulo');
     setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
@@ -106,7 +116,7 @@
 
 <div id="event-create-container" class="col-md-6 offset-md-3">
 
-    <h1>Agendar nova consulta do {{$user->name}}: <?php echo strftime('%B %d, %Y', strtotime($date)); ?></h1>
+    <h1>Agendar nova consulta para o {{$user->name}}: <?php echo strftime('%B %d, %Y', strtotime($date)); ?></h1>
 
     <?php echo isset($msg)?$msg:'';?>
 

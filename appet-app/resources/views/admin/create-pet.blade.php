@@ -2,6 +2,17 @@
 
 @section('title', 'PetsOn | Novo Pet')
 @section('content')
+
+@if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error) 
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
 <div id="event-create-container" class="col-md-6 offset-md-3">
     <h1>Crie Pet do {{ $user->name }}</h1>
     <form action="/admin/create-newpet/{{ $user->id}}" method="POST" enctype="multipart/form-data">
