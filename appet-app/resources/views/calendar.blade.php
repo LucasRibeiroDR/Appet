@@ -23,9 +23,9 @@
         $dateToday = date('Y-m-d'); 
         
         $calendar = "<center><h1>$monthName $year</h1>"; 
-        $calendar .= "<a class='btn btn-primary btn-xs' href='?month=".date('m', mktime(0,0,0,$month-1,1,$year))."&year=".date('Y', mktime(0,0,0,$month-1,1,$year))."'>←</a> ";
-        $calendar .= "<a class='btn btn-primary btn-xs' href='?month=".date('m')."&year=".date('Y')."'>Mês Atual</a> ";
-        $calendar .= "<a class='btn btn-primary btn-xs' href='?month=".date('m', mktime(0,0,0,$month+1,1,$year))."&year=".date('Y', mktime(0,0,0,$month+1,1,$year))."'>→</a></center> ";
+        $calendar .= "<a class='btn btn-primary btn-xs' href='?month=".date('m', mktime(0,0,0,$month-1,1,$year))."&year=".date('Y', mktime(0,0,0,$month-1,1,$year))."' title='Mês anterior'>←</a> ";
+        $calendar .= "<a class='btn btn-primary btn-xs' href='?month=".date('m')."&year=".date('Y')."'title='Mês atual'>Mês atual</a> ";
+        $calendar .= "<a class='btn btn-primary btn-xs' href='?month=".date('m', mktime(0,0,0,$month+1,1,$year))."&year=".date('Y', mktime(0,0,0,$month+1,1,$year))."' title='Proximo mês'>→</a></center> ";
 
         $calendar .= "</br></br><table class='table table-bordered'>"; 
         $calendar .= "<tr>"; 
@@ -58,13 +58,14 @@
             $enventNum = 0;
             $today = $date == date('Y-m-d')? 'today' : '';
             if($dayName == 'saturday' || $dayName == 'sunday') {
-                $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-danger btn-xs' disabled>X</a></td>"; 
+                $calendar.="<td class='$today'><h4>$currentDay</h4></td>"; 
+                // $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-danger btn-xs' disabled  title='Não atendemos nos fins de semana'>X</a></td>"; 
             } else if($date<date('Y-m-d')) {
-                $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-outline-danger btn-xs' disabled>X</a></td>"; 
+                $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-outline-danger btn-xs' title='Dia inválido para marcar uma consulta' disabled>x</a></td>"; 
             } else {
                 $totalAppointments = checkSlots($mysqli, $date);
                 if($totalAppointments == 8) {
-                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='#' class='btn btn-secondary btn-xs'>  X </a></td>"; 
+                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='#' class='btn btn-success btn-xs'title='Dia já está lotado'>x</a></td>"; 
                 } else {
                     // $availableSlots = 8 - $totalAppointments;
                     $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='/appointments/create?date=".$date."' class='btn btn-outline-secondary btn-xs'>  + </a></td>";  

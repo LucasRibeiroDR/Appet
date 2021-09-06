@@ -132,6 +132,6 @@ class AppointmentsController extends Controller
         $this->authorize('delete-appointment');
 
         Appointment::findOrFail($id)->delete();
-        return redirect('/appointments/show')->with('msg', 'Consulta deletetada com sucesso!');;
+        return redirect('/appointments/show')->with('msg', 'Consulta cancelada com sucesso!');;
     }
 }
