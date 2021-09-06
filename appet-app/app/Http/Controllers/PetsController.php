@@ -2,31 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pelugem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\User;
 use App\Models\Pet;
+use App\Models\User;
+use App\Models\Pelugem;
 
 class PetsController extends Controller
 {
-    public function create() {
-
+    public function create() 
+    {
         $this->authorize('create-pet');
 
         $pelugens = DB::table('pelugens')
             ->select('name')
             ->get();
 
-
         return view('pets.create', ['pelugens' => $pelugens]);
     }
 
-    public function store(Request $request){
-
+    public function store(Request $request)
+    {
         $this->authorize('create-pet');
 
-        //dd($request);
         $pet = new Pet;
 
         $request->validate([
@@ -52,11 +50,11 @@ class PetsController extends Controller
 
         $pet->save();
 
-        return redirect('/pets/show');
+        return redirect('/pets/show')->with('msg', 'Pet criado com sucesso!');;
     }
 
-    public function show() {
-
+    public function show() 
+    {
         $this->authorize('view-pets');
 
         $user = auth()->user();
@@ -64,15 +62,16 @@ class PetsController extends Controller
         return view('pets.show', ["pets" => $pets]);
     }
 
-    public function destroy($id) {
+    public function destroy($id) 
+    {
         $this->authorize('delete-pet');
 
         Pet::findOrFail($id)->delete();
-        return redirect('/pets/show');
+        return redirect('/pets/show')->with('msg', 'Pet excluído com sucesso!');;
     }
 
-    public function edit($id) {
-
+    public function edit($id) 
+    {
         $this->authorize('edit-pet');
 
         $user = auth()->user();
@@ -83,8 +82,8 @@ class PetsController extends Controller
         return view('pets.edit', ['pet' => $pet]);
     }
 
-    public function update(Request $request) {
-
+    public function update(Request $request) 
+    {
         $this->authorize('edit-pet');
 
         $data = $request->all();

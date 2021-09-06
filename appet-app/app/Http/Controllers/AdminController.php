@@ -19,14 +19,12 @@ class AdminController extends Controller
     public function welcome()
     {
         $this->authorize('admin-page');
-
         return view ('admin.welcome');
     }
 
     public function index()
     {
         $this->authorize('admin-page');
-
         return view ('admin.dashboard');
     }
 
@@ -56,12 +54,9 @@ class AdminController extends Controller
 
         $admins = User::all()->sortBy('name');
 
-        //dd($users);
-
         return view ('admin.showadmins',[
             'admins' => $admins,
         ]);
-
     }
 
     /**
@@ -72,7 +67,6 @@ class AdminController extends Controller
     public function createAdmin()
     {
         $this->authorize('create-admin');
-
         return view ('admin.create-adm');
     }
 
@@ -112,7 +106,7 @@ class AdminController extends Controller
 
         $user->save();
 
-        return redirect('/admin/dashboard')->with('msg', 'Um novo adm foi criado com sucesso!!!');
+        return redirect('/admin/dashboard')->with('msg', 'Novo ADM criado com sucesso!!!');
     }
 
     /**
@@ -135,9 +129,7 @@ class AdminController extends Controller
     public function editAdmin($id)
     {
         $this->authorize('edit-admin');
-
         $admin = User::findOrFail($id);
-
         return view('admin.edit-adm', ['admin' => $admin]);
     }
 
@@ -155,7 +147,7 @@ class AdminController extends Controller
         $data = $request->all();
         User::findOrFail($request->id)->update($data);
 
-        return redirect('/admin/admins');
+        return redirect('/admin/admins')->with('msg', 'Admin atualizado com sucesso!!!');;
     }
 
     /**
@@ -208,7 +200,7 @@ class AdminController extends Controller
 
         $pet->save();
 
-        return redirect('/admin/dashboard')->with('msg', 'Pet criado com sucesso');
+        return redirect('/admin/dashboard')->with('msg', 'Pet criado com sucesso!!!');
     }
 
     public function showPets() {
@@ -242,9 +234,7 @@ class AdminController extends Controller
     public function createAppointments($id){
 
         $this->authorize('admin-page');
-        // $this->authorize('admin-create-appointment');
         $user = User::findOrFail($id);
-
         return view ('admin.createAppointments', ['user' => $user]);
     }
 
@@ -256,7 +246,7 @@ class AdminController extends Controller
 
         $request->validate([
             'pet_id' => 'required',
-            'timeslot' => 'required',
+            'timeslot' => 'required|max:17',
             'area_consulta' => 'required',
             'descricao' => 'required',
         ]);
