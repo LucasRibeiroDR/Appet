@@ -101,10 +101,14 @@
             const added = [],
             input = document.getElementById("timeslot");
             $('button').on('click', ev => {
-                const recurso = ev.currentTarget.innerText,    
+                const recurso = ev.currentTarget.innerText, 
                 idx = added.indexOf(recurso);
-                if (idx === -1) {added.push(recurso);}
-                else {added.splice(idx, 1);}
+                if (added.length == 0) {
+                    if (idx === -1) {added.push(recurso);}
+                    else {added.splice(idx, 1);}
+                } else {
+                    added.splice(idx, 1);
+                }   
                 input.value = added.join(',');
             });
         });
@@ -132,7 +136,7 @@
                         <?php if(in_array($ts, $appointments)) { ?>
                             <button disabled class="btnbtn btn btn-danger"><?php echo $ts; ?></button>
                         <?php }else{ ?>
-                            <button class="btnbtn btn btn-outline-secondary appointment_hour" data-timeslot="<?php echo $ts; ?>"><?php echo $ts; ?></button>
+                            <button class="btnbtn btn btn-outline-secondary appointment_hour" type="button" data-timeslot="<?php echo $ts; ?>"><?php echo $ts; ?></button>
                         <?php }  ?>
                     @endif
                 </div>

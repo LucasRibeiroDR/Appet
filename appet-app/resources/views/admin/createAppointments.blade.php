@@ -98,19 +98,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(_ => {
-            const added = []; 
-            const input = document.getElementById("timeslot");
-            flag = false;
-            if(flag == false) {
-                flag = true;
-                $('button').on('click', ev => {
-                    const recurso = ev.currentTarget.innerText,    
-                    idx = added.indexOf(recurso);
+            const added = [],
+            input = document.getElementById("timeslot");
+            $('button').on('click', ev => {
+                const recurso = ev.currentTarget.innerText, 
+                idx = added.indexOf(recurso);
+                if (added.length == 0) {
                     if (idx === -1) {added.push(recurso);}
                     else {added.splice(idx, 1);}
-                    input.value = added.join(',');
-                });
-            } 
+                } else {
+                    added.splice(idx, 1);
+                }   
+                input.value = added.join(',');
+            });
         });
     </script>
 
@@ -138,7 +138,7 @@
                         <?php if(in_array($ts, $appointments)) { ?>
                             <button disabled class="btnbtn btn btn-danger"><?php echo $ts; ?></button>
                         <?php }else{ ?>
-                            <button class="btnbtn btn btn-outline-secondary appointment_hour" data-timeslot="<?php echo $ts; ?>"><?php echo $ts; ?></button>
+                            <button type="button" class="btnbtn btn btn-outline-secondary appointment_hour" data-timeslot="<?php echo $ts; ?>"><?php echo $ts; ?></button>
                         <?php }  ?> 
                     @endif
                 </div>
