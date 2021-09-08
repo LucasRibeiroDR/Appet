@@ -1,9 +1,10 @@
 @section('title', 'APPet | Login')
-@section('content')
 
 <x-guest-layout>
 
     <link rel="stylesheet" href="/css/user/forms.css">
+
+    <x-jet-validation-errors class="mb-4" />
 
     @if (session('status'))
     <div class="mb-4 font-medium text-sm text-green-600">

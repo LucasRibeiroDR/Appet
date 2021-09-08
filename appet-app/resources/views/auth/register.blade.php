@@ -1,14 +1,15 @@
 @section('title', 'APPet | Registrar-se')
-@section('content')
 
 <x-guest-layout>
 
     <link rel="stylesheet" href="/css/user/forms.css">
 
+    <x-jet-validation-errors class="mb-4" />
+
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form class="login100-form validate-form" method="POST" action="{{ route('register') }}">
+                <form method="POST" action="{{ route('register') }}" class="login100-form validate-form" >
                     @csrf
                     <span class="login100-form-title">
                         Cadastrar

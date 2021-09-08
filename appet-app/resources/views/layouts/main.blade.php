@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 <!-- Header -->
-
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
     <!-- <div class="navbar-collapse justify-content-around" id="navbar"> -->
@@ -25,13 +25,13 @@
         <li class="nav-item">
           <a href="/pets/show" class="nav-link">Meus pets</a>
         </li>
-        @can('user-page')
+        @can('user-page')        
         <li class="nav-item">
-          <a href="/dashboard" class="nav-link">Dashboard</a>
+          <a href="/dashboard" class="nav-link">Perfil</a>
         </li>
         @elsecan('admin-page')
         <li class="nav-item">
-          <a href="/admin/dashboard" class="nav-link">Dashboard</a>
+          <a href="/admin/dashboard" class="nav-link">Perfil</a>
         </li>
         @endcan
         <li class="nav-item">
@@ -72,3 +72,4 @@
 <footer class="fixed-bottom">
   <p>APPet &copy; 2021</p>
 </footer>
+</html>
