@@ -33,7 +33,7 @@
       <!-- Header -->
       <header>
         <nav class="navbar navbar-expand-lg navbar-light">
-          <div class="collapse navbar-collapse" id="navbar">
+          <div class="navbar-collapse" id="navbar">
            <a href="/" class="navbar-brand">
             <img src="/img/pet.ico" alt="APPet Icon">
            </a>

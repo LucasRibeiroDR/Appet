@@ -20,7 +20,7 @@
       <div class="col-sm-12">
         <div class="card User-Activity">
           <div class="card-header">
-            <h5>Perfil | {{Auth::user()->name}}</h5>
+            <h5>{{Auth::user()->name}}</h5>
           </div>
           <div class="card-block pb-0">
             <div class="text-center m-b-30">
