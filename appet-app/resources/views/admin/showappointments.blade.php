@@ -15,7 +15,7 @@
 
     <div>
         <div class="col-md-10 offset-md-1 dashboard-title-container">
-            <h1>Pets</h1>
+            <h1>Consultas</h1>
         </div>
         <div class="col-md-10 offset-md-1 dashboard-pets-container">
             <table class="table">
