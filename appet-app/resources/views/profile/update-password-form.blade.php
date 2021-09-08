@@ -1,3 +1,13 @@
+@if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error) 
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
 <x-jet-form-section submit="updatePassword">
     <x-slot name="title">
         {{ __('Atualizar senha') }}

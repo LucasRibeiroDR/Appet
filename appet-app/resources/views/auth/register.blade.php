@@ -1,6 +1,13 @@
-@section('title', 'APPet | Registrar-se')
-@section('content')
-                                     
+@section('title', 'PetsOn | Registrar-se')
+@if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error) 
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
 <x-guest-layout>
     <x-jet-authentication-card class="containerCad">
         <x-slot name="logo">

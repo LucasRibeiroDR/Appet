@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AppointmentsController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CalendarController;
 
 // Rota de entrada do software assim que aberto cai nessa rota
 Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -64,7 +65,7 @@ Route::group([
     'prefix' => 'admin',
     'name' => 'admin.'
     ], function(){
-    Route::get('/welcome', [AdminController::class, 'welcome']);
+    Route::get('/welcome', [AdminController::class, 'welcome'])->name('welcome');
     Route::get('/dashboard', [AdminController::class, 'index'])->name('index');
     Route::get('/users', [AdminController::class, 'showUsers'])->name('showUsers');
     Route::get('/admins', [AdminController::class, 'showAdmins'])->name('showAdmins');
@@ -75,13 +76,15 @@ Route::group([
     Route::post('/create-newadmin', [AdminController::class, 'storeAdmin']);
     Route::get('/create-admin', [AdminController::class, 'createAdmin'])->name('createAdmin');
     Route::get('/edit-admin/{id}', [AdminController::class, 'editAdmin'])->name('editAdmin');
-    Route::put('/update-admin/{id}', [UserController::class, 'updateAdmin'])->name('updateAdmin');
+    Route::put('/update-admin/{id}', [AdminController::class, 'updateAdmin'])->name('updateAdmin');
     Route::get('/create-pet/{id}', [AdminController::class, 'createPet'])->name('createPet');
     Route::post('/create-newpet/{id}', [AdminController::class, 'storePet']);
     Route::get('/pets', [AdminController::class, 'showPets'])->name('showPets');
     Route::get('/appointments',[AdminController::class, 'showAppoitments'])->name('showAppoitments');
     Route::get('/createAppointments/{id}', [AdminController::class, 'createAppointments'])->name('createAppointments');
     Route::post('/create-Appointments/{id}', [AdminController::class, 'storeAppointments']);
+
+    Route::get('/calendar/{id}',[AdminController::class, 'adminCalendar'])->name('adminCalendar');
 });
 /**
  * 4 tipos de grupos de rotas mais utilizados em laravel:
@@ -100,6 +103,12 @@ Route::group([
  *
  * });
  */
+/************************** Calendar **************************/ 
+Route::group([
+    'middleware' => ['auth']
+    ], function(){
+        Route::get('/calendar',[CalendarController::class, 'calendar'])->name('user.calendar');
+});
 
 /************************** JetStream **************************/
 Route::group([

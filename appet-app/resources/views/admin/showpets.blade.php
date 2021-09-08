@@ -1,7 +1,18 @@
 @extends('layouts.admin')
 
-@section('title', 'APPet | Meus Pets')
+@section('title', 'PetsOn | Pets')
 @section('content')
+
+@if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error) 
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
 <div>
     <div class="col-md-10 offset-md-1 dashboard-title-container">
         <h1>Pets</h1>
@@ -39,8 +50,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger delete-btn">
-                                            <ion-icon name="trash-outline"></ion-icon>
-                                            Deletar
+                                        <ion-icon name="trash-outline"></ion-icon> Deletar
                                     </button>
                                 </form>
                             </td>

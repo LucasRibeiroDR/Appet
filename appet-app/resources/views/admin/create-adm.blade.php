@@ -1,7 +1,17 @@
 @extends('layouts.admin')
 
-@section('title', 'APPet | Criar Adm')
+@section('title', 'PetsOn | Criar Adm')
 @section('content')
+
+@if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error) 
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
 
 <div id="event-create-container" class="col-md-6 offset-md-3">
     <h1>Criar Adm</h1>
@@ -33,7 +43,7 @@
         </div>
         <div class="form-group">
             <label for="password">Senha</label>
-            <input type="text" class="form-control" name="password" id="password" placeholder="Senha ....">
+            <input type="password" class="form-control" name="password" id="password" placeholder="Senha ....">
         </div>
 
         <div class="form-group">

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Middleware\Authenticate;
 use Illuminate\Http\Request;
-use App\Models\Consult;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
@@ -30,9 +29,7 @@ class UserController extends Controller
      */
     public function create()
     {
-
         $this->authorize('create-user');
-
         return view('users.create');
     }
 
@@ -44,7 +41,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
         $this->authorize('create-user');
 
         $user = new User;
@@ -74,10 +70,7 @@ class UserController extends Controller
 
         $user->save();
 
-
-
-        return redirect('/')
-            ->with('msg', 'Um novo usuário foi criado com sucesso!!!');
+        return redirect('/admin/users')->with('msg', 'Um novo usuário foi criado com sucesso!!!');
     }
 
     /**
@@ -104,9 +97,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $this->authorize('edit-user');
-
         $user = User::findOrFail($id);
-
         return view('users.edit', ['user' => $user]);
     }
 
@@ -120,10 +111,9 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $this->authorize('edit-user');
-
         $data = $request->all();
         User::findOrFail($id)->update($data);
-        return redirect('/admin/dashboard');
+        return redirect('/admin/users')->with('msg', 'Usuário atualizado com sucesso!');
     }
 
     /**
@@ -135,8 +125,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         User::findOrFail($id)->delete();
-        return redirect('/users/show')
-            ->with('msg', 'Usuário excluído com sucesso!');
+        return redirect('/admin/users')->with('msg', 'Usuário excluído com sucesso!');
     }
 
     public function dashboard()

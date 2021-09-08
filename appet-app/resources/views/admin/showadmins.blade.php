@@ -1,7 +1,18 @@
 @extends('layouts.admin')
 
-@section('title', 'APPet | Meus Pets')
+@section('title', 'PetsOn | Admins')
 @section('content')
+
+@if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error) 
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
 <div>
     <div class="col-md-10 offset-md-1 dashboard-title-container">
         <h1>Admins</h1>
@@ -27,7 +38,7 @@
                             <td>{{ $admin->name }}</td>
                             @can('edit-admin')
                                 <td class="d-flex ">
-                                    <a class="btn btn-info edit-btn" href="/pets/edit/{{$admin->id}}">
+                                    <a class="btn btn-info edit-btn" href="/admin/edit-admin/{{$admin->id}}">
                                         <ion-icon name="create-outline"></ion-icon>
                                         Editar
                                     </a>

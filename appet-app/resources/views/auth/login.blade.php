@@ -1,6 +1,13 @@
-@section('title', 'APPet | Login')
-@section('content')
-
+@section('title', 'PetsOn | Login')
+@if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error) 
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
 <x-guest-layout>
 
     <link rel="stylesheet" href="/css/styles.css">

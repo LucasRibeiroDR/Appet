@@ -1,7 +1,18 @@
 @extends('layouts.admin')
 
-@section('title', 'APPet | Meus Pets')
+@section('title', 'PetsOn | Pets')
 @section('content')
+
+@if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error) 
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
 <div>
     <div class="col-md-10 offset-md-1 dashboard-title-container">
         <h1>Usuarios</h1>
@@ -20,7 +31,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+{{--                <th scope="col">#</th>--}}
                     <th scope="col">Nome</th>
                     <th scope="col">Ações</th>
                 </tr>
@@ -29,20 +40,17 @@
                 @foreach($users as $user)
                     @if($user->hasRole('user'))
                         <tr>
-                            <td scropt="row">{{ $loop->index + 1 }}</td>
+{{--                        <td scropt="row">{{ $loop->index + 1 }}</td>--}}
                             <td>{{ $user->name }}</td>
                             <td class="d-flex ">
                                 <a class="btn btn-info edit-btn" href="/admin/edit-user/{{$user->id}}">
-                                        <ion-icon name="create-outline"></ion-icon>
-                                        Editar
+                                    <ion-icon name="create-outline"></ion-icon>Editar
                                 </a>
                                 <a class="btn btn-dark create-btn" href="/admin/create-pet/{{$user->id}}">
-                                    <ion-icon name="create-outline"></ion-icon>
-                                    Criar Pet
+                                    <ion-icon name="add"></ion-icon> Novo Pet
                                 </a>
-                                <a class="btn btn-dark create-btn" href="/admin/createAppointments/{{$user->id}}">
-                                    <ion-icon name="create-outline"></ion-icon>
-                                    Criar Consulta
+                                <a class="btn btn-dark create-btn" href="/admin/calendar/{{$user->id}}">
+                                    <ion-icon name="add"></ion-icon> Nova Consulta
                                 </a>
 
                                 {{-- <form action="/pets/{{ $user->id }}" method="POST">

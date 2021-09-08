@@ -1,7 +1,18 @@
 @extends('layouts.main')
 
-@section('title', 'APPet | Agendamentos')
+@section('title', 'PetsOn | Consultas')
 @section('content')
+
+@if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error) 
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
 <div>
     <div class="col-md-10 offset-md-1 dashboard-title-container">
         <h1>Agendamentos</h1>
@@ -11,7 +22,7 @@
         @if(count($appointments) > 0)
         <table class="table">
             <div class="form-group">
-                <p class="youHaveConsults"><a href="/appointments/create">Marcar consulta</a></p>
+                <p class="youHaveConsults"><a href="/calendar">Marcar consulta</a></p>
             </div>
             <thead>
                 <tr>
@@ -31,7 +42,7 @@
                     <td>#</td>
                     <td>{{$appointment->pet->name }}</td>
                     <td>{{ $appointment->date->format('d/m/Y') }}</td>
-                    <td>{{ $appointment->hour }}</td>
+                    <td>{{ $appointment->timeslot }}</td>
                     <td>{{ $appointment->descricao }}</td>
                     <td class="d-flex ">
                         <a class="btn btn-info edit-btn" href="/appointments/edit/{{ $appointment->id }}">
@@ -40,9 +51,9 @@
                         <form action="/appointments/{{ $appointment->id }}" method="POST" >
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger delete-btn">
+                            <button type="submit" class="btn btn-secondary delete-btn">
                                         <ion-icon name="trash-outline"></ion-icon>
-                                        Deletar
+                                        Cancelar
                             </button>
                         </form>
                     </td>
@@ -52,7 +63,7 @@
         </table>
         @else
         <div class="form-group">
-            <p class="youDontHavePets">Você ainda não tem consultas marcadas, <a  href="/appointments/create">criar nova consulta</a></p>
+            <p class="youDontHavePets">Você ainda não tem consultas marcadas, <a  href="/calendar">criar nova consulta</a></p>
 
             @can('edit-appointment')
                 <a class="btn btn-primary" href="/appointments/edit/1">

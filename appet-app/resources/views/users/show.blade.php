@@ -1,7 +1,17 @@
-@extends('layouts.main')
+@extends('layouts.admin')
 
-@section('title', 'APPet | Apresentar Usuário')
+@section('title', 'PetsOn | Apresentar Usuário')
 @section('content')
+
+@if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error) 
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
 
 <div>
     <div class="col-md-10 offset-md-1 dashboard-title-container">
@@ -39,9 +49,9 @@
                 @endforeach    
             </tbody>
         </table>
-        {{-- @else
-            <p class="youDontHavePets">Você ainda não tem usuários, <a href="/user/create">adicionar usuário</a></p>
-        @endif --}}
+        @else
+            <p class="youDontHavePets">Ainda não tem usuários, <a href="/admin/create-user">adicionar usuário</a></p>
+        @endif
     </div>
 </div>
 @endsection

@@ -39,7 +39,7 @@
            </a>
            <ul class="navbar-nav">
             <li class="nav-item">
-              <a href="/" class="nav-link">APPet</a>
+              <a href="/" class="nav-link">PetsOn</a>
             </li>
             <li class="nav-item">
               <a href="/appointments/show" class="nav-link">Agendamentos</a>

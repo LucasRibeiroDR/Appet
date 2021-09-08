@@ -1,7 +1,18 @@
 @extends('layouts.main')
 
-@section('title', 'APPet | Editando Pet')
+@section('title', 'PetsOn | Editando Pet')
 @section('content')
+
+@if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error) 
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
 <div id="event-create-container" class="col-md-6 offset-md-3">
     <h1>Editando seu Pet</h1>
     <form action="/pets/update/{{ $pet->id }}" method="POST">
@@ -9,7 +20,7 @@
         @method('PUT')
         <div class="form-group">
             <label for="name">Nome do Pet</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Bob, Nina, Belinha, ..." value="{{ $pet->name }}">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Bob, Nina, Belinha, ..." value="{{ $pet->name }}" maxlength=50>
         </div>
         <div class="form-group">
             <label for="especie">Especie do seu Pet</label>

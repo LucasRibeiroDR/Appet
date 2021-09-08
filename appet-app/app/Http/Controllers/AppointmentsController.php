@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Appointment;
-use Carbon\Carbon;
-
 
 class AppointmentsController extends Controller
 {
@@ -16,7 +14,6 @@ class AppointmentsController extends Controller
      */
     public function index()
     {
-
         $this->authorize('view-appointments');
 
         return view('appointments.appointments');
@@ -49,11 +46,9 @@ class AppointmentsController extends Controller
 
         $request->validate([
             'pet_id' => 'required',
-            'date' => 'required',
-            'hour' => 'required',
+            'timeslot' => 'required',
             'area_consulta' => 'required',
             'descricao' => 'required',
-
         ]);
 
         $appointments = new Appointment;
@@ -62,7 +57,7 @@ class AppointmentsController extends Controller
         $appointments->pet_id = $request->pet_id;
 
         $appointments->date = $request->date;
-        $appointments->hour = $request->hour;
+        $appointments->timeslot = $request->timeslot;
         $appointments->area_consulta = $request->area_consulta;
         $appointments->descricao = $request->descricao;
 
@@ -121,12 +116,9 @@ class AppointmentsController extends Controller
     public function update(Request $request, $id)
     {
         $this->authorize('edit-appointment');
-
         $data = $request->all();
-        // dd($data);
-        // dd(Appointment::findOrFail($request->id));
         Appointment::findOrFail($request->id)->update($data);
-        return redirect('/appointments/show');
+        return redirect('/appointments/show')->with('msg', 'Consulta atualizada com sucesso!');
     }
 
     /**
@@ -140,6 +132,6 @@ class AppointmentsController extends Controller
         $this->authorize('delete-appointment');
 
         Appointment::findOrFail($id)->delete();
-        return redirect('/appointments/show');
+        return redirect('/appointments/show')->with('msg', 'Consulta cancelada com sucesso!');;
     }
 }

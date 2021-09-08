@@ -15,17 +15,12 @@ class CreateAppointmentsTable extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-
-            $table->dateTime('date');
-            // $table->enum('hour', ['8:00', '10:00', '14:00', '16:00']);
-            $table->time('hour');
-
+            $table->date('date')->nullable(false);
+            $table->string('timeslot', 17)->nullable(false);
             $table->string('area_consulta');
             $table->text('descricao');
-
             $table->timestamp('start_date')->nullable();
             $table->timestamp('end_date')->nullable();
-
             $table->timestamps();
         });
     }
