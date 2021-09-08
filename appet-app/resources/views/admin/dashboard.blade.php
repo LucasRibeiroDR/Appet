@@ -31,7 +31,7 @@
               <span>{{Auth::user()->email}}</span>
             </div>
             <form action="/user/profile" class="mb-3">
-              <button class="btn btn-block btn-outline-success">Edite seu Perfil</button>
+              <button class="editProfile btn btn-block btn-primary">Edite seu Perfil</button>
             </form>
           </div>
         </div>
