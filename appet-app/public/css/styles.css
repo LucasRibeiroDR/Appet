@@ -170,6 +170,41 @@ input[type='file'] {
     font-weight: bolder;
 }
 
+.hvUenpLogo {
+  width: 70px;
+  margin-left: 1rem;
+}
+
+.uenpLogo{
+  width: 100px;
+}
+
+.navbar{
+  background-color: #6aa570;
+	font-weight: 600;
+	font-size: 0.875rem;
+	line-height: 0.875rem;
+	box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.05);
+}
+
+.navbar .navbar-brand {
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+}
+
+.navbar a {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.navbar a:hover {
+  color: #ffffff;
+  font-weight: bolder;
+}
+
+.navbar-toggler{
+  color: #ffffff;
+}
 
 /* Search Container */
 
@@ -467,6 +502,13 @@ footer p {
 
 
 /*home*/
+.header {
+	padding-top: 8rem;
+	padding-bottom: 4em;
+	background-color: #ffffff;
+	background-size: cover;
+	text-align: center;
+}
 
 .imagemHome {
     position: absolute;
@@ -495,4 +537,72 @@ footer p {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.header .h1-large {
+	margin-bottom: 1.75rem;
+}
+
+.header .ul-large {
+	margin-bottom: 2.25rem;
+}
+
+.header .image-container {
+	margin-top: 5rem;
+}
+
+.btn {
+  border-color: #1D4B80;
+  color: #ffffff;
+  background-color: #1D4B80;
+  font-size: 14;
+}
+
+.btn:hover {
+  background-color: #0a2f5a;
+  border-color: #0a2f5a;
+  font-weight: bolder;
+  font-size: 14;
+}
+
+/*Cadastro Pet*/
+
+.btnPet{
+  width: 100%;
+}
+
+.containerCadPet{
+  width: 500px;
+  height: 450px;
+  position: absolute;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: #e5f1e2;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  justify-content: center;
+}
+
+/*Meus Pets*/
+
+.btn-danger{
+  background-color: #B60000;
+  border-color: #B60000;
+}
+
+.btn-danger:hover{
+  background-color: #750000;
+  border-color: #750000;
+}
+
+.containerMPets li {
+  width: 230px;
+  height: 200px;
+  margin: 0;
+  border-radius: 5px;
+  border: none;
+  background: #e5f1e2;
+  float: left;
+  overflow: hidden;
 }

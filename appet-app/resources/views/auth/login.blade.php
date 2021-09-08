@@ -10,7 +10,7 @@
 @endif
 <x-guest-layout>
 
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/user/forms.css">
 
     @if (session('status'))
     <div class="mb-4 font-medium text-sm text-green-600">
@@ -18,46 +18,51 @@
     </div>
     @endif
 
-    <div class="justify">
-        <div class="container">
-            <div class="imgLogin">
-                <img src="./img/1.png" alt="calendario">
-            </div>
-            <div class="login-content">
-                <form method="POST" action="{{ route('login') }}">
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-pic">
+                    <img src="{{ asset('./img/1.png') }}" alt="calendario">
+                </div>
+
+                <form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
                     @csrf
-                    <h2 class="titleText">Login</h2>
-                    <div>
-                        <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus placeholder="E-mail" style="border-color: #1D4B80;"/>
-                    </div>
-                    <br>
-                    <div class="mt-4">
-                        <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" placeholder="Senha" style="border-color: #1D4B80;"/>
-                    </div>
+                    <span class="login100-form-title">
+                        Login
+                    </span>
 
-                    <div class="block mt-4">
-                        <label for="remember_me" class="flex items-center">
-                            <x-jet-checkbox id="remember_me" name="remember" />
-                            <span class="ml-2 text-sm" style="color: #000;">{{ __('Lembre-se de mim.') }}</span>
-                        </label>
+                    <div class="wrap-input100 validate-input">
+                        <x-jet-input id="email" class="input100" type="email" name="email" :value="old('email')" required autofocus placeholder="E-mail" />
+                        <span class="focus-input100"></span>
                     </div>
 
-                    <div class="flex items-center justify-end mt-4">
-                        @if (Route::has('password.request'))
-                        <a href="{{ route('password.request') }}">
-                            {{ __('Esqueceu sua senha?') }}
-                        </a>
-                        @endif
+                    <div class="wrap-input100 validate-input">
+                        <x-jet-input id="password" class="input100" type="password" name="password" required autocomplete="current-password" placeholder="Senha"/>
+                        <span class="focus-input100"></span>
+                    </div>
 
-                        <x-jet-button class="btn btn-primary ml-4">
+                    <div class="container-login100-form-btn">
+                        <x-jet-button class="login100-form-btn">
                             {{ __('Entrar') }}
                         </x-jet-button>
                     </div>
-                    <br>
-                    <p class="mb-2 text-muted" style="font-size: 14px;">Não tem conta? <a href="{{ route('register') }}">Registre-se</a></p>
+
+                    <div class="text-center p-t-20">
+                        @if (Route::has('password.request'))
+                        <a class="txt" href="{{ route('password.request') }}">
+                            {{ __('Esqueceu sua senha?') }}
+                        </a>
+                        @endif
+                    </div>
+
+                    <div class="text-center p-t-136">
+                        <a href=""></a></p>
+                        <a class="txt" href="{{ route('register') }}">
+                            Registre-se
+                        </a>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
-
 </x-guest-layout>
