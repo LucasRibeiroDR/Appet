@@ -3,6 +3,8 @@
 @section('title', 'PetsOn | Perfil')
 @section('content')
 
+<link rel="stylesheet" href="{{ asset('css/cssAdmin/dashboard.css') }}">
+
 @if($errors->any())
   <div class="alert alert-danger">
     <ul>
@@ -15,7 +17,6 @@
 
 <div class="main-body mt-3">
   <div class="page-wrapper">
-    <!-- [ Main Content ] start -->
     <div class="row">
       <div class="col-sm-12">
         <div class="card User-Activity">

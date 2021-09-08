@@ -20,7 +20,6 @@
         <link rel="stylesheet" href="/css/styles.css">
         <link rel="stylesheet" href="/css/responsive.css">
 
-        <link rel="stylesheet" href="{{ asset('css/cssAdmin/dashboardAdmin.css') }}">
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
