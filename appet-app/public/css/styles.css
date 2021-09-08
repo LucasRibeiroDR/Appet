@@ -98,26 +98,20 @@ header {
     text-decoration: underline;
 }
 
-.youHaveConsults,
-.editProfile {
-    background-color: #bceeb3;
-    color: #25a10f;
-    border: 1px solid #66e477;
+.youHaveConsults {
     width: 100%;
     margin-bottom: 0;
     text-align: center;
     padding: 10px;
 }
 
-.youHaveConsults a,
-.editProfile a {
+.youHaveConsults a {
     color: #1ba10f;
     font-weight: bold;
     text-decoration: none;
 }
 
-.youHaveConsults a:hover,
-.editProfile a:hover {
+.youHaveConsults a:hover {
     text-decoration: underline;
 }
 

@@ -42,11 +42,10 @@
                             <td>{{ $pet->user->name }}</td>
                             <td>{{ $pet->name }}</td>
                             <td class="d-flex ">
-                                <a class="btn btn-info edit-btn" href="/pets/edit/{{$pet->id}}">
-                                        <ion-icon name="create-outline"></ion-icon>
-                                        Editar
+                                <a class="btn btn-info edit-btn" title="Editar Pet" href="/admin/edit-pet/{{$pet->id}}">
+                                    <ion-icon name="create-outline"></ion-icon>Editar
                                 </a>
-                                <form action="/pets/{{ $pet->id }}" method="POST">
+                                <form action="/admin/delete-pet/{{ $pet->id }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger delete-btn">

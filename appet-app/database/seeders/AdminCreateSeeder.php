@@ -23,7 +23,7 @@ class AdminCreateSeeder extends Seeder
             'cpf' => '999.999.999-99',
             'rg' => '99.999.999-9',
             'telefone' => '(99)99999-9999',
-            'endereco' => 'admin',
+            'endereco' => 'Avenida dos Super Admins',
             'email' => 'super@admin.com',
             'student'=>'Não',
             'ra'=>'202111113030099',
@@ -33,11 +33,11 @@ class AdminCreateSeeder extends Seeder
         $admin->assignRole('Super Admin');
 
         $admin = User::create([
-            'name' => 'admin',
+            'name' => 'Admin',
             'cpf' => '888.888.888-88',
             'rg' => '88.888.888-8',
             'telefone' => '(88)88888-8888',
-            'endereco' => 'admin',
+            'endereco' => 'Avenida dos Admins',
             'email' => 'admin@admin.com',
             'student'=>'Não',
             'ra'=>'202111113030098',

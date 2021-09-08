@@ -28,6 +28,7 @@ class PermissionSeeder extends Seeder
             'admin-create-pet',
             'create-admin',
             'edit-pet',
+            'admin-edit-pet',
             'edit-user',
             'edit-appointment',
             'edit-admin',
@@ -41,6 +42,7 @@ class PermissionSeeder extends Seeder
             'admin-dashboard',
             'calendar',
             'admin-calendar',
+            'admin-delete-pet',
         ];
 
         foreach ($permissions as $permission){
@@ -82,10 +84,10 @@ class PermissionSeeder extends Seeder
             'admin-create-pet',
             'create-pet',
             'create-admin',
-            'edit-pet',
+            'admin-edit-pet',
+            'admin-delete-pet',
             'edit-user',
             'edit-appointment',
-            'delete-pet',
             'delete-appointment',
             'view-appointments',
             'view-pets',

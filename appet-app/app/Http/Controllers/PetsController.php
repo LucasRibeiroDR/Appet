@@ -77,7 +77,7 @@ class PetsController extends Controller
         $user = auth()->user();
         $pet = Pet::findOrFail($id);
         if($user->id != $pet->user_id && $user->hasRole('user')) {
-            return redirect('/pets/show');
+            return redirect('/pets/show')->with('msg', 'Pet atualizado com sucesso!');
         }
         return view('pets.edit', ['pet' => $pet]);
     }
@@ -88,6 +88,6 @@ class PetsController extends Controller
 
         $data = $request->all();
         Pet::findOrFail($request->id)->update($data);
-        return redirect('/pets/show');
+        return redirect('/pets/show')->with('msg', 'Pet atualizado com sucesso!');
     }
 }

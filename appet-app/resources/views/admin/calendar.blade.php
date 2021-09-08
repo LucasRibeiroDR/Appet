@@ -38,7 +38,7 @@
         $dateToday = date('Y-m-d'); 
         
         $calendar = "<center><h1>$monthName $year</h1>"; 
-        $calendar .= "<a class='btn btn-primary btn-xs' href='".$id."?month=".date('m', mktime(0,0,0,$month-1,1,$year))."&year=".date('Y', mktime(0,0,0,$month-1,1,$year))."'>←zz</a> ";
+        $calendar .= "<a class='btn btn-primary btn-xs' href='".$id."?month=".date('m', mktime(0,0,0,$month-1,1,$year))."&year=".date('Y', mktime(0,0,0,$month-1,1,$year))."'>←</a> ";
 
         $calendar .= "<a class='btn btn-primary btn-xs' href='".$id."?month=".date('m')."&year=".date('Y')."'>Mês Atual</a> ";
 
@@ -74,18 +74,18 @@
             $dayName = strtolower(date('l', strtotime($date))); 
             $today = $date == date('Y-m-d')? 'today' : '';
             if($dayName == 'saturday' || $dayName == 'sunday') {
-                $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-danger btn-xs' disabled>X</a></td>"; 
+                $calendar.="<td class='$today'><h4>$currentDay</h4></td>"; 
             } else if($date<date('Y-m-d')) {
                 $totalAppointments = checkSlots($mysqli, $date);
                 $availableSlots = 8 - $totalAppointments;
-                $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-outline-danger btn-xs' disabled>X</a> <small><i>$availableSlots</i></small> </td>"; 
+                $calendar.="<td class='$today'><h4>$currentDay</h4> <a class='btn btn-outline-danger btn-xs' disabled>x</a> <small><i>$availableSlots</i></small> </td>"; 
             } else {
                 $totalAppointments = checkSlots($mysqli, $date);
                 if($totalAppointments == 8) {
-                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='#' class='btn btn-secondary btn-xs'>  X </a></td>"; 
+                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='#' class='btn btn-secondary btn-xs'>x</a></td>"; 
                 } else {
                     $availableSlots = 8 - $totalAppointments;
-                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='/admin/createAppointments/$id?date=".$date."' class='btn btn-outline-secondary btn-xs'>  + </a> <small><i>$availableSlots</i></small> </td>";  
+                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='/admin/createAppointments/$id?date=".$date."' class='btn btn-outline-secondary btn-xs'>+</a> <small><i>$availableSlots</i></small> </td>";  
                 }
             }
             //Increment counters 

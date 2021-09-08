@@ -3,6 +3,8 @@
 @section('title', 'PetsOn | Perfil')
 @section('content')
 
+<link rel="stylesheet" href="{{ asset('css/cssAdmin/dashboard.css') }}">
+
 @if($errors->any())
   <div class="alert alert-danger">
     <ul>
@@ -12,30 +14,30 @@
     </ul>
   </div>
 @endif
-
-<div>
-    <div class="col-md-10 offset-md-1 dashboard-title-container">
-        <h1>Perfil</h1>
-    </div>
-    <div class="col-md-10 offset-md-1 dashboard-pets-container">
-        <div class="userDashboard">
-            <div class="form-group ">
-                <label class="labelDashboard" for="name">Usuário: </label>
-                <input class="inputDashboard" type="text" id="name" wire:model.defer="state.name" autocomplete="name" readonly value="{{Auth::user()->name}}">
+<div class="main-body mt-3">
+  <div class="page-wrapper">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card User-Activity">
+          <div class="card-header">
+            <h5>{{Auth::user()->name}}</h5>
+          </div>
+          <div class="card-block pb-0">
+            <div class="text-center m-b-30">
+              <div class="bg-c-green config-avatar shadow-3" style="cursor: auto;">
+                <img class="img-fluid rounded-circle" style="width:80px;">
+              </div>  
+              <h5>{{Auth::user()->name}}</h5>
+              <span>{{Auth::user()->email}}</span><br />
+              <span>{{Auth::user()->cpf}}</span>
             </div>
-            <div class="form-group">
-                <label class="labelDashboard" for="name">CPF: </label>
-                <input class="inputDashboard" type="text" id="cpf" wire:model.defer="state.cpf" autocomplete="cpf" readonly value="{{Auth::user()->cpf}}">
-            </div>
-            <div class="form-group">
-                <label class="labelDashboard" for="name">Email : </label>
-                <input class="inputDashboard" type="text" id="email" wire:model.defer="state.email" autocomplete="email" readonly value="{{Auth::user()->email}}">
-            </div>
+            <form action="/user/profile" class="mb-3">
+              <button class="editProfile btn btn-block btn-primary">Edite seu Perfil</button>
+            </form>
+          </div>
         </div>
-        <div>
-            <p class="editProfile">Edite seu <a href="/user/profile">Perfil</a></p>
-        </div>
+      </div>
     </div>
+  </div>
 </div>
-
 @endsection
