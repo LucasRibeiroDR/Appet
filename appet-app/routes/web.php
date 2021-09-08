@@ -79,7 +79,10 @@ Route::group([
     Route::put('/update-admin/{id}', [AdminController::class, 'updateAdmin'])->name('updateAdmin');
     Route::get('/create-pet/{id}', [AdminController::class, 'createPet'])->name('createPet');
     Route::post('/create-newpet/{id}', [AdminController::class, 'storePet']);
+    Route::get('/edit-pet/{id}', [AdminController::class, 'editPet'])->name('editPet');;
+    Route::put('/update-pet/{id}', [AdminController::class, 'updatePet'])->name('updatePet');;
     Route::get('/pets', [AdminController::class, 'showPets'])->name('showPets');
+    Route::delete('/delete-pet/{id}', [AdminController::class, 'destroyPet'])->name('destroyPet');
     Route::get('/appointments',[AdminController::class, 'showAppoitments'])->name('showAppoitments');
     Route::get('/createAppointments/{id}', [AdminController::class, 'createAppointments'])->name('createAppointments');
     Route::post('/create-Appointments/{id}', [AdminController::class, 'storeAppointments']);

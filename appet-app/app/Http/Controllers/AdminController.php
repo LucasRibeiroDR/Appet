@@ -221,6 +221,33 @@ class AdminController extends Controller
         return view('admin.showpets', ['pets' => $pets, 'search' => $search]);
     }
 
+    public function editPet($id) 
+    {
+        $this->authorize('admin-page');
+        $this->authorize('admin-edit-pet');
+        $user = auth()->user();
+        $pet = Pet::findOrFail($id);
+        if($user->id != $pet->user_id) {
+            return redirect('/admin/pets');
+        }
+        return view('pets.edit', ['pet' => $pet])->with('msg', 'Pet atualizado com sucesso!');
+    }
+
+    public function updatePet(Request $request) 
+    {
+        $this->authorize('admin-page');
+        $data = $request->all();
+        Pet::findOrFail($request->id)->update($data);
+        return redirect('/admin/pets')->with('msg', 'Pet atualizado com sucesso!');
+    }
+
+    public function destroyPet($id) 
+    {
+        $this->authorize('admin-page');
+        Pet::findOrFail($id)->delete();
+        return redirect('/admin/pets')->with('msg', 'Pet excluído com sucesso!');
+    }
+
     public function showAppoitments(){
 
         $this->authorize('admin-page');

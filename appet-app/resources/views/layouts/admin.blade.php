@@ -19,6 +19,8 @@
         <link rel="stylesheet" href="/css/globalColors.css">
         <link rel="stylesheet" href="/css/styles.css">
         <link rel="stylesheet" href="/css/responsive.css">
+
+        <link rel="stylesheet" href="{{ asset('css/cssAdmin/dashboardAdmin.css') }}">
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
@@ -33,7 +35,7 @@
       <!-- Header -->
       <header>
         <nav class="navbar navbar-expand-lg navbar-light">
-          <div class="collapse navbar-collapse" id="navbar">
+          <div class="navbar-collapse" id="navbar">
            <a href="/admin/welcome" class="navbar-brand">
             <img src="/img/pet.ico" alt="APPet Icon">
            </a>
