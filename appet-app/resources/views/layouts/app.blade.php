@@ -90,7 +90,6 @@
         <div class="min-h-screen bg-gray-100">
             <!-- Page Content -->
             <main>
-                {{ $slot }}
                 <div class="container-fluid">
                     <div class="row">
                         @if(session('msg'))
