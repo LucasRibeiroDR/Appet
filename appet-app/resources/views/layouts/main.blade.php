@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 <!-- Header -->
-
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
     <!-- <div class="navbar-collapse justify-content-around" id="navbar"> -->
