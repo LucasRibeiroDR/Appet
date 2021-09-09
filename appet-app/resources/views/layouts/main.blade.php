@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 <!-- Header -->
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
     <!-- <div class="navbar-collapse justify-content-around" id="navbar"> -->
@@ -72,4 +71,3 @@
 <footer class="fixed-bottom">
   <p>APPet &copy; 2021</p>
 </footer>
-</html>
