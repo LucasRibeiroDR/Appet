@@ -28,8 +28,8 @@ class AdminController extends Controller
         return view ('admin.dashboard');
     }
 
-    public function showUsers(){
-
+    public function showUsers()
+    {
         $this->authorize('admin-view-user');
 
         $search = request('search');
@@ -48,8 +48,8 @@ class AdminController extends Controller
         ]);
     }
 
-    public function showAdmins(){
-
+    public function showAdmins()
+    {
         $this->authorize('admin-view-admin');
 
         $admins = User::all()->sortBy('name');
@@ -128,7 +128,7 @@ class AdminController extends Controller
      */
     public function editAdmin($id)
     {
-        $this->authorize('edit-admin');
+        $this->authorize('admin-edit-admin');
         $admin = User::findOrFail($id);
         return view('admin-edit-admin', ['admin' => $admin]);
     }
@@ -257,7 +257,7 @@ class AdminController extends Controller
 
     public function createAppointments($id)
     {
-        $this->authorize('admin-page');
+        $this->authorize('admin-create-appointment');
         $user = User::findOrFail($id);
         return view ('admin.createAppointments', ['user' => $user]);
     }
