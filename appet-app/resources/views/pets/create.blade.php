@@ -38,8 +38,8 @@
         <div class="form-group">
             <label for="especie">Especie do seu Pet</label>
             <select name="especie" id="especie" class="form-control" onchange="hidden_show()">
-                <option value="0">Gato</option>
-                <option value="1">Cachorro</option>
+                <option value="Gato">Gato</option>
+                <option value="Cachorro">Cachorro</option>
             </select>
         </div>
 
