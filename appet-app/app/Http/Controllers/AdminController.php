@@ -196,6 +196,7 @@ class AdminController extends Controller
         $pet->especie = $request->especie;
         $pet->data_nascimento = $request->data_nascimento;
         $pet->castrado = $request->castrado;
+        $pet->status = true;
 
         $pet->user_id = $id;
 
@@ -224,17 +225,15 @@ class AdminController extends Controller
     public function editPet($id)
     {
         $this->authorize('admin-edit-pet');
-        $user = auth()->user();
+
         $pet = Pet::findOrFail($id);
-        if($user->id != $pet->user_id) {
-            return redirect('/admin/pets');
-        }
-        return view('pets.edit', ['pet' => $pet])->with('msg', 'Pet atualizado com sucesso!');
+
+        return view('admin.edit-pet', ['pet' => $pet])->with('msg', 'Pet atualizado com sucesso!');
     }
 
     public function updatePet(Request $request)
     {
-        $this->authorize('admin-delete-pet');
+        $this->authorize('admin-edit-pet');
         $data = $request->all();
         Pet::findOrFail($request->id)->update($data);
         return redirect('/admin/pets')->with('msg', 'Pet atualizado com sucesso!');
@@ -242,7 +241,7 @@ class AdminController extends Controller
 
     public function destroyPet($id)
     {
-        $this->authorize('admin-page');
+        $this->authorize('admin-delete-pet');
         Pet::findOrFail($id)->delete();
         return redirect('/admin/pets')->with('msg', 'Pet excluído com sucesso!');
     }
