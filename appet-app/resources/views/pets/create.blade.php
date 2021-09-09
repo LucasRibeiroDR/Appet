@@ -30,7 +30,9 @@
             <select required name="pelugem" id="pelugem" class="form-control">
                 @foreach ($pelugens as $pelugem)
                     <option value="{{ $pelugem->name }}">{{ $pelugem->name }}</option>
+                    
                 @endforeach
+                <option value="0">azul</option>
             </select>
         </div>
         <div class="form-group">

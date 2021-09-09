@@ -32,7 +32,9 @@
                     <th scope="col">#</th>
                     <th scope="col">Nome do dono</th>
                     <th scope="col">Nome do Animal</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Ações</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -41,6 +43,12 @@
                             <td scropt="row">{{ $loop->index + 1 }}</td>
                             <td>{{ $pet->user->name }}</td>
                             <td>{{ $pet->name }}</td>
+                            @if($pet->status ==1)
+                            <td>Vivo</td>
+                            @else
+                                <td>Morto</td>
+                            @endif
+
                             <td class="d-flex ">
                                 <a class="btn btn-info edit-btn" title="Editar Pet" href="/admin/edit-pet/{{$pet->id}}">
                                     <ion-icon name="create-outline"></ion-icon>Editar

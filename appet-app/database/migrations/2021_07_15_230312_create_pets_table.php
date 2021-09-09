@@ -22,6 +22,7 @@ class CreatePetsTable extends Migration
             $table->string('porte')->nullable();
             $table->dateTime('data_nascimento');
             $table->boolean('castrado');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

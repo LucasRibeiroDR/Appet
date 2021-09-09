@@ -63,6 +63,15 @@
                 <option value="1" {{ $pet->castrado == 1 ? "selected='selected'" : "" }}>Sim</option>
             </select>
         </div>
+
+        <div class="form-group">
+            <label for="statys">Status do Animal</label>
+            <select name="status" id="status" class="form-control">
+                <option value="1">Vivo</option>
+                <option value="0" {{ $pet->status == 0 ? "selected='selected'" : "" }}>Morto</option>
+            </select>
+        </div>
+
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Finalizar Edição">
         </div>

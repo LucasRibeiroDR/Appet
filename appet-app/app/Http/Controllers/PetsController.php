@@ -43,6 +43,7 @@ class PetsController extends Controller
         $pet->porte= $request->porte;
         $pet->data_nascimento = $request->data_nascimento;
         $pet->castrado = $request->castrado;
+        $pet->status = $request->status;
 
         $user = auth()->user();
 
