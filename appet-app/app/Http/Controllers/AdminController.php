@@ -169,6 +169,7 @@ class AdminController extends Controller
 
         $pelugens = DB::table('pelugens')
             ->select('name')
+            ->orderBy('name', 'asc')
             ->get();
 
         return view('admin/create-pet', ['user' => $user, 'pelugens' => $pelugens]);
@@ -221,7 +222,7 @@ class AdminController extends Controller
         return view('admin.showpets', ['pets' => $pets, 'search' => $search]);
     }
 
-    public function editPet($id) 
+    public function editPet($id)
     {
         $this->authorize('admin-page');
         $this->authorize('admin-edit-pet');
@@ -233,7 +234,7 @@ class AdminController extends Controller
         return view('pets.edit', ['pet' => $pet])->with('msg', 'Pet atualizado com sucesso!');
     }
 
-    public function updatePet(Request $request) 
+    public function updatePet(Request $request)
     {
         $this->authorize('admin-page');
         $data = $request->all();
@@ -241,7 +242,7 @@ class AdminController extends Controller
         return redirect('/admin/pets')->with('msg', 'Pet atualizado com sucesso!');
     }
 
-    public function destroyPet($id) 
+    public function destroyPet($id)
     {
         $this->authorize('admin-page');
         Pet::findOrFail($id)->delete();
@@ -289,9 +290,9 @@ class AdminController extends Controller
 
         return redirect('/admin/appointments')->with('msg', 'Agendado com sucesso!!!');
     }
-    
-    public function adminCalendar($id) 
-    { 
+
+    public function adminCalendar($id)
+    {
         $this->authorize('admin-page');
         $user = User::findOrFail($id);
         return view('admin.calendar', [
