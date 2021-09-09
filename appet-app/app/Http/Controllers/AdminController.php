@@ -28,8 +28,8 @@ class AdminController extends Controller
         return view ('admin.dashboard');
     }
 
-    public function showUsers()
-    {
+    public function showUsers(){
+
         $this->authorize('admin-view-user');
 
         $search = request('search');
@@ -50,7 +50,7 @@ class AdminController extends Controller
 
     public function showAdmins(){
 
-        $this->authorize('admin-page');
+        $this->authorize('admin-view-admin');
 
         $admins = User::all()->sortBy('name');
 
@@ -128,9 +128,9 @@ class AdminController extends Controller
      */
     public function editAdmin($id)
     {
-        $this->authorize('admin-edit-admin');
+        $this->authorize('edit-admin');
         $admin = User::findOrFail($id);
-        return view('admin.edit-adm', ['admin' => $admin]);
+        return view('admin-edit-admin', ['admin' => $admin]);
     }
 
     /**
@@ -143,8 +143,10 @@ class AdminController extends Controller
     public function updateAdmin(Request $request, $id)
     {
         $this->authorize('admin-edit-admin');
+
         $data = $request->all();
         User::findOrFail($request->id)->update($data);
+
         return redirect('/admin/admins')->with('msg', 'Admin atualizado com sucesso!!!');;
     }
 
@@ -167,6 +169,7 @@ class AdminController extends Controller
 
         $pelugens = DB::table('pelugens')
             ->select('name')
+            ->orderBy('name', 'asc')
             ->get();
 
         return view('admin/create-pet', ['user' => $user, 'pelugens' => $pelugens]);
@@ -193,6 +196,7 @@ class AdminController extends Controller
         $pet->especie = $request->especie;
         $pet->data_nascimento = $request->data_nascimento;
         $pet->castrado = $request->castrado;
+        $pet->status = true;
 
         $pet->user_id = $id;
 
@@ -201,7 +205,7 @@ class AdminController extends Controller
         return redirect('/admin/dashboard')->with('msg', 'Pet criado com sucesso!!!');
     }
 
-    public function showPets() 
+    public function showPets()
     {
         $this->authorize('admin-view-pet');
 
@@ -218,18 +222,16 @@ class AdminController extends Controller
         return view('admin.showpets', ['pets' => $pets, 'search' => $search]);
     }
 
-    public function editPet($id) 
+    public function editPet($id)
     {
         $this->authorize('admin-edit-pet');
-        $user = auth()->user();
+
         $pet = Pet::findOrFail($id);
-        if($user->id != $pet->user_id) {
-            return redirect('/admin/pets');
-        }
-        return view('pets.edit', ['pet' => $pet])->with('msg', 'Pet atualizado com sucesso!');
+
+        return view('admin.edit-pet', ['pet' => $pet])->with('msg', 'Pet atualizado com sucesso!');
     }
 
-    public function updatePet(Request $request) 
+    public function updatePet(Request $request)
     {
         $this->authorize('admin-edit-pet');
         $data = $request->all();
@@ -237,7 +239,7 @@ class AdminController extends Controller
         return redirect('/admin/pets')->with('msg', 'Pet atualizado com sucesso!');
     }
 
-    public function destroyPet($id) 
+    public function destroyPet($id)
     {
         $this->authorize('admin-delete-pet');
         Pet::findOrFail($id)->delete();
@@ -247,13 +249,15 @@ class AdminController extends Controller
     public function showAppoitments()
     {
         $this->authorize('admin-view-appointment');
+
         $appointments = Appointment::all();
+
         return view ('admin.showappointments', ['appointments' => $appointments]);
     }
 
     public function createAppointments($id)
     {
-        $this->authorize('admin-create-appointment');
+        $this->authorize('admin-page');
         $user = User::findOrFail($id);
         return view ('admin.createAppointments', ['user' => $user]);
     }
@@ -282,9 +286,9 @@ class AdminController extends Controller
 
         return redirect('/admin/appointments')->with('msg', 'Agendado com sucesso!!!');
     }
-    
-    public function adminCalendar($id) 
-    { 
+
+    public function adminCalendar($id)
+    {
         $this->authorize('admin-calendar');
         $user = User::findOrFail($id);
         return view('admin.calendar', [
