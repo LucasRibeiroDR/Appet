@@ -18,19 +18,19 @@ class AdminController extends Controller
      */
     public function welcome()
     {
-        $this->authorize('admin-page');
+        $this->authorize('admin-welcome');
         return view ('admin.welcome');
     }
 
     public function index()
     {
-        $this->authorize('admin-page');
+        $this->authorize('admin-dashboard');
         return view ('admin.dashboard');
     }
 
-    public function showUsers(){
-
-        $this->authorize('admin-page');
+    public function showUsers()
+    {
+        $this->authorize('admin-view-user');
 
         $search = request('search');
 
@@ -66,7 +66,7 @@ class AdminController extends Controller
      */
     public function createAdmin()
     {
-        $this->authorize('create-admin');
+        $this->authorize('admin-create-admin');
         return view ('admin.create-adm');
     }
 
@@ -78,7 +78,7 @@ class AdminController extends Controller
      */
     public function storeAdmin(Request $request)
     {
-        $this->authorize('create-admin');
+        $this->authorize('admin-create-admin');
 
         $request->validate([
             'name' => 'required',
@@ -117,7 +117,7 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+        $this->authorize('admin-view-admin');
     }
 
     /**
@@ -128,7 +128,7 @@ class AdminController extends Controller
      */
     public function editAdmin($id)
     {
-        $this->authorize('edit-admin');
+        $this->authorize('admin-edit-admin');
         $admin = User::findOrFail($id);
         return view('admin.edit-adm', ['admin' => $admin]);
     }
@@ -142,11 +142,9 @@ class AdminController extends Controller
      */
     public function updateAdmin(Request $request, $id)
     {
-        $this->authorize('edit-admin');
-
+        $this->authorize('admin-edit-admin');
         $data = $request->all();
         User::findOrFail($request->id)->update($data);
-
         return redirect('/admin/admins')->with('msg', 'Admin atualizado com sucesso!!!');;
     }
 
@@ -161,8 +159,8 @@ class AdminController extends Controller
         //
     }
 
-    public function createPet($id){
-
+    public function createPet($id)
+    {
         $this->authorize('admin-create-pet');
 
         $user = User::findOrFail($id);
@@ -174,9 +172,9 @@ class AdminController extends Controller
         return view('admin/create-pet', ['user' => $user, 'pelugens' => $pelugens]);
     }
 
-    public function storePet(Request $request, $id){
-
-        $this->authorize('admin-page');
+    public function storePet(Request $request, $id)
+    {
+        $this->authorize('admin-create-pet');
 
         $pet = new Pet;
 
@@ -203,10 +201,9 @@ class AdminController extends Controller
         return redirect('/admin/dashboard')->with('msg', 'Pet criado com sucesso!!!');
     }
 
-    public function showPets() {
-
-        $this->authorize('admin-page');
-        $this->authorize('view-pets');
+    public function showPets() 
+    {
+        $this->authorize('admin-view-pet');
 
         $search = request('search');
 
@@ -223,7 +220,6 @@ class AdminController extends Controller
 
     public function editPet($id) 
     {
-        $this->authorize('admin-page');
         $this->authorize('admin-edit-pet');
         $user = auth()->user();
         $pet = Pet::findOrFail($id);
@@ -235,7 +231,7 @@ class AdminController extends Controller
 
     public function updatePet(Request $request) 
     {
-        $this->authorize('admin-page');
+        $this->authorize('admin-edit-pet');
         $data = $request->all();
         Pet::findOrFail($request->id)->update($data);
         return redirect('/admin/pets')->with('msg', 'Pet atualizado com sucesso!');
@@ -243,30 +239,27 @@ class AdminController extends Controller
 
     public function destroyPet($id) 
     {
-        $this->authorize('admin-page');
+        $this->authorize('admin-delete-pet');
         Pet::findOrFail($id)->delete();
         return redirect('/admin/pets')->with('msg', 'Pet excluído com sucesso!');
     }
 
-    public function showAppoitments(){
-
-        $this->authorize('admin-page');
-        $this->authorize('view-appointments');
-
+    public function showAppoitments()
+    {
+        $this->authorize('admin-view-appointment');
         $appointments = Appointment::all();
-
         return view ('admin.showappointments', ['appointments' => $appointments]);
     }
 
-    public function createAppointments($id){
-
-        $this->authorize('admin-page');
+    public function createAppointments($id)
+    {
+        $this->authorize('admin-create-appointment');
         $user = User::findOrFail($id);
         return view ('admin.createAppointments', ['user' => $user]);
     }
 
-    public function storeAppointments(Request $request, $id){
-        $this->authorize('admin-page');
+    public function storeAppointments(Request $request, $id)
+    {
         $this->authorize('admin-create-appointment');
 
         $appointments = new Appointment;
@@ -292,7 +285,7 @@ class AdminController extends Controller
     
     public function adminCalendar($id) 
     { 
-        $this->authorize('admin-page');
+        $this->authorize('admin-calendar');
         $user = User::findOrFail($id);
         return view('admin.calendar', [
             'user' => $user,

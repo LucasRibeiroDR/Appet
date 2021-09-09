@@ -49,16 +49,7 @@
                 <img src="/img/pet.ico" alt="APPet Icon">
             </a>
             <ul class="navbar-nav">
-                <li class="nav-item">
-                <a href="/" class="nav-link">PetsOn</a>
-                </li>
-                <li class="nav-item">
-                <a href="/appointments/show" class="nav-link">Agendamentos</a>
-                </li>
                 @auth
-                <li class="nav-item">
-                <a href="/pets/show" class="nav-link">Meus pets</a>
-                </li>
                 <li class="nav-item">
                     <a href="/dashboard" class="nav-link">Perfil</a>
                 </li>
@@ -102,8 +93,6 @@
                 </div>
             </main>
         </div>
-
-        @stack('modals')
         @livewireScripts
         <!-- Footer -->
         <footer>

@@ -29,7 +29,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $this->authorize('create-user');
+        $this->authorize('admin-create-user');
         return view('users.create');
     }
 
@@ -41,7 +41,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $this->authorize('create-user');
+        $this->authorize('admin-create-user');
 
         $user = new User;
 
@@ -81,6 +81,7 @@ class UserController extends Controller
      */
     public function show()
     {
+        $this->authorize('admin-view-user');
         $user = auth()->user();
         $users = $user->users;
         return view('users.show', [
@@ -96,7 +97,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $this->authorize('edit-user');
+        $this->authorize('admin-edit-user');
         $user = User::findOrFail($id);
         return view('users.edit', ['user' => $user]);
     }
@@ -110,7 +111,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->authorize('edit-user');
+        $this->authorize('admin-edit-user');
         $data = $request->all();
         User::findOrFail($id)->update($data);
         return redirect('/admin/users')->with('msg', 'Usuário atualizado com sucesso!');
@@ -124,12 +125,14 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('admin-delete-user');
         User::findOrFail($id)->delete();
         return redirect('/admin/users')->with('msg', 'Usuário excluído com sucesso!');
     }
 
     public function dashboard()
     {
+        $this->authorize('admin-dashboard');
         return view('users.dashboard');
     }
 }

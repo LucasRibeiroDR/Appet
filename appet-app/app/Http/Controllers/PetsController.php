@@ -56,7 +56,7 @@ class PetsController extends Controller
 
     public function show() 
     {
-        $this->authorize('view-pets');
+        $this->authorize('view-pet');
 
         $user = auth()->user();
         $pets = $user->pets;
