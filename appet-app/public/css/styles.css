@@ -166,7 +166,6 @@ input[type='file'] {
 
 
 /* Search Container */
-
 #search-container {
     width: 100%;
     height: 150px;
@@ -202,7 +201,6 @@ button ion-icon {
 
 
 /* Events list */
-
 #events-container {
     padding: 50px;
 }
@@ -362,9 +360,7 @@ button ion-icon {
     display: flex;
 }
 
-
 /* Dashboard */
-
 .dashboard-title-container {
     margin: 30px 0px 30px 30px;
 }
@@ -420,7 +416,6 @@ button ion-icon {
 
 
 /* Edit page */
-
 .img-preview {
     object-fit: cover;
     width: 100px;
@@ -461,10 +456,10 @@ footer p {
 
 
 /*home*/
-
 .imagemHome {
     position: absolute;
-    left: 900px;
+    height: 500px;
+    left: 950px;
     top: 88px;
 }
 

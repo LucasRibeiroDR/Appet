@@ -11,3 +11,15 @@
       margin: 5px;
     }
 }
+
+@media (max-width: 1320px) {
+  .imagemHome {
+    height: 475px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .imagemHome {
+    display: none;
+  }
+}
