@@ -64,13 +64,6 @@
         @else
         <div class="form-group">
             <p class="youDontHavePets">Você ainda não tem consultas marcadas, <a  href="/calendar">criar nova consulta</a></p>
-
-            @can('edit-appointment')
-                <a class="btn btn-primary" href="/appointments/edit/1">
-                Editar consulta
-                </a>
-            @endcan
-
         </div>
         @endif
 {{--        <div class="form-group">--}}

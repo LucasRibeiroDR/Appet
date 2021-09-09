@@ -24,28 +24,19 @@
         <link rel="stylesheet" href="/css/globalColors.css">
         <link rel="stylesheet" href="/css/styles.css">
         <link rel="stylesheet" href="/css/responsive.css">
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
         <!-- Scripts -->
         <script src="/js/main.js"></script>
-        <script src="/js/index.js"></script>
         <script src="{{ mix('js/app.js') }}" defer></script>
         <style>
-            body {
-                background-color: #f2f2f2;
-            }
+            body { font-family: 'Nunito', sans-serif; background-color: #f2f2f2; }
         </style>
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
-        <!-- Header -->
         <header>
             <nav class="navbar navbar-expand-lg navbar-light">
             <div class="navbar-collapse" id="navbar">
-            <a href="/" class="navbar-brand">
+            <a href="#" class="navbar-brand">
                 <img src="/img/pet.ico" alt="APPet Icon">
             </a>
             <ul class="navbar-nav">
@@ -56,12 +47,10 @@
                 <li class="nav-item">
                     <form action="/logout" method="POST">
                     @csrf
-                    <a
-                        href="/logout"
+                    <a href="/logout"
                         class="nav-link"
                         onclick="event.preventDefault();
-                        this.closest('form').submit();"
-                    >
+                        this.closest('form').submit();" >
                         Sair
                     </a>
                     </form>
@@ -80,7 +69,6 @@
             </nav>
         </header>
         <div class="min-h-screen bg-gray-100">
-            <!-- Page Content -->
             <main>
                 {{ $slot }}
                 <div class="container-fluid">
@@ -98,7 +86,5 @@
         <footer>
             <p>PetsOn &copy; 2021</p>
         </footer>
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     </body>
 </html>
