@@ -3,13 +3,13 @@
 @section('content')
 
 @if($errors->any())
-  <div class="alert alert-danger">
+<div class="alert alert-danger">
     <ul>
-      @foreach($errors->all() as $error) 
+        @foreach($errors->all() as $error)
         <li>{{$error}}</li>
-      @endforeach
+        @endforeach
     </ul>
-  </div>
+</div>
 @endif
 
 <div id="event-create-container" class="col-md-6 offset-md-3">
@@ -28,7 +28,7 @@
             <label for="pelugem">Cor da pelagem</label>
             <select required name="pelugem" id="pelugem" class="form-control">
                 @foreach ($pelugens as $pelugem)
-                    <option value="{{ $pelugem->name }}">{{ $pelugem->name }}</option>
+                <option value="{{ $pelugem->name }}">{{ $pelugem->name }}</option>
                 @endforeach
             </select>
         </div>
@@ -66,6 +66,6 @@
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Adicionar Animal">
         </div>
-    </div>
+</div>
 </div>
 @endsection

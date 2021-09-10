@@ -4,20 +4,20 @@
 
 {{--@dump($errors->all())--}}
 @if($errors->any())
-  <div class="alert alert-danger">
-    <ul>
-      @foreach($errors->all() as $error) 
-        <li>{{$error}}</li>
-      @endforeach
-    </ul>
-  </div>
+<div class="alert alert-danger">
+  <ul>
+    @foreach($errors->all() as $error)
+    <li>{{$error}}</li>
+    @endforeach
+  </ul>
+</div>
 @endif
 
 <body class="header">
   <div class="container">
     <div class="row d-flex ">
       <div class="col-lg-6 col-xl-6">
-        <div >
+        <div>
           <h1 class="h1-large">Agende a consulta do seu animalzinho pelo site do HV UENP!</h1>
           <ul>
             <li>Agende consulta sem sair de casa</li>

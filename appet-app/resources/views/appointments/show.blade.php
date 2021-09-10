@@ -4,13 +4,13 @@
 @section('content')
 
 @if($errors->any())
-  <div class="alert alert-danger">
+<div class="alert alert-danger">
     <ul>
-      @foreach($errors->all() as $error) 
+        @foreach($errors->all() as $error)
         <li>{{$error}}</li>
-      @endforeach
+        @endforeach
     </ul>
-  </div>
+</div>
 @endif
 
 <div>
@@ -38,7 +38,7 @@
 
                 @foreach($appointments as $appointment)
                 <tr>
-{{--                    <td scropt="row">{{ $loop->remaining + 1 }}</td>--}}
+                    {{-- <td scropt="row">{{ $loop->remaining + 1 }}</td>--}}
                     <td>#</td>
                     <td>{{$appointment->pet->name }}</td>
                     <td>{{ $appointment->date->format('d/m/Y') }}</td>
@@ -46,14 +46,14 @@
                     <td>{{ $appointment->descricao }}</td>
                     <td class="d-flex ">
                         {{--<a class="btn btn-info edit-btn" href="/appointments/edit/{{ $appointment->id }}">
-                            <ion-icon name="create-outline"></ion-icon>Editar
+                        <ion-icon name="create-outline"></ion-icon>Editar
                         </a>--}}
-                        <form action="/appointments/{{ $appointment->id }}" method="POST" >
+                        <form action="/appointments/{{ $appointment->id }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-secondary delete-btn">
-                                        <ion-icon name="trash-outline"></ion-icon>
-                                        Cancelar
+                                <ion-icon name="trash-outline"></ion-icon>
+                                Cancelar
                             </button>
                         </form>
                     </td>
@@ -63,12 +63,12 @@
         </table>
         @else
         <div class="form-group">
-            <p class="youDontHavePets">Você ainda não tem consultas marcadas, <a  href="/calendar">criar nova consulta</a></p>
+            <p class="youDontHavePets">Você ainda não tem consultas marcadas, <a href="/calendar">criar nova consulta</a></p>
         </div>
         @endif
-{{--        <div class="form-group">--}}
-{{--            <p class="totalConsults">Total de consultas: {{count($appointment)}}</p>--}}
-{{--        </div>--}}
+        {{-- <div class="form-group">--}}
+        {{-- <p class="totalConsults">Total de consultas: {{count($appointment)}}</p>--}}
+        {{-- </div>--}}
     </div>
 </div>
 @endsection

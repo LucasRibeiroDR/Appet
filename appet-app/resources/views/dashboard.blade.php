@@ -6,13 +6,13 @@
 <link rel="stylesheet" href="{{ asset('css/cssAdmin/dashboard.css') }}">
 
 @if($errors->any())
-  <div class="alert alert-danger">
-    <ul>
-      @foreach($errors->all() as $error) 
-        <li>{{$error}}</li>
-      @endforeach
-    </ul>
-  </div>
+<div class="alert alert-danger">
+  <ul>
+    @foreach($errors->all() as $error)
+    <li>{{$error}}</li>
+    @endforeach
+  </ul>
+</div>
 @endif
 <div class="main-body mt-3">
   <div class="page-wrapper">
@@ -26,7 +26,7 @@
             <div class="text-center m-b-30">
               <div class="bg-c-green config-avatar shadow-3" style="cursor: auto;">
                 <img class="img-fluid rounded-circle" style="width:80px;">
-              </div>  
+              </div>
               <h5>{{Auth::user()->name}}</h5>
               <span>{{Auth::user()->email}}</span><br />
               <span>{{Auth::user()->cpf}}</span>

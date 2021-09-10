@@ -4,13 +4,13 @@
 @section('content')
 
 @if($errors->any())
-  <div class="alert alert-danger">
+<div class="alert alert-danger">
     <ul>
-      @foreach($errors->all() as $error) 
+        @foreach($errors->all() as $error)
         <li>{{$error}}</li>
-      @endforeach
+        @endforeach
     </ul>
-  </div>
+</div>
 @endif
 
 <div>
@@ -39,34 +39,34 @@
             </thead>
             <tbody>
                 @foreach($pets as $pet)
-                        <tr>
-                            <td scropt="row">{{ $loop->index + 1 }}</td>
-                            <td>{{ $pet->user->name }}</td>
-                            <td>{{ $pet->name }}</td>
-                            @if($pet->status ==1)
-                            <td>Vivo</td>
-                            @else
-                                <td>Morto</td>
-                            @endif
+                <tr>
+                    <td scropt="row">{{ $loop->index + 1 }}</td>
+                    <td>{{ $pet->user->name }}</td>
+                    <td>{{ $pet->name }}</td>
+                    @if($pet->status ==1)
+                    <td>Vivo</td>
+                    @else
+                    <td>Morto</td>
+                    @endif
 
-                            <td class="d-flex ">
-                                <a class="btn btn-info edit-btn" title="Editar Pet" href="/admin/edit-pet/{{$pet->id}}">
-                                    <ion-icon name="create-outline"></ion-icon>Editar
-                                </a>
-                                <form action="/admin/delete-pet/{{ $pet->id }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger delete-btn">
-                                        <ion-icon name="trash-outline"></ion-icon> Deletar
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
+                    <td class="d-flex ">
+                        <a class="btn btn-info edit-btn" title="Editar Pet" href="/admin/edit-pet/{{$pet->id}}">
+                            <ion-icon name="create-outline"></ion-icon>Editar
+                        </a>
+                        <form action="/admin/delete-pet/{{ $pet->id }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger delete-btn">
+                                <ion-icon name="trash-outline"></ion-icon> Deletar
+                            </button>
+                        </form>
+                    </td>
+                </tr>
                 @endforeach
             </tbody>
         </table>
         @elseif (count($pets) == 0 && $search)
-            <span>{{ $search  }} não encontrado</span>
+        <span>{{ $search  }} não encontrado</span>
         @endif
     </div>
 </div>

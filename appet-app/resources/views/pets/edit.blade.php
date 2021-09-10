@@ -4,13 +4,13 @@
 @section('content')
 
 @if($errors->any())
-  <div class="alert alert-danger">
+<div class="alert alert-danger">
     <ul>
-      @foreach($errors->all() as $error) 
+        @foreach($errors->all() as $error)
         <li>{{$error}}</li>
-      @endforeach
+        @endforeach
     </ul>
-  </div>
+</div>
 @endif
 
 <div id="event-create-container" class="col-md-6 offset-md-3">

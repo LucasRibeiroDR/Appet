@@ -79,9 +79,9 @@
                 </li>
             </ul>
             @endforeach
-                <p class="youHaveConsults"><a href="/pets/create">Cadastrar novo pet</a></p>
+            <p class="youHaveConsults"><a href="/pets/create">Cadastrar novo pet</a></p>
             @else
-                <p class="youDontHavePets">Você ainda não tem pets cadastrados, <a href="/pets/create">adicionar pets</a></p>
+            <p class="youDontHavePets">Você ainda não tem pets cadastrados, <a href="/pets/create">adicionar pets</a></p>
             @endif
         </div>
     </div>
