@@ -17,16 +17,17 @@
   <!-- CSS Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <!-- Styles -->
-  <link rel="stylesheet" href="/css/globalColors.css">
-  <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="/css/responsive.css">
-
   <style>
     body {
+      background-color: #f2f2f2;
       font-family: 'Nunito', sans-serif;
     }
   </style>
-  <!-- <link rel="stylesheet" href="{{asset('site/bootstrap.css')}}"> -->
+  <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+  <link rel="stylesheet" href="{{mix('css/app.css')}}">
+  @livewireStyles
+  <link rel="stylesheet" href="{{asset('site/bootstrap.css')}}">
+
   <!-- Scripts -->
   <script src="/js/main.js"></script>
   <script src="/js/index.js"></script>
@@ -36,51 +37,59 @@
 <body>
   <!-- Header -->
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="navbar-collapse" id="navbar">
-        <a href="/admin/welcome" class="navbar-brand">
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a href="/" class="navbar-brand hvUenpLogo">
           <img src="{{ asset('img/hv-uenp.png') }}" alt="Logo HV">
         </a>
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a href="/admin/welcome" class="nav-link">PetsOn</a>
-          </li>
-          <li class="nav-item">
-            <a href="/admin/appointments" class="nav-link">Consultas</a>
-          </li>
-          @auth
-          <li class="nav-item">
-            <a href="/admin/pets" class="nav-link">Pets</a>
-          </li>
-          <li class="nav-item">
-            <a href="/admin/users" class="nav-link">Usuários</a>
-          </li>
-          <li class="nav-item">
-            <a href="/admin/admins" class="nav-link">Administradores</a>
-          </li>
-          <li class="nav-item">
-            <a href="/admin/dashboard" class="nav-link">Perfil</a>
-          </li>
-          <li class="nav-item">
-            <form action="/logout" method="POST">
-              @csrf
-              <a href="/logout" class="nav-link" onclick="event.preventDefault();
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="" aria-label="Toggle navigation">
+          <i class="navbar-toggler-icon"></i>
+        </button>
+        <div class="navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a href="/admin/welcome" class="nav-link">PetsOn</a>
+            </li>
+            <li class="nav-item">
+              <a href="/admin/appointments" class="nav-link">Consultas</a>
+            </li>
+            @auth
+            <li class="nav-item">
+              <a href="/admin/pets" class="nav-link">Pets</a>
+            </li>
+            <li class="nav-item">
+              <a href="/admin/users" class="nav-link">Usuários</a>
+            </li>
+            <li class="nav-item">
+              <a href="/admin/admins" class="nav-link">Administradores</a>
+            </li>
+            <li class="nav-item">
+              <a href="/admin/dashboard" class="nav-link">Perfil</a>
+            </li>
+            <li class="nav-item">
+              <form action="/logout" method="POST">
+                @csrf
+                <a href="/logout" class="nav-link" onclick="event.preventDefault();
                       this.closest('form').submit();">
-                Sair
-              </a>
-            </form>
-          </li>
+                  Sair
+                </a>
+              </form>
+            </li>
 
-          @endauth
-          @guest
-          <li class="nav-item">
-            <a href="/login" class="nav-link">Entrar</a>
-          </li>
-          <li class="nav-item">
-            <a href="/register" class="nav-link">Cadastrar</a>
-          </li>
-          @endguest
-        </ul>
+            @endauth
+            @guest
+            <li class="nav-item">
+              <a href="/login" class="nav-link">Entrar</a>
+            </li>
+            <li class="nav-item">
+              <a href="/register" class="nav-link">Cadastrar</a>
+            </li>
+            @endguest
+          </ul>
+          <span class="nav-brand">
+            <img class="uenpLogo" src="{{ asset('img/uenp.png') }}" alt="Logo UENP">
+          </span>
+        </div>
       </div>
     </nav>
   </header>

@@ -7,11 +7,17 @@
     font-size: 1em;
 }
 
+body {
+    min-height: 100vh;
+    padding-top: 60px;
+    padding-bottom: 100px;
+    position: relative;
+}
+
 h1 {
   color: #1D4B80;
   font-weight: bold;
 }
-
 
 header {
   background-color: #6aa59d;
@@ -110,9 +116,7 @@ input[type='file'] {
     border-radius: 5px;
 }
 
-
 /* Navbar */
-
 .hvUenpLogo {
   width: 70px;
   margin-left: 1rem;
@@ -184,7 +188,6 @@ button .btn {
 button ion-icon {
     font-size: 20px;
 }
-
 
 /* Events list */
 #events-container {

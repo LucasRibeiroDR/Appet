@@ -88,7 +88,7 @@
     </div>
     @livewireScripts
     <!-- Footer -->
-    <footer class="fixed-bottom">
+    <footer>
         <p>PetsOn &copy; 2021</p>
     </footer>
 </body>
