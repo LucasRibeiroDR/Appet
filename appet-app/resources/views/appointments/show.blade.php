@@ -45,9 +45,9 @@
                     <td>{{ $appointment->timeslot }}</td>
                     <td>{{ $appointment->descricao }}</td>
                     <td class="d-flex ">
-                        <a class="btn btn-info edit-btn" href="/appointments/edit/{{ $appointment->id }}">
+                        {{--<a class="btn btn-info edit-btn" href="/appointments/edit/{{ $appointment->id }}">
                             <ion-icon name="create-outline"></ion-icon>Editar
-                        </a>
+                        </a>--}}
                         <form action="/appointments/{{ $appointment->id }}" method="POST" >
                             @csrf
                             @method('DELETE')
