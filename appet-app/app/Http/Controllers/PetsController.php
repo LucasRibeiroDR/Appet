@@ -10,12 +10,13 @@ use App\Models\Pelugem;
 
 class PetsController extends Controller
 {
-    public function create() 
+    public function create()
     {
         $this->authorize('create-pet');
 
         $pelugens = DB::table('pelugens')
             ->select('name')
+            ->orderBy('name', 'asc')
             ->get();
 
         return view('pets.create', ['pelugens' => $pelugens]);
@@ -43,6 +44,7 @@ class PetsController extends Controller
         $pet->porte= $request->porte;
         $pet->data_nascimento = $request->data_nascimento;
         $pet->castrado = $request->castrado;
+        $pet->status = true;
 
         $user = auth()->user();
 
@@ -53,16 +55,16 @@ class PetsController extends Controller
         return redirect('/pets/show')->with('msg', 'Pet criado com sucesso!');;
     }
 
-    public function show() 
+    public function show()
     {
-        $this->authorize('view-pets');
+        $this->authorize('view-pet');
 
         $user = auth()->user();
         $pets = $user->pets;
         return view('pets.show', ["pets" => $pets]);
     }
 
-    public function destroy($id) 
+    public function destroy($id)
     {
         $this->authorize('delete-pet');
 
@@ -70,7 +72,7 @@ class PetsController extends Controller
         return redirect('/pets/show')->with('msg', 'Pet excluído com sucesso!');;
     }
 
-    public function edit($id) 
+    public function edit($id)
     {
         $this->authorize('edit-pet');
 
@@ -82,7 +84,7 @@ class PetsController extends Controller
         return view('pets.edit', ['pet' => $pet]);
     }
 
-    public function update(Request $request) 
+    public function update(Request $request)
     {
         $this->authorize('edit-pet');
 

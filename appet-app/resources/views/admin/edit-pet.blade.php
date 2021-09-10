@@ -6,7 +6,7 @@
 @if($errors->any())
   <div class="alert alert-danger">
     <ul>
-      @foreach($errors->all() as $error) 
+      @foreach($errors->all() as $error)
         <li>{{$error}}</li>
       @endforeach
     </ul>
@@ -15,7 +15,7 @@
 
 <div id="event-create-container" class="col-md-6 offset-md-3">
     <h1>Editando Pet</h1>
-    <form action="/pets/update/{{ $pet->id }}" method="POST">
+    <form action="/admin/update-pet/{{ $pet->id }}" method="POST">
         @csrf
         @method('PUT')
         <div class="form-group">
@@ -61,6 +61,15 @@
                 <option value="1" {{ $pet->castrado == 1 ? "selected='selected'" : "" }}>Sim</option>
             </select>
         </div>
+
+        <div class="form-group">
+            <label for="statys">Status do Animal</label>
+            <select name="status" id="status" class="form-control">
+                <option value="1">Vivo</option>
+                <option value="0" {{ $pet->status == 0 ? "selected='selected'" : "" }}>Morto</option>
+            </select>
+        </div>
+
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Finalizar Edição">
         </div>

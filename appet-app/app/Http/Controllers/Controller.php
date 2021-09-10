@@ -16,9 +16,11 @@ class Controller extends BaseController
         $user = auth()->user();
 
         if($user->hasRole('user')) {
+            $this->authorize('dashboard');
             return view ('dashboard');
 
         } else {
+            $this->authorize('admin-dashboard');
             return view ('admin.dashboard');
         }
     }

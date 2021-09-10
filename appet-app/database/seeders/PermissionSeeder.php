@@ -21,28 +21,51 @@ class PermissionSeeder extends Seeder
         //criando permissoes
 
         $permissions = [
-            'create-user',
-            'create-appointment',
-            'admin-create-appointment',
-            'create-pet',
-            'admin-create-pet',
-            'create-admin',
-            'edit-pet',
-            'admin-edit-pet',
-            'edit-user',
-            'edit-appointment',
-            'edit-admin',
-            'delete-pet',
-            'delete-appointment',
-            'delete-admin',
-            'view-appointments',
-            'view-pets',
-            'user-page',
             'admin-page',
-            'admin-dashboard',
-            'calendar',
-            'admin-calendar',
+
+            'admin-create-user',
+            'admin-edit-user',
+            'admin-delete-user',
+            'admin-view-user',
+
+            'admin-create-appointment',
+            'admin-edit-appointment',
+            'admin-delete-appointment',
+            'admin-view-appointment',
+
+            'admin-create-pet',
+            'admin-edit-pet',
             'admin-delete-pet',
+            'admin-view-pet',
+            
+            'admin-create-admin',
+            'admin-edit-admin',
+            'admin-delete-admin',
+            'admin-view-admin',
+
+            'admin-create-pelugem',
+            'admin-edit-pelugem',
+            'admin-delete-pelugem',
+            'admin-view-pelugem',
+
+            'admin-dashboard',
+            'admin-welcome',
+            'admin-calendar',
+
+            'user-page',
+            
+            'calendar',
+            'dashboard',
+
+            'create-pet',
+            'edit-pet',
+            'delete-pet',
+            'view-pet',
+
+            'create-appointment',
+            'edit-appointment',
+            'delete-appointment',
+            'view-appointment',
         ];
 
         foreach ($permissions as $permission){
@@ -58,15 +81,20 @@ class PermissionSeeder extends Seeder
         //atribuindo permissoes de usuarios
 
         $userPermissions = [
+            'user-page',
+            
+            'calendar',
+            'dashboard',
+
             'create-pet',
             'edit-pet',
             'delete-pet',
-            'view-pets',
+            'view-pet',
+
             'create-appointment',
+            'edit-appointment',
             'delete-appointment',
-            'view-appointments',
-            'user-page',
-            'calendar',
+            'view-appointment',
         ];
 
         foreach ($userPermissions as $permission){
@@ -78,21 +106,34 @@ class PermissionSeeder extends Seeder
         //atribuindo permissoes de admin
 
         $adminPermissions = [
-            'create-user',
+            'admin-page',
+
+            'admin-create-user',
+            'admin-edit-user',
+            'admin-delete-user',
+            'admin-view-user',
+
             'admin-create-appointment',
-            'create-appointment',
+            'admin-edit-appointment',
+            'admin-delete-appointment',
+            'admin-view-appointment',
+
             'admin-create-pet',
-            'create-pet',
-            'create-admin',
             'admin-edit-pet',
             'admin-delete-pet',
-            'edit-user',
-            'edit-appointment',
-            'delete-appointment',
-            'view-appointments',
-            'view-pets',
-            'admin-page',
+            'admin-view-pet',
+            
+            'admin-create-admin',
+            'admin-edit-admin',
+            'admin-view-admin',
+
+            'admin-create-pelugem',
+            'admin-edit-pelugem',
+            'admin-delete-pelugem',
+            'admin-view-pelugem',
+
             'admin-dashboard',
+            'admin-welcome',
             'admin-calendar',
         ];
 

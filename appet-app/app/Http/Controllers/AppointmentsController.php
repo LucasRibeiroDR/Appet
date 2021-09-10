@@ -14,8 +14,7 @@ class AppointmentsController extends Controller
      */
     public function index()
     {
-        $this->authorize('view-appointments');
-
+        $this->authorize('view-appointment');
         return view('appointments.appointments');
     }
 
@@ -26,11 +25,9 @@ class AppointmentsController extends Controller
      */
     public function create()
     {
-        $this->authorize('create-pet');
-
+        $this->authorize('create-appointment');
         $user = auth()->user();
         $pets = $user->pets;
-
         return view ('appointments.create', ['user'=>$user, 'pets'=>$pets]);
     }
 
@@ -74,8 +71,7 @@ class AppointmentsController extends Controller
      */
     public function show()
     {
-        $this->authorize('view-appointments');
-
+        $this->authorize('view-appointment');
         $user = auth()->user();
         $appointments = $user->appointments;
 
@@ -92,7 +88,7 @@ class AppointmentsController extends Controller
      */
     public function edit($id)
     {
-        $this->authorize('edit-appointment');
+        $this->authorize('admin-edit-appointment');
 
         $user = auth()->user();
         $pets = $user->pets;
@@ -115,7 +111,7 @@ class AppointmentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->authorize('edit-appointment');
+        $this->authorize('admin-edit-appointment');
         $data = $request->all();
         Appointment::findOrFail($request->id)->update($data);
         return redirect('/appointments/show')->with('msg', 'Consulta atualizada com sucesso!');
@@ -130,7 +126,6 @@ class AppointmentsController extends Controller
     public function destroy($id)
     {
         $this->authorize('delete-appointment');
-
         Appointment::findOrFail($id)->delete();
         return redirect('/appointments/show')->with('msg', 'Consulta cancelada com sucesso!');;
     }

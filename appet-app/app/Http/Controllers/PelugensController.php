@@ -14,7 +14,7 @@ class PelugensController extends Controller
      */
     public function index()
     {
-        //
+        $this->authorize('admin-create-pelugem');
     }
 
     /**
@@ -24,7 +24,7 @@ class PelugensController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('admin-create-pelugem');
     }
 
     /**
@@ -35,7 +35,7 @@ class PelugensController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->authorize('admin-create-pelugem');
     }
 
     /**
@@ -46,7 +46,7 @@ class PelugensController extends Controller
      */
     public function show(Pelugem $pelugem)
     {
-        //
+        $this->authorize('admin-view-pelugem');
     }
 
     /**
@@ -57,7 +57,7 @@ class PelugensController extends Controller
      */
     public function edit(Pelugem $pelugem)
     {
-        //
+        $this->authorize('admin-edit-pelugem');
     }
 
     /**
@@ -69,7 +69,7 @@ class PelugensController extends Controller
      */
     public function update(Request $request, Pelugem $pelugem)
     {
-        //
+        $this->authorize('admin-edit-pelugem');
     }
 
     /**
@@ -80,6 +80,6 @@ class PelugensController extends Controller
      */
     public function destroy(Pelugem $pelugem)
     {
-        //
+        $this->authorize('admin-delete-pelugem');
     }
 }

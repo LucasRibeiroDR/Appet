@@ -22,15 +22,7 @@
             <label for="date">Selecione a data: </label>
             <input type="date" name="date" class="form-control" id="date" value="{{$appointment->date->format('Y-m-d')}}">
         </div>
-        <div class="form-group">
-            <label for="hour">Selecione o horário:</label>
-            <select name="hour" id="hour" class="form-control">
-                <option value="08:00:00" {{ $appointment->hour == "08:00:00" ? "selected='selected'" : ""}}>8:00</option>
-                <option value="10:00:00" {{ $appointment->hour == "10:00:00" ? "selected='selected'" : ""}}>10:00</option>
-                <option value="14:00:00" {{ $appointment->hour == "14:00:00" ? "selected='selected'" : ""}}>14:00</option>
-                <option value="16:00:00" {{ $appointment->hour == "16:00:00" ? "selected='selected'" : ""}}>16:00</option>
-             </select>
-        </div>
+
         <div class="form-group">
             <label for="area_consulta">Selecione a area de consulta:</label>
             <select name="area_consulta" id="area_consulta" class="form-control">
@@ -51,7 +43,7 @@
             </select>
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Editar consulta">
+          <input type="submit" class="btn btn-primary" value="Editar consulta">
         </div> 
     </form>
 </div>
