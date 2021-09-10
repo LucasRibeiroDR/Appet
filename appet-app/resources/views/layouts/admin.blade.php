@@ -25,6 +25,7 @@
                 font-family: 'Nunito', sans-serif;
             }
         </style>
+        <!-- <link rel="stylesheet" href="{{asset('site/bootstrap.css')}}"> -->
         <!-- Scripts -->
         <script src="/js/main.js"></script>
         <script src="/js/index.js"></script>
@@ -36,7 +37,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="navbar-collapse" id="navbar">
            <a href="/admin/welcome" class="navbar-brand">
-            <img src="/img/pet.ico" alt="APPet Icon">
+            <img src="{{ asset('img/hv-uenp.png') }}" alt="Logo HV">
            </a>
            <ul class="navbar-nav">
             <li class="nav-item">

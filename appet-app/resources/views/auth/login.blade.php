@@ -9,51 +9,62 @@
   </div>
 @endif
 <x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <a href="/" class="navbar-brand">
-                <img src="/img/pet.ico" alt="APPet Icon">
-            </a>
-        </x-slot>
 
-        <x-jet-validation-errors class="mb-4" />
+    <link rel="stylesheet" href="/css/user/forms.css">
 
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
+    <x-jet-validation-errors class="mb-4" />
+
+    @if (session('status'))
+    <div class="mb-4 font-medium text-sm text-green-600">
+        {{ session('status') }}
+    </div>
+    @endif
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-pic">
+                    <img src="{{ asset('./img/1.png') }}" alt="calendario">
+                </div>
+
+                <form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <span class="login100-form-title">
+                        Login
+                    </span>
+
+                    <div class="wrap-input100 validate-input">
+                        <x-jet-input id="email" class="input100" type="email" name="email" :value="old('email')" required autofocus placeholder="E-mail" />
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input">
+                        <x-jet-input id="password" class="input100" type="password" name="password" required autocomplete="current-password" placeholder="Senha"/>
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <x-jet-button class="login100-form-btn">
+                            {{ __('Entrar') }}
+                        </x-jet-button>
+                    </div>
+
+                    <div class="text-center p-t-20">
+                        @if (Route::has('password.request'))
+                        <a class="txt" href="{{ route('password.request') }}">
+                            {{ __('Esqueceu sua senha?') }}
+                        </a>
+                        @endif
+                    </div>
+
+                    <div class="text-center p-t-136">
+                        <a href=""></a></p>
+                        <a class="txt" href="{{ route('register') }}">
+                            Registre-se
+                        </a>
+                    </div>
+                </form>
             </div>
-        @endif
-
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-            <div>
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Senha') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-            </div>
-
-            <div class="block mt-4">
-                <label for="remember_me" class="flex items-center">
-                    <x-jet-checkbox id="remember_me" name="remember" />
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Lembre-se de mim.') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Esqueceu sua senha?') }}
-                    </a>
-                @endif
-
-                <x-jet-button class="ml-4">
-                    {{ __('Iniciar sessão') }}
-                </x-jet-button>
-            </div>
-        </form>
-    </x-jet-authentication-card>
+        </div>
+    </div>
 </x-guest-layout>

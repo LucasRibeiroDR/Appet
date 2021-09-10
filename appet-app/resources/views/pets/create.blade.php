@@ -1,5 +1,4 @@
 @extends('layouts.main')
-
 @section('title', 'PetsOn | Novo Pet')
 @section('content')
 
@@ -67,6 +66,6 @@
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Adicionar Animal">
         </div>
-    </form>
+    </div>
 </div>
 @endsection

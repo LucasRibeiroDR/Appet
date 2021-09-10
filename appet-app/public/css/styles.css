@@ -8,37 +8,23 @@
 }
 
 h1 {
-    color: var(--greenAPP);
-    font-weight: bold;
+  color: #1D4B80;
+  font-weight: bold;
 }
 
-body {
-    min-height: 100vh;
-    padding-bottom: 100px;
-    position: relative;
-}
 
 header {
-    background-color: #6aa570;
-    border-bottom: 1px solid #355738;
-}
-
-.row {
-    margin: 0;
+  background-color: #6aa59d;
+  border-bottom: 1px solid #355738;
 }
 
 .container-fluid {
     padding: 0;
 }
 
-.btn-primary, .btn-outline-primary {
-    background-color: var(--greenAPP);
-    border: 2px solid var(--greenAPP2);
-}
-
-.btn-primary:hover, .btn-outline-primary:hover {
-    background-color: var(--greenAPP2);
-    border-color: var(--greenAPP2);
+.btn-primary {
+  background-color: #6aa570;
+  border: 2px solid #004b07;
 }
 
 .btn-outline-primary {
@@ -55,64 +41,48 @@ header {
     padding: 10px;
 }
 
-.thereAreNoEvents {
-    background-color: #edd4d4;
-    color: #571515;
-    border: 1px solid #e6c3c3;
-    width: 100%;
-    margin-bottom: 0;
-    text-align: center;
-    padding: 10px;
-}
-
-.thereAreNoEvents a {
-    color: #571515;
-    font-weight: bold;
-    text-decoration: none;
-}
-
 .thereAreNoEvents a:hover {
     text-decoration: underline;
 }
 
-.youDontHaveConsults,
-.youDontHavePets {
-    background-color: #eceeb3;
-    color: #9fa10f;
-    border: 1px solid #d9e466;
-    width: 100%;
-    margin-bottom: 0;
-    text-align: center;
-    padding: 10px;
+.youDontHaveConsults, .youDontHavePets {
+  background-color: #eceeb3;
+  color: #9fa10f;
+  border: 1px solid #d9e466;
+  width: 100%;
+  margin-bottom: 0;
+  text-align: center;
+  padding: 10px;
 }
 
-.youDontHaveConsults a,
-.youDontHavePets a {
-    color: #9fa10f;
-    font-weight: bold;
-    text-decoration: none;
+.youDontHaveConsults a, .youDontHavePets a {
+  color: #9fa10f;
+  font-weight: bold;
+  text-decoration: none;
 }
 
-.youDontHaveConsults a:hover,
-.youDontHavePets a:hover {
-    text-decoration: underline;
+.youDontHaveConsults a:hover, .youDontHavePets a:hover {
+  text-decoration: underline;
 }
 
-.youHaveConsults {
-    width: 100%;
-    margin-bottom: 0;
-    text-align: center;
-    padding: 10px;
+.youHaveConsults, .editProfile {
+  background-color: #bceeb3;
+  color: #25a10f;
+  border: 1px solid #66e477;
+  width: 100%;
+  margin-bottom: 0;
+  text-align: center;
+  padding: 10px;
 }
 
-.youHaveConsults a {
-    color: #1ba10f;
-    font-weight: bold;
-    text-decoration: none;
+.youHaveConsults a, .editProfile a {
+  color: #1ba10f;
+  font-weight: bold;
+  text-decoration: none;
 }
 
-.youHaveConsults a:hover {
-    text-decoration: underline;
+.youHaveConsults a:hover, .editProfile a:hover {
+  text-decoration: underline;
 }
 
 .totalConsults {
@@ -143,27 +113,43 @@ input[type='file'] {
 
 /* Navbar */
 
-#navbar img {
-    width: 70px;
-    margin-left: 1rem;
+.hvUenpLogo {
+  width: 70px;
+  margin-left: 1rem;
 }
 
-#navbar {
-    justify-content: space-between;
-    background-color: #6aa570;
-    padding: 5px 0;
+.uenpLogo{
+  width: 100px;
 }
 
-#navbar a {
-    font-size: 16px;
-    color: #ffffff;
+.navbar{
+  background-color: #6aa570;
+	font-weight: 600;
+	font-size: 0.875rem;
+	line-height: 0.875rem;
+	box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.05);
 }
 
-#navbar a:hover {
-    color: #ffffff;
-    font-weight: bolder;
+.navbar .navbar-brand {
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
 }
 
+.navbar a {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.navbar a:hover {
+  color: #ffffff;
+  font-weight: bolder;
+}
+
+.navbar-toggler{
+  color: #ffffff;
+}
+
+/* Search Container */
 
 /* Search Container */
 #search-container {
@@ -190,9 +176,9 @@ input[type='file'] {
 }
 
 button .btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button ion-icon {
@@ -333,18 +319,16 @@ button ion-icon {
     display: flex;
 }
 
-#info-container h3,
-#description-container h3 {
-    margin-top: 20px;
-    font-size: 24px;
-    font-weight: bold;
+#info-container h3, #description-container h3 {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-#description-container ion-icon,
-#info-container ion-icon {
-    font-size: 20px;
-    color: #f2a340;
-    margin-right: 5px;
+#description-container ion-icon, #info-container ion-icon {
+  font-size: 20px;
+  color: #f2a340;
+  margin-right: 5px;
 }
 
 #info-container #event-submit {
@@ -484,4 +468,81 @@ footer p {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.header {
+	padding-top: 8rem;
+	padding-bottom: 4em;
+	background-color: #ffffff;
+	background-size: cover;
+	text-align: center;
+}
+
+.header .h1-large {
+	margin-bottom: 1.75rem;
+}
+
+.header .ul-large {
+	margin-bottom: 2.25rem;
+}
+
+.header .image-container {
+	margin-top: 5rem;
+}
+
+.btn {
+  border-color: #1D4B80;
+  color: #ffffff;
+  background-color: #1D4B80;
+  font-size: 14;
+}
+
+.btn:hover {
+  background-color: #0a2f5a;
+  border-color: #0a2f5a;
+  font-weight: bolder;
+  font-size: 14;
+}
+
+/*Cadastro Pet*/
+
+.btnPet{
+  width: 100%;
+}
+
+.containerCadPet{
+  width: 500px;
+  height: 450px;
+  position: absolute;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: #e5f1e2;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  justify-content: center;
+}
+
+/*Meus Pets*/
+
+.btn-danger{
+  background-color: #B60000;
+  border-color: #B60000;
+}
+
+.btn-danger:hover{
+  background-color: #750000;
+  border-color: #750000;
+}
+
+.containerMPets li {
+  width: 230px;
+  height: 200px;
+  margin: 0;
+  border-radius: 5px;
+  border: none;
+  background: #e5f1e2;
+  float: left;
+  overflow: hidden;
 }
