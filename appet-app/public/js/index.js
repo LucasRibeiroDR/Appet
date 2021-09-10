@@ -13,7 +13,7 @@ function hidden_show() {
     var valor = document.getElementById("especie").value;
     var porte = document.getElementById("porte_value");
 
-    if (valor == '0') {
+    if (valor == 'Gato') {
         porte.classList.add("porte");
     } else {
         porte.classList.remove("porte");
