@@ -31,13 +31,13 @@
 <body>
   <!-- Header -->
   <header>
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top ">
       <div class="container">
         <a href="/" class="navbar-brand hvUenpLogo">
           <img src="{{ asset('img/hv-uenp.png') }}" alt="Logo HV">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="" aria-label="Toggle navigation">
-          <i class="navbar-toggler-icon"></i>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <ion-icon class="navbar-toggler-icon" name="menu"></ion-icon>
         </button>
         <div class="navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto">

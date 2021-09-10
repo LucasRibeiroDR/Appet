@@ -24,7 +24,9 @@
             <li>Salve os dados do seu animal no nosso sistema</li>
             <li>Receba notificações no dia da consulta</li>
           </ul>
-          <button class="w-100 btn btn-outline-primary mt-3">Agendar consulta</button>
+          <form action="/login">
+            <button class="w-100 btn btn-outline-primary mt-3">Agendar consulta</button>
+          </form>
         </div>
       </div>
       <div class="col-lg-6 col-xl-6">

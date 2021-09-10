@@ -9,7 +9,7 @@
 
 body {
     min-height: 100vh;
-    padding-top: 60px;
+    padding-top: 100px;
     padding-bottom: 100px;
     position: relative;
 }
@@ -21,7 +21,6 @@ h1 {
 
 header {
   background-color: #6aa59d;
-  border-bottom: 1px solid #355738;
 }
 
 .container-fluid {
@@ -76,7 +75,7 @@ header {
   color: #25a10f;
   border: 1px solid #66e477;
   width: 100%;
-  margin-bottom: 0;
+  margin-bottom: 0px;
   text-align: center;
   padding: 10px;
 }
@@ -119,7 +118,6 @@ input[type='file'] {
 /* Navbar */
 .hvUenpLogo {
   width: 70px;
-  margin-left: 1rem;
 }
 
 .uenpLogo{
@@ -127,8 +125,8 @@ input[type='file'] {
 }
 
 .navbar{
-  background-color: #6aa570;
-	font-weight: 600;
+    background-color: #6aa570;
+    font-weight: 600;
 	font-size: 0.875rem;
 	line-height: 0.875rem;
 	box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.05);
@@ -185,8 +183,13 @@ button .btn {
   align-items: center;
 }
 
-button ion-icon {
+.navbar-toggler {
+    color: #fff;
+}
+
+button .navbar-toggler-icon {
     font-size: 20px;
+    color: #fff;
 }
 
 /* Events list */
@@ -424,24 +427,6 @@ button ion-icon {
     border-radius: 20px;
 }
 
-
-/* footer */
-
-footer {
-    text-align: center;
-    background-color: #6aa570;
-    color: #ffffff;
-    padding: 30px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
-footer p {
-    margin-bottom: 0;
-}
-
-
 /*home*/
 .imagemHome {
     position: absolute;
@@ -548,4 +533,19 @@ footer p {
   background: #e5f1e2;
   float: left;
   overflow: hidden;
+}
+
+/* footer */
+footer {
+    text-align: center;
+    background-color: #6aa570;
+    color: #ffffff;
+    padding: 30px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin-bottom: 0;
 }

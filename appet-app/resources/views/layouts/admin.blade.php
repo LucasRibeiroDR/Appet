@@ -39,7 +39,7 @@
   <header>
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container">
-        <a href="/" class="navbar-brand hvUenpLogo">
+        <a href="/admin/welcome" class="navbar-brand hvUenpLogo">
           <img src="{{ asset('img/hv-uenp.png') }}" alt="Logo HV">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="" aria-label="Toggle navigation">
