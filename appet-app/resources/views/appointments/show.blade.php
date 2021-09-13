@@ -22,7 +22,9 @@
         @if(count($appointments) > 0)
         <table class="table">
             <div class="form-group">
-                <p class="youHaveConsults"><a href="/calendar">Marcar consulta</a></p>
+                <form action="/calendar" class="mb-3">
+                    <button class="editProfile btn btn-block btn-primary">Marcar consulta</button>
+                </form>
             </div>
             <thead>
                 <tr>
@@ -63,7 +65,9 @@
         </table>
         @else
         <div class="form-group">
-            <p class="youDontHavePets">Você ainda não tem consultas marcadas, <a href="/calendar">criar nova consulta</a></p>
+            <form action="/calendar" class="mb-3">
+                <button class="editProfile btn btn-block btn-danger">Você ainda não tem consultas marcadas, <strong>criar nova consulta</strong></button>
+            </form>
         </div>
         @endif
         {{-- <div class="form-group">--}}

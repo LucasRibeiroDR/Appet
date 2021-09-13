@@ -67,15 +67,23 @@
                 @endforeach
             </tbody>
         </table>
-
-        <div>
-            <p class="youHaveConsults"><a href="/admin/create-user">Criar novo usuário</a></p>
+        <div class="col-md-10 offset-md-1">
+            <div class="form-group mt-3">
+                <form action="/admin/create-user" class="mb-3">
+                    <button class="editProfile btn btn-block btn-primary">Criar novo usuário</button>
+                </form>
+            </div>
         </div>
-
         @elseif(count($users) == 0 && $search)
         <p>{{ $search }} não encontrado</p>
         @else
-        <p class="youDontHavePets">Você ainda não usuários, <a href="/admin/create-user">adicionar usuário</a></p>
+        <div class="col-md-10 offset-md-1">
+            <div class="form-group mt-3">
+                <form action="/admin/create-user" class="mb-3">
+                    <button class="editProfile btn btn-block btn-danger">Você ainda não usuários, adicionar usuário</button>
+                </form>
+            </div>
+        </div>
         @endif
     </div>
 </div>

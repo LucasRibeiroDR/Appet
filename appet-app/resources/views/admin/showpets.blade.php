@@ -15,7 +15,7 @@
 
 <div>
     <div class="col-md-10 offset-md-1 dashboard-title-container">
-        <h1>Pets</h1>
+        <h1>Tabela de Pets</h1>
     </div>
     <div id="search-container" class="col-md-3">
         <h1>Busque um animal</h1>

@@ -38,11 +38,15 @@
     <div class="text-center p-3">
         <h1>Meus Pets</h1>
     </div>
-
-    <p class="youHaveConsults"><a href="/pets/create">Cadastrar novo pet</a></p>
-
     <div class="dashboard-pets-container">
         @if(count($pets) > 0)
+        <div class="col-md-10 offset-md-1">
+            <div class="form-group mt-3">
+                <form action="/pets/create" class="mb-3">
+                    <button class="editProfile btn btn-block btn-primary">Cadastrar novo pet</button>
+                </form>
+            </div>
+        </div>
         @foreach($pets as $pet)
         <!-- <td scropt="row">{{ $loop->index + 1 }}</td> -->
         <ul style="list-style-type: none;">
@@ -82,7 +86,13 @@
         </ul>
         @endforeach
         @else
-        <p class="youDontHavePets">Você ainda não tem pets cadastrados, <a href="/pets/create">adicionar pets</a></p>
+        <div class="col-md-10 offset-md-1">
+            <div class="form-group">
+                <form action="/pets/create" class="mb-3">
+                    <button class="editProfile btn btn-block btn-danger">Você ainda não tem pets cadastrados, <strong>adicionar pets</strong></button>
+                </form>
+            </div>
+        </div>
         @endif
     </div>
 </div>

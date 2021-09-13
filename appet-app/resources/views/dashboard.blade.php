@@ -31,9 +31,11 @@
               <span>{{Auth::user()->email}}</span><br />
               <span>{{Auth::user()->cpf}}</span>
             </div>
-            <form action="/user/profile" class="mb-3">
-              <button class="editProfile btn btn-block btn-primary">Edite seu Perfil</button>
-            </form>
+            <div class="col-md-10 offset-md-1">
+              <form action="/user/profile" class="mb-3">
+                <button class="editProfile btn btn-block btn-primary">Edite seu Perfil</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

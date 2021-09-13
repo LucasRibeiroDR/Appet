@@ -23,6 +23,17 @@ header {
   background-color: #6aa59d;
 }
 
+/* table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+} */
+
 .container-fluid {
     padding: 0;
 }
@@ -492,6 +503,7 @@ button .navbar-toggler-icon {
   font-size: 14;
 }
 
+
 /*Cadastro Pet*/
 
 .btnPet{
@@ -549,3 +561,13 @@ footer {
 footer p {
     margin-bottom: 0;
 }
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 0.25rem;
+    font-size: 14px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }

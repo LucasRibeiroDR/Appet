@@ -59,14 +59,13 @@
                 @endforeach
             </tbody>
         </table>
-
-        <div>
-            <p class="youHaveConsults"><a href="/admin/create-admin">Criar novo adm</a></p>
+        <div class="col-md-10 offset-md-1">
+            <div class="form-group mt-3">
+                <form action="/admin/create-admin" class="mb-3">
+                    <button class="editProfile btn btn-block btn-primary">Criar novo adm</button>
+                </form>
+            </div>
         </div>
-
-        {{-- @else
-            <p class="youDontHavePets">Você ainda não Admins, <a href="/admin/create-admin">adicionar novo admin</a></p>
-        @endif --}}
     </div>
 </div>
 @endsection

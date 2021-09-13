@@ -15,7 +15,7 @@
 
 <div>
     <div class="col-md-10 offset-md-1 dashboard-title-container">
-        <h1>Consultas</h1>
+        <h1>Tabela de Consultas</h1>
     </div>
     <div class="col-md-10 offset-md-1 dashboard-pets-container">
         <table class="table">
@@ -55,10 +55,6 @@
                 @endforeach
             </tbody>
         </table>
-
-        {{-- @else
-                <p class="youDontHavePets">Você ainda não tem pets, <a href="/pets/create">adicionar pets</a></p>
-            @endif --}}
     </div>
 </div>
 @endsection
