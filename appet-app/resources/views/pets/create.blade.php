@@ -12,7 +12,7 @@
 </div>
 @endif
 
-<div id="event-create-container" class="col-md-6 offset-md-3">
+<div id="event-create-container" class="col-md-6 offset-md-3" style="margin-bottom: 120px;">
     <h1>Cadastre seu Pet</h1>
     <form action="/pets" method="POST" enctype="multipart/form-data">
         @csrf
@@ -64,7 +64,7 @@
             </select>
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Adicionar Animal">
+            <input type="submit" class="btn btn-primary-" value="Adicionar Animal">
         </div>
 </div>
 </div>

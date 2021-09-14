@@ -17,13 +17,13 @@
     <div class="col-md-10 offset-md-1 dashboard-title-container">
         <h1>Agendamentos</h1>
     </div>
-    <div class="col-md-10 offset-md-1 dashboard-pets-container">
+    <div class="col-md-10 offset-md-1 dashboard-pets-container" style="margin-bottom: 120px;">
 
         @if(count($appointments) > 0)
         <table class="table">
             <div class="form-group">
                 <form action="/calendar" class="mb-3">
-                    <button class="editProfile btn btn-block btn-primary">Marcar consulta</button>
+                    <button class="editProfile btn btn-block btn-primary-">Marcar consulta</button>
                 </form>
             </div>
             <thead>

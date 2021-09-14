@@ -43,7 +43,7 @@
       </select>
     </div>
     <div class="form-group">
-      <input type="submit" class="btn btn-primary" value="Editar consulta">
+      <input type="submit" class="btn btn-primary-" value="Editar consulta">
     </div>
   </form>
 </div>

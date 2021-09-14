@@ -118,7 +118,7 @@ function timeslots($duration, $cleanup, $start, $end)
     });
 </script>
 
-<div id="event-create-container" class="col-md-6 offset-md-3">
+<div id="event-create-container" class="col-md-6 offset-md-3" style="margin-bottom: 120px;">
     <h1>Agendar nova consulta: <?php echo strftime('%B %d, %Y', strtotime($date)); ?></h1>
     <?php echo isset($msg) ? $msg : ''; ?>
 
@@ -128,11 +128,10 @@ function timeslots($duration, $cleanup, $start, $end)
             <label for="date">Data da consulta: </label>
             <input required readonly type="date" name="date" id="date" class="form-control" value="<?php echo $date; ?>">
         </div>
-
         <?php $timeslots = timeslots($duration, $cleanup, $start, $end);
         foreach ($timeslots as $ts) {
         ?>
-            <div id="" class="hours">
+            <div id="" class="hours" style="display: flex; justify-content: center;">
                 <div id="" class="form-group">
                     @if($ts == "12:00PM - 13:00PM" || $ts == "13:00PM - 14:00PM")
                     <input disabled readonly class="btnbtn btn btn-outline-secondary" <?php echo $ts; ?> value="<?php echo $ts; ?>">
@@ -172,7 +171,7 @@ function timeslots($duration, $cleanup, $start, $end)
             </select>
         </div>
         <div class="form-group">
-            <input name="submit" type="submit" class="btn btn-primary" value="Criar nova consulta">
+            <input name="submit" type="submit" class="btn btn-primary-" value="Criar nova consulta">
         </div>
     </form>
 </div>
