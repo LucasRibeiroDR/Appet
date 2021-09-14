@@ -21,10 +21,11 @@
         <h1>Busque um animal</h1>
         <form action="/admin/pets" method="GET">
             <input type="text" name="search" id="search" class="form-control" placeholder="Procurar">
-            <a href="/admin/pets" class="btn btn-primary">Limpar</a>
+            <a href="/admin/pets" class="btn btn-primary-">Limpar</a>
         </form>
     </div>
-    <div class="col-md-10 offset-md-1 dashboard-pets-container">
+    <div class="col-md-10 offset-md-1 dashboard-pets-container" style="
+    margin-bottom: 120px;">
         @if (count($pets) > 0)
         <table class="table">
             <thead>

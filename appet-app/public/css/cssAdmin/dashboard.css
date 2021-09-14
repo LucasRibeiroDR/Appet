@@ -105,7 +105,7 @@ p.text-muted {
 }
 .card .card-header h5:after {
   content: "";
-  background-color: #6aa570;
+  background-color: #6aa570cb;
   position: absolute;
   left: -25px;
   top: 0;
@@ -159,6 +159,7 @@ p.text-muted {
 .card .card-block,
 .card .card-body {
   padding: 10px;
+  margin-bottom: 120px;
 }
 .card.card-load {
   position: relative;
@@ -572,11 +573,11 @@ p.text-muted {
 /*====== Padding , Margin css ends ======*/
 /*====== text-color, background color css starts ======*/
 .bg-c-green {
-  background: #6aa570 !important;
+  background: #6aa570cb !important;
 }
 
 .text-c-green {
-  color: #6aa570;
+  color: #6aa570cb;
 }
 
 /*====== Font-weight css ends ======*/

@@ -13,10 +13,12 @@
 </div>
 @endif
 
-<body class="header">
+<link rel="stylesheet" href="/css/home.css">
+
+<header class="header">
   <div class="container">
-    <div class="row d-flex ">
-      <div class="col-lg-6 col-xl-6">
+    <div class="row">
+      <div class="col-lg-6 col-xl-7">
         <div>
           <h1 class="h1-large">Agende a consulta do seu animalzinho pelo site do HV UENP!</h1>
           <ul>
@@ -24,18 +26,17 @@
             <li>Salve os dados do seu animal no nosso sistema</li>
             <li>Receba notificações no dia da consulta</li>
           </ul>
-          <form action="/login">
-            <button class="w-100 btn btn-outline-primary mt-3">Agendar consulta</button>
-          </form>
+          <a class="btn-solid-lg" href="/appointments/show">Agendar consulta</a>
         </div>
       </div>
-      <div class="col-lg-6 col-xl-6">
+      <div class="col-lg-6 col-xl-5">
         <div class="image-container">
           <img class="img-fluid" src="./img/tel.png" alt="">
         </div>
       </div>
     </div>
   </div>
-</body>
+</header>
 
-@endsection
+
+  @endsection

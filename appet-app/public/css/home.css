@@ -1,0 +1,54 @@
+.header {
+	padding-top: 8rem;
+	padding-bottom: 4em;
+	background-size: cover;
+	text-align: center;
+    background-color: #ffffff;
+}
+
+.header .h1-large {
+	margin-bottom: 1.75rem;
+}
+
+.header .image-container {
+	margin-top: 5rem;
+}
+
+.btn-solid-lg {
+	display: inline-block;
+	padding: 1.625rem 2.625rem 1.625rem 2.625rem;
+	border: 1px solid #6aa570;
+	border-radius: 30px;
+	background-color: #6aa570;
+	color: #ffffff;
+	font-weight: 600;
+	font-size: 0.875rem;
+	line-height: 0;
+	text-decoration: none;
+	transition: all 0.2s;
+}
+
+.btn-solid-lg:hover {
+	background-color: transparent;
+	color: #6aa570; /* needs to stay here because of the color property of a tag */
+	text-decoration: none;
+}
+
+h1 {
+	color: #223150;
+	font-weight: 700;
+	font-size: 2.5rem;
+	line-height: 3.25rem;
+	letter-spacing: -0.4px;
+}
+
+.cards-1 .card {
+    display: inline-block;
+    width: 286px;
+    vertical-align: top;
+}
+
+.cards-1 .card:nth-of-type(3n+2) {
+    margin-right: 2rem;
+    margin-left: 2rem;
+}

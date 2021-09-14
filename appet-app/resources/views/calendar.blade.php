@@ -24,9 +24,9 @@ function build_calendar($month, $year)
     $dateToday = date('Y-m-d');
 
     $calendar = "<center><h1>$monthName $year</h1>";
-    $calendar .= "<a class='btn btn-primary btn-xs' href='?month=" . date('m', mktime(0, 0, 0, $month - 1, 1, $year)) . "&year=" . date('Y', mktime(0, 0, 0, $month - 1, 1, $year)) . "' title='Mês anterior'>←</a> ";
-    $calendar .= "<a class='btn btn-primary btn-xs' href='?month=" . date('m') . "&year=" . date('Y') . "'title='Mês atual'>Mês atual</a> ";
-    $calendar .= "<a class='btn btn-primary btn-xs' href='?month=" . date('m', mktime(0, 0, 0, $month + 1, 1, $year)) . "&year=" . date('Y', mktime(0, 0, 0, $month + 1, 1, $year)) . "' title='Proximo mês'>→</a></center> ";
+    $calendar .= "<a class='btn btn-primary- btn-xs' href='?month=" . date('m', mktime(0, 0, 0, $month - 1, 1, $year)) . "&year=" . date('Y', mktime(0, 0, 0, $month - 1, 1, $year)) . "' title='Mês anterior'>←</a> ";
+    $calendar .= "<a class='btn btn-primary- btn-xs' href='?month=" . date('m') . "&year=" . date('Y') . "'title='Mês atual'>Mês atual</a> ";
+    $calendar .= "<a class='btn btn-primary- btn-xs' href='?month=" . date('m', mktime(0, 0, 0, $month + 1, 1, $year)) . "&year=" . date('Y', mktime(0, 0, 0, $month + 1, 1, $year)) . "' title='Proximo mês'>→</a></center> ";
 
     $calendar .= "</br></br><table class='table table-bordered'>";
     $calendar .= "<tr>";
@@ -122,7 +122,7 @@ function checkSlots($mysqli, $date)
 </div>
 @endif
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="{{asset('site/bootstrap.css')}}">
 <link rel="stylesheet" href="/css/globalColors.css">
 <link rel="stylesheet" href="/css/styles.css">
 <link rel="stylesheet" href="{{ asset('css/cssAdmin/dashboard.css') }}">

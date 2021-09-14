@@ -37,7 +37,7 @@
           <img src="{{ asset('img/hv-uenp.png') }}" alt="Logo HV">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <ion-icon class="navbar-toggler-icon" name="menu"></ion-icon>
+          <ion-icon  class="navbar-toggler-icon" name="menu"></ion-icon >
         </button>
         <div class="navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto">
@@ -100,7 +100,24 @@
   </main>
   <!-- Footer -->
   <footer>
-    <p>PetsOn &copy; 2021</p>
+    <div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-12 col-sm-12">
+            <ul class="list-unstyled li-space-lg p-small">
+              <li><a href="/">Home</a></li>
+              <li><a href="/login">Entrar</a></li>
+              <li><a href="/register">Cadastrar</a></li>
+              <li><a href="/appointments/show">Agendamentos</a></li>
+              <li><a href="/pets/show">Meus pets</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-12">
+            <p class="p-small statement">Copyright &copy; <a href="#">PetsOn 2021</a></p>
+          </div> <!-- end of col -->
+        </div> <!-- enf of row -->
+      </div> <!-- end of container -->
+    </div>
   </footer>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

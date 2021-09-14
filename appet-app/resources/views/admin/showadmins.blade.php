@@ -17,7 +17,8 @@
     <div class="col-md-10 offset-md-1 dashboard-title-container">
         <h1>Admins</h1>
     </div>
-    <div class="col-md-10 offset-md-1 dashboard-users-container">
+    <div class="col-md-10 offset-md-1 dashboard-users-container" style="
+    margin-bottom: 120px;">
         {{-- @if(count($admins) > 0) --}}
         <table class="table">
             <thead>
@@ -62,7 +63,7 @@
         <div class="col-md-10 offset-md-1">
             <div class="form-group mt-3">
                 <form action="/admin/create-admin" class="mb-3">
-                    <button class="editProfile btn btn-block btn-primary">Criar novo adm</button>
+                    <button class="editProfile btn btn-block btn-primary-">Criar novo adm</button>
                 </form>
             </div>
         </div>

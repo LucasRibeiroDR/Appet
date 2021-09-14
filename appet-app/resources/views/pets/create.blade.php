@@ -45,7 +45,7 @@
             <select name="porte" id="porte" class="form-control">
                 <option>Mini</option>
                 <option>Pequeno</option>
-                <option>Medio</option>
+                <option>Médio</option>
                 <option>Grande</option>
                 <option>Gigante</option>
             </select>

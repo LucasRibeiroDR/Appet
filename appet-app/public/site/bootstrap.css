@@ -3026,34 +3026,33 @@ textarea.form-control-lg {
   opacity: 0.65;
 }
 
-.btn-primary {
+.btn-primary- {
   color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+  background-color: #6aa570;
+  border-color: #6aa570;
 }
-.btn-primary:hover {
+.btn-primary-:hover {
+  background-color: transparent;
+	color: #6aa570;
+}
+.btn-check:focus + .btn-primary-, .btn-primary-:focus {
   color: #fff;
-  background-color: #0b5ed7;
-  border-color: #0a58ca;
+  background-color: #6aa570;
+  border-color: rgb(106, 165, 112);
+  box-shadow: 0 0 0 0.25rem rgba(106, 165, 112, 0.5);
 }
-.btn-check:focus + .btn-primary, .btn-primary:focus {
+.btn-check:checked + .btn-primary-, .btn-check:active + .btn-primary-, .btn-primary-:active, .btn-primary-.active, .show > .btn-primary-.dropdown-toggle {
   color: #fff;
-  background-color: #0b5ed7;
-  border-color: #0a58ca;
-  box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5);
+  background-color: #6aa570;
+  border-color: #6aa570;
 }
-.btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
+.btn-check:checked + .btn-primary-:focus, .btn-check:active + .btn-primary-:focus, .btn-primary-:active:focus, .btn-primary-.active:focus, .show > .btn-primary-.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.25rem rgba(106, 165, 112, 0.5);
+}
+.btn-primary-:disabled, .btn-primary-.disabled {
   color: #fff;
-  background-color: #0a58ca;
-  border-color: #0a53be;
-}
-.btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5);
-}
-.btn-primary:disabled, .btn-primary.disabled {
-  color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+  background-color: #6aa570;
+  border-color: #6aa570;
 }
 
 .btn-secondary {
@@ -10997,6 +10996,9 @@ textarea.form-control-lg {
 
   .mb-xxl-auto {
     margin-bottom: auto !important;
+  }
+  .mb-200 {
+    margin-bottom: 2000px !important;
   }
 
   .ms-xxl-0 {

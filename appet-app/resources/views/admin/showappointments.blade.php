@@ -17,7 +17,8 @@
     <div class="col-md-10 offset-md-1 dashboard-title-container">
         <h1>Tabela de Consultas</h1>
     </div>
-    <div class="col-md-10 offset-md-1 dashboard-pets-container">
+    <div class="col-md-10 offset-md-1 dashboard-pets-container" style="
+    margin-bottom: 120px;">
         <table class="table">
             <thead>
                 <tr>

@@ -13,7 +13,7 @@
 </div>
 @endif
 
-<div>
+<div class="">
     <div class="col-md-10 offset-md-1 dashboard-title-container">
         <h1>Usuarios</h1>
     </div>
@@ -26,7 +26,8 @@
         </form>
     </div>
 
-    <div class="col-md-10 offset-md-1 dashboard-pets-container">
+    <div class="col-md-10 offset-md-1 dashboard-pets-container" style="
+    margin-bottom: 120px;">
         @if(count($users) > 0)
         <table class="table">
             <thead>
@@ -67,10 +68,10 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="col-md-10 offset-md-1">
+        <div class="col-md-10 offset-md-1 mb-200">
             <div class="form-group mt-3">
                 <form action="/admin/create-user" class="mb-3">
-                    <button class="editProfile btn btn-block btn-primary">Criar novo usuário</button>
+                    <button class="editProfile btn btn-block btn-primary-">Criar novo usuário</button>
                 </form>
             </div>
         </div>

@@ -10,7 +10,6 @@
 body {
     min-height: 100vh;
     padding-top: 100px;
-    padding-bottom: 100px;
     position: relative;
 }
 
@@ -42,6 +41,7 @@ th, td {
   background-color: #6aa570;
   border: 2px solid #004b07;
 }
+
 
 .btn-outline-primary {
     color: var(--white);
@@ -136,8 +136,8 @@ input[type='file'] {
 }
 
 .navbar{
-    background-color: #6aa570;
-    font-weight: 600;
+    background-color: #F1FFF7;
+	font-weight: 600;
 	font-size: 0.875rem;
 	line-height: 0.875rem;
 	box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.05);
@@ -150,11 +150,11 @@ input[type='file'] {
 
 .navbar a {
   font-size: 16px;
-  color: #ffffff;
+  color: #6aa570;
 }
 
 .navbar a:hover {
-  color: #ffffff;
+  color: #345c38;
   font-weight: bolder;
 }
 
@@ -200,7 +200,7 @@ button .btn {
 
 button .navbar-toggler-icon {
     font-size: 20px;
-    color: #fff;
+    color: #6aa570;
 }
 
 /* Events list */
@@ -438,74 +438,44 @@ button .navbar-toggler-icon {
     border-radius: 20px;
 }
 
-/*home*/
-.imagemHome {
+
+/* footer */
+footer a{
+    color: #6aa570;
+    text-decoration: none;
+}
+
+footer a:hover{
+    color: #345c38;
+    font-weight: bolder;
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
+footer ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+/* footer */
+footer {
+    text-align: center;
+    background-color: #F1FFF7;
+    color: #6aa570cb;
+    padding: 30px;
     position: absolute;
-    height: 500px;
-    left: 950px;
-    top: 88px;
-}
-
-.lista {
-    list-style-image: url('/img/paw.png') 10px;
-    /* padding-left: 1em;
-    position: fixed;
     bottom: 0;
-    right: 0; */
-    color: #508055;
+    width: 100%;
 }
 
-.ra {
-    display: none;
+footer p {
+    margin-bottom: 0;
 }
 
-.porte {
-    display: none;
-}
-
-.hours {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.header {
-	padding-top: 8rem;
-	padding-bottom: 4em;
-	background-color: #ffffff;
-	background-size: cover;
-	text-align: center;
-}
-
-.header .h1-large {
-	margin-bottom: 1.75rem;
-}
-
-.header .ul-large {
-	margin-bottom: 2.25rem;
-}
-
-.header .image-container {
-	margin-top: 5rem;
-}
-
-.btn {
-  border-color: #1D4B80;
-  color: #ffffff;
-  background-color: #1D4B80;
-  font-size: 14;
-}
-
-.btn:hover {
-  background-color: #0a2f5a;
-  border-color: #0a2f5a;
-  font-weight: bolder;
-  font-size: 14;
-}
-
-
+/*home*/
 /*Cadastro Pet*/
-
 .btnPet{
   width: 100%;
 }
@@ -525,7 +495,6 @@ button .navbar-toggler-icon {
 }
 
 /*Meus Pets*/
-
 .btn-danger{
   background-color: #B60000;
   border-color: #B60000;
@@ -547,27 +516,3 @@ button .navbar-toggler-icon {
   overflow: hidden;
 }
 
-/* footer */
-footer {
-    text-align: center;
-    background-color: #6aa570;
-    color: #ffffff;
-    padding: 30px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
-footer p {
-    margin-bottom: 0;
-}
-
-.btn {
-    padding: 10px 20px;
-    border-radius: 0.25rem;
-    font-size: 14px;
-    margin-bottom: 5px;
-    margin-right: 10px;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-  }

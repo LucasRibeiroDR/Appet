@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="{{asset('site/bootstrap.css')}}">
     <!-- Scripts -->
     <script src="/js/main.js"></script>
+    <script src="/js/index.js"></script>
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 

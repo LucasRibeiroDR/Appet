@@ -22,7 +22,7 @@
       <li>Receba notificações no dia da consulta</li>
     </ul>
     <form method="get" action="{{ route('showUsers')}}">
-      <button type="submit" class="w-100 btn btn-outline-primary mt-3">Agendar consulta</button>
+      <button type="submit" class="w-100 btn btn-primary- mt-3">Agendar consulta</button>
     </form>
   </div>
   <div class="col-md-6 offset-md-1 dashboard-pets-container">
