@@ -15,6 +15,8 @@
   <script src="/js/index.js"></script>
   <script src="/js/main.js"></script>
   <script src="{{ mix('js/app.js') }}" defer></script>
+  <!-- fontsAwesome -->
+  <link href="{{ asset('fontawesome/css/all.css') }}" rel="stylesheet">
   <!-- CSS -->
   <style>
     body {
