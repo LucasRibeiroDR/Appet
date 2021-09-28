@@ -108,6 +108,11 @@ th, td {
     padding: 10px;
 }
 
+.ra,
+.porte{
+	display: none;
+}
+
 .image-event {
     display: flex;
     justify-content: center;
@@ -241,6 +246,7 @@ button .navbar-toggler-icon {
     font-weight: bold;
     margin-bottom: 30px;
 }
+
 
 .card-participants {
     font-size: 14px;
