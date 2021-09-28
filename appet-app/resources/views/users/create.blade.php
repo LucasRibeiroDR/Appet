@@ -59,7 +59,7 @@
         </div>
 
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Adicionar Usuário">
+            <input type="submit" class="btn btn-primary-" value="Adicionar Usuário">
         </div>
     </form>
 </div>

@@ -48,7 +48,7 @@
     </div>
 
     <div class="form-group">
-      <input type="submit" class="btn btn-primary" value="Editar Usuário">
+      <input type="submit" class="btn btn-primary-" value="Editar Usuário">
     </div>
   </form>
 </div>

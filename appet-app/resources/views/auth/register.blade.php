@@ -94,3 +94,4 @@
         </div>
     </div>
 </x-guest-layout>
+<script type="text/javascript" src="../../../public/js/index.js"></script>

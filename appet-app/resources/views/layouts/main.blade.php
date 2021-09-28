@@ -12,9 +12,9 @@
   <!-- CSS Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <!-- Scripts -->
-  <script src="/js/index.js"></script>
-  <script src="/js/main.js"></script>
+  <script type="text/javascript" src="/js/main.js"></script>
   <script src="{{ mix('js/app.js') }}" defer></script>
+  <script type="text/javascript" src="/js/index.js"></script>
   <!-- fontsAwesome -->
   <link href="{{ asset('fontawesome/css/all.css') }}" rel="stylesheet">
   <!-- CSS -->
@@ -39,9 +39,9 @@
           <img src="{{ asset('img/hv-uenp.png') }}" alt="Logo HV">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <ion-icon  class="navbar-toggler-icon" name="menu"></ion-icon >
+          <ion-icon class="navbar-toggler-icon" name="menu"></ion-icon>
         </button>
-        <div class="navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-collapse" id="navbarSupportedContent" style="justify-content: center; text-align: center;">
           <ul class="navbar-nav ms-auto">
             @auth
             @can('user-page')
@@ -102,8 +102,10 @@
   </main>
   <!-- Footer -->
   <footer>
-    <div>
-      <div class="container">
+      <div class="col-lg-6 col-md-12 col-sm-12">
+        <p class="p-small statement">Copyright &copy; <a href="#">PetsOn 2021</a></p>
+      </div> <!-- end of col -->
+      <!-- <div class="container">
         <div class="row">
           <div class="col-lg-6 col-md-12 col-sm-12">
             <ul class="list-unstyled li-space-lg p-small">
@@ -113,18 +115,12 @@
               <li><a href="/appointments/show">Agendamentos</a></li>
               <li><a href="/pets/show">Meus pets</a></li>
             </ul>
-          </div>
-          <div class="col-lg-6 col-md-12 col-sm-12">
-            <p class="p-small statement">Copyright &copy; <a href="#">PetsOn 2021</a></p>
-          </div> <!-- end of col -->
-        </div> <!-- enf of row -->
-      </div> <!-- end of container -->
-    </div>
+          </div> 
+        </div>  enf of row
+      </div> end of container -->
   </footer>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script src="{{asset('js/main.js')}}"></script>
-  <script src="{{asset('js/idade.js')}}"></script>
   <script src="{{asset('site/jquery.js')}}"></script>
   <script src="{{asset('site/bootstrap.js')}}"></script>
 </body>

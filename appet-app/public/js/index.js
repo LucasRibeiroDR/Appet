@@ -14,8 +14,10 @@ function hidden_show() {
     var porte = document.getElementById("porte_value");
 
     if (valor == 'Gato') {
+        console.log("test")
         porte.classList.add("porte");
     } else {
         porte.classList.remove("porte");
+        console.log("test2")
     }
 }
