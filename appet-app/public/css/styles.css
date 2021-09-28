@@ -453,7 +453,7 @@ footer {
     background-color: #F1FFF7;
     color: #6aa570cb;
     padding: 30px;
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
 }
