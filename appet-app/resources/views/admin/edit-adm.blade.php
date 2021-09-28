@@ -40,7 +40,7 @@
         </div>
 
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Editar Adm">
+            <input type="submit" class="btn btn-primary-" value="Editar Adm">
         </div>
     </form>
 </div>

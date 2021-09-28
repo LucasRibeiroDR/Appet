@@ -134,7 +134,7 @@ function timeslots($duration, $cleanup, $start, $end)
         <?php $timeslots = timeslots($duration, $cleanup, $start, $end);
         foreach ($timeslots as $ts) {
         ?>
-            <div id="" class="hours">
+            <div id="" class="hours" style="display: flex; justify-content: center;">
                 <div id="" class="form-group">
                     @if($ts == "12:00PM - 13:00PM" || $ts == "13:00PM - 14:00PM")
                     <input disabled readonly class="btnbtn btn btn-outline-secondary" <?php echo $ts; ?> value="<?php echo $ts; ?>">
@@ -154,18 +154,8 @@ function timeslots($duration, $cleanup, $start, $end)
             <input readonly maxlength='1' type="text" name="timeslot" id="timeslot" class="form-control" value="">
         </div>
 
-        {{-- <div class="form-group">
-            <label for="hour">Selecione o horário da consulta:</label>
-            <select name="hour" id="hour" class="form-control">
-                <option value="08:00:00">8:00</option>
-                <option value="10:00:00">10:00</option>
-                <option value="14:00:00">14:00</option>
-                <option value="16:00:00">16:00</option>
-            </select>
-        </div> --}}
-
         <div class="form-group">
-            <label for="area_consulta">Selecione a area de consulta:</label>
+            <label for="area_consulta">Area de consulta:</label>
             <select name="area_consulta" id="area_consulta" class="form-control">
                 <option value="Oftalmologista">Oftalmologista</option>
                 <option value="Clínico Geral">Clínico Geral</option>
@@ -184,7 +174,7 @@ function timeslots($duration, $cleanup, $start, $end)
             </select>
         </div>
         <div class="form-group">
-            <input name="submit" type="submit" class="btn btn-primary" value="Criar nova consulta">
+            <input name="submit" type="submit" class="btn btn-primary-" value="Criar nova consulta">
         </div>
     </form>
 </div>

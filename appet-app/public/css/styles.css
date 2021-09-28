@@ -8,9 +8,7 @@
     font-size: 1em;
 }
 
-body {
-    position: relative;
-}
+html, body {height:100%;}
 
 h1 {
   color: #1D4B80;
@@ -450,11 +448,6 @@ footer p {
     margin-bottom: 0;
 }
 
-footer ul li {
-    display: inline;
-    margin-left: 20px;
-}
-
 /* footer */
 footer {
     text-align: center;
@@ -778,15 +771,6 @@ h1 {
 	}
 	/* end of services */
 
-	/* Footer */
-	.footer h4 {
-		width: 46rem;
-		margin-right: auto;
-		margin-left: auto;
-	}
-	/* end of footer */
-
-
 	/* Copyright */
 	.copyright {
 		text-align: left;
@@ -863,13 +847,6 @@ h1 {
 		margin-left: 5.5rem;
 	}
 	/* end of services */
-
-	/* Footer */
-	.footer .decoration-circles {
-		left: 0;
-	}
-	/* end of footer */
-
 
 	/* Extra Pages */
 	.ex-cards-1 .card {
