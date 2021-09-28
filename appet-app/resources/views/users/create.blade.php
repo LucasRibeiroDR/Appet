@@ -1,5 +1,4 @@
 @extends('layouts.admin')
-
 @section('title', 'PetsOn | Criar Usuário')
 @section('content')
 

@@ -43,26 +43,26 @@
         <div class="col-md-10 offset-md-1">
             <div class="form-group mt-3">
                 <form action="/pets/create" class="mb-3">
-                    <button class="editProfile btn btn-block btn-primary-">Cadastrar novo pet</button>
+                    <button class="editProfile btn btn-block btn-danger">Cadastrar novo pet</button>
                 </form>
             </div>
         </div>
         @foreach($pets as $pet)
         <!-- <td scropt="row">{{ $loop->index + 1 }}</td> -->
         <ul style="list-style-type: none;">
-            <li style="display: inline; margin: 0 0 0 15px;">
+            <li style="display: inline;  margin: 20px 0 0 20px;">
                 <div class="card" style="width: 18rem; background-color: #e5f1e2;">
                     <div class="card-body">
-                        <h2 class="card-title" style="color: #305a34;">{{ $pet->name }}</h2>
-                        <h5 class="card-subtitle mb-2 text-muted">{{ $pet->especie }}</h5>
-                        <h5 class="card-subtitle mb-2 text-muted">{{ $pet->raca }}</h5>
-                        <h5 class="card-subtitle mb-2 text-muted">{{ $pet->data_nascimento->format('d-m-Y') }}</h5>
+                        <h2 class="card-title text-center" style="color: #305a34;">{{ $pet->name }}</h2>
+                        <p class="cardText mb-2">Espécie: {{ $pet->especie }}</p>
+                        <p class="cardText mb-2">Raça: {{ $pet->raca }}</p>
+                        <p class="cardText mb-2">Data de nascimento: {{ $pet->data_nascimento->format('d-m-Y') }}</p>
 
                         <table>
                             <tr>
                                 <td>
                                     <div>
-                                        <a class="btn btn-info edit-btn" href="/pets/edit/{{$pet->id}}">
+                                        <a class="linkCard" href="/pets/edit/{{$pet->id}}">
                                             <ion-icon name="create-outline"></ion-icon>
                                             Editar
                                         </a>
@@ -72,7 +72,7 @@
                                     <div action="/pets/{{ $pet->id }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger delete-btn">
+                                        <button type="submit" class="linkCard">
                                             <ion-icon name="trash-outline"></ion-icon>
                                             Deletar
                                         </button>
@@ -84,6 +84,7 @@
                 </div>
             </li>
         </ul>
+
         @endforeach
         @else
         <div class="col-md-10 offset-md-1">

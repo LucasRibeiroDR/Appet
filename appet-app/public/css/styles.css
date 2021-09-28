@@ -1,5 +1,6 @@
 * {
     font-family: 'Roboto', sans-serif;
+	padding-top: 10px;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -460,7 +461,7 @@ footer {
     background-color: #F1FFF7;
     color: #6aa570cb;
     padding: 30px;
-    position: absolute;
+	position: fixed;
     bottom: 0;
     width: 100%;
 }
@@ -490,25 +491,31 @@ footer p {
 }
 
 /*Meus Pets*/
-.btn-danger{
-  background-color: #B60000;
-  border-color: #B60000;
-}
-
-.btn-danger:hover{
-  background-color: #750000;
-  border-color: #750000;
-}
 
 .containerMPets li {
-  width: 230px;
-  height: 200px;
+  width: 289px;
+  height: 200px;  
   margin: 0;
   border-radius: 5px;
   border: none;
   background: #e5f1e2;
   float: left;
   overflow: hidden;
+  color: black;
+}
+
+.linkCard{
+	color:black;
+	padding: 5px;
+	text-decoration: none;
+}
+
+.linkCard:hover{
+	color: #6aa570;
+}
+
+.cardText{
+	color: rgb(44, 44, 44);
 }
 
 /********/
