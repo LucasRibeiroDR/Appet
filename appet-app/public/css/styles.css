@@ -450,13 +450,16 @@ footer p {
 
 /* footer */
 footer {
-    text-align: center;
     background-color: #F1FFF7;
     color: #6aa570cb;
     padding: 30px;
 	position: fixed;
     bottom: 0;
     width: 100%;
+
+	display: flex;
+	justify-content: center;
+	text-align: center;
 }
 
 footer p {
@@ -516,11 +519,11 @@ footer p {
 /********/
 
 .header {
-	padding-top: 8rem;
-	padding-bottom: 4em;
+	/* padding-top: 8rem;
+	padding-bottom: 4em; */
 	background-size: cover;
 	text-align: center;
-    background-color: #ffffff;
+    background-color: #fff;
 }
 
 .header .h1-large {
@@ -532,9 +535,6 @@ footer p {
 	font-size: 18px;
 }
 
-.header .image-container {
-	margin-top: 5rem;
-}
 
 .btn-solid-lg {
 	display: inline-block;
@@ -575,7 +575,6 @@ h1 {
 /*************************/
 
 .cards-1 {
-	padding-top: 5rem;
 	padding-bottom: 2.25em;
 }
 
@@ -638,6 +637,13 @@ h1 {
 	.header {
 		padding-top: 9rem;
 		padding-bottom: 5em;
+	}
+
+	.image-container{
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.header .h1-large {
@@ -744,8 +750,10 @@ h1 {
 
 	.header .image-container {
 		margin-top: 0;
+
 	}
 
+	
 	.header .btn-solid-lg,
 	.header .btn-outline-lg {
 		margin-right: 0;
@@ -816,8 +824,6 @@ h1 {
 	/* Header */
 	.header {
 		overflow: hidden;
-		padding-top: 20.25rem;
-		padding-bottom: 15rem;
 	}
 
 	.header .text-container {
@@ -826,6 +832,7 @@ h1 {
 
 	.header .image-container {
 		position: relative;
+
 	}
 	
 	.header .image-container img {
