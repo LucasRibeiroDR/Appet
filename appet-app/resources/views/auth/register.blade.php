@@ -9,17 +9,8 @@
     </ul>
 </div>
 @endif
-<<<<<<< HEAD
-<x-guest-layout>
-    <x-jet-authentication-card class="containerCad">
-        <x-slot name="logo">
-            
-        </x-slot>
-
-=======
 
 <x-guest-layout>
->>>>>>> back-end
     <link rel="stylesheet" href="/css/user/forms.css">
     <x-jet-validation-errors class="mb-4" />
 
