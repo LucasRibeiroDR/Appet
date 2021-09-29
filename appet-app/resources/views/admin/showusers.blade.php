@@ -15,7 +15,7 @@
 
 <div class="">
     <div class="col-md-10 offset-md-1 dashboard-title-container">
-        <h1>Usuarios</h1>
+        <h1>Usuários</h1>
     </div>
 
     <div id="search-container" class="col-md-3">

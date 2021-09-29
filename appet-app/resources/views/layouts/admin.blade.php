@@ -32,7 +32,7 @@
   <link rel="stylesheet" href="{{mix('css/app.css')}}">
   @livewireStyles
   <link rel="stylesheet" href="{{asset('site/bootstrap.css')}}">
-
+  <link rel="stylesheet" href="{{ asset('css/cssAdmin/dashboard.css') }}">
 </head>
 
 <body>

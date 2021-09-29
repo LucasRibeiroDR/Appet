@@ -5,6 +5,7 @@ body {
   font-weight: 400;
   background: #f4f7fa;
   position: relative;
+  margin-top: 60px;
 }
 
 *:focus {

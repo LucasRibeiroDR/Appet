@@ -3,8 +3,6 @@
 @section('title', 'PetsOn | Perfil')
 @section('content')
 
-<link rel="stylesheet" href="{{ asset('css/cssAdmin/dashboard.css') }}">
-
 @if($errors->any())
 <div class="alert alert-danger">
   <ul>
