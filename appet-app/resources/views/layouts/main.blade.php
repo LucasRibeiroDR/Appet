@@ -33,7 +33,7 @@
 <body>
   <!-- Header -->
   <header>
-    <nav class="navbar navbar-expand-lg fixed-top ">
+    <nav class="navbar navbar-expand-lg">
       <div class="container">
         <a href="/" class="navbar-brand hvUenpLogo">
           <img src="{{ asset('img/hv-uenp.png') }}" alt="Logo HV">

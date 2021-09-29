@@ -43,7 +43,7 @@
         <div class="col-md-10 offset-md-1">
             <div class="form-group mt-3">
                 <form action="/pets/create" class="mb-3">
-                    <button class="editProfile btn btn-block btn-danger">Cadastrar novo pet</button>
+                    <button class="editProfile btn btn-block btn-primary-">Cadastrar novo pet</button>
                 </form>
             </div>
         </div>

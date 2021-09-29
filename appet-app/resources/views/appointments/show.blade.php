@@ -22,7 +22,7 @@
         <div class="col-md-10 offset-md-1">
             <div class="form-group mt-3">
                 <form action="/calendar" class="mb-3">
-                    <button class="editProfile btn btn-block btn-danger">Marcar consulta</button>
+                    <button class="editProfile btn btn-block btn-primary-">Marcar consulta</button>
                 </form>
             </div>
         </div>
