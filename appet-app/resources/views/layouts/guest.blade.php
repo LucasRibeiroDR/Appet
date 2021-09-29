@@ -30,7 +30,7 @@
     <script src="/js/index.js"></script>
 </head>
 
-<body class="pt-4 mb-4">
+<body class="mb-4">
     <div class="font-sans text-gray-900 antialiased">
         {{ $slot }}
     </div>

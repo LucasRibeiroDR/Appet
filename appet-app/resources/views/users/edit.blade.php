@@ -13,6 +13,8 @@
 </div>
 @endif
 
+<link rel="stylesheet" href="/css/user/forms.css">
+
 <div id="event-create-container" class="col-md-6 offset-md-3">
   <h1>Editar Usuário</h1>
   <form action="/admin/update-user/{{ $user->id }}" method="POST" enctype="multipart/form-data">
