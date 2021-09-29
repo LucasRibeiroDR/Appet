@@ -1,56 +1,70 @@
 @section('title', 'PetsOn | Registrar-se')
+
 @if($errors->any())
-  <div class="alert alert-danger">
+<div class="alert alert-danger">
     <ul>
-      @foreach($errors->all() as $error) 
+        @foreach($errors->all() as $error)
         <li>{{$error}}</li>
-      @endforeach
+        @endforeach
     </ul>
-  </div>
+</div>
 @endif
+<<<<<<< HEAD
 <x-guest-layout>
     <x-jet-authentication-card class="containerCad">
         <x-slot name="logo">
             
         </x-slot>
 
-    <link rel="stylesheet" href="/css/user/forms.css">
+=======
 
+<x-guest-layout>
+>>>>>>> back-end
+    <link rel="stylesheet" href="/css/user/forms.css">
     <x-jet-validation-errors class="mb-4" />
 
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form method="POST" action="{{ route('register') }}" class="login100-form validate-form" >
+                <form method="POST" action="{{ route('register') }}" class="login100-form validate-form">
                     @csrf
                     <span class="login100-form-title">
                         Cadastrar
                     </span>
                     <div class="wrap-input100 validate-input">
-                        <x-jet-input id="name" class="input100" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="{{ __('Nome completo') }}"/>
+                        <x-jet-input id="name" class="input100" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="{{ __('Nome completo') }}" />
                     </div>
                     <div class="wrap-input100 validate-input">
-                        <x-jet-input id="cpf" class="input100" type="text" name="cpf" required autocomplete="new-cpf" placeholder="{{ __('CPF') }}"/>
-                    </div>
-
-                    <div class="wrap-input100 validate-input">
-                        <x-jet-input id="rg" class="input100" type="text" name="rg" required autocomplete="new-rg" placeholder="{{ __('RG') }}"/>
-                    </div>
-                    <div class="wrap-input100 validate-input">
-                        <x-jet-input id="telefone" class="input100" type="text" name="telefone" required autocomplete="new-telefone" placeholder="{{ __('Telefone') }}"/>
-                    </div>
-                    <div class="wrap-input100 validate-input">
-                        <x-jet-input id="endereco" class="input100" type="text" name="endereco" required autocomplete="new-endereco" placeholder="{{ __('Endereço') }}"/>
-                    </div>
-                    <div class="wrap-input100 validate-input">
-                        <x-jet-input id="email" class="input100" type="email" name="email" :value="old('email')" required placeholder="{{ __('E-mail') }}"/>
-                    </div>
-                    <div class="wrap-input100 validate-input">
-                        <x-jet-input id="password" class="input100" type="password" name="password" required autocomplete="new-password" placeholder="{{ __('Senha') }}"/>
+                        <x-jet-input id="cpf" class="input100" type="text" name="cpf" required autocomplete="new-cpf" placeholder="{{ __('CPF') }}" />
                     </div>
 
                     <div class="wrap-input100 validate-input">
-                        <x-jet-input id="password_confirmation" class="input100" type="password" name="password_confirmation" required autocomplete="new-password" placeholder="{{ __('Confirmar Senha') }}"/>
+                        <x-jet-input id="rg" class="input100" type="text" name="rg" required autocomplete="new-rg" placeholder="{{ __('RG') }}" />
+                    </div>
+                    <div class="wrap-input100 validate-input">
+                        <x-jet-input id="telefone" class="input100" type="text" name="telefone" required autocomplete="new-telefone" placeholder="{{ __('Telefone') }}" />
+                    </div>
+                    <div class="wrap-input100 validate-input">
+                        <x-jet-input id="endereco" class="input100" type="text" name="endereco" required autocomplete="new-endereco" placeholder="{{ __('Endereço') }}" />
+                    </div>
+                    <div class="wrap-input100 validate-input">
+                        <x-jet-input id="email" class="input100" type="email" name="email" :value="old('email')" required placeholder="{{ __('E-mail') }}" />
+                    </div>
+                    <div class="wrap-input100 validate-input">
+                        <select id="student" class="input100" type="text" name="student" required autocomplete="new-student" onchange="exibir_ocultar()">
+                            <option value="0">Não sou estudante UENP</option>
+                            <option value="1">Sou estudante UENP</option>
+                        </select>
+                    </div>
+                    <div class="wrap-input100 validate-input" id="ra_value">
+                        <x-jet-input id="ra" class="input100"  type="text" name="ra" autocomplete="new-ra" placeholder="20XX111130300XX" />
+                    </div>
+                    <div class="wrap-input100 validate-input">
+                        <x-jet-input id="password" class="input100" type="password" name="password" required autocomplete="new-password" placeholder="{{ __('Senha') }}" />
+                    </div>
+
+                    <div class="wrap-input100 validate-input">
+                        <x-jet-input id="password_confirmation" class="input100" type="password" name="password_confirmation" required autocomplete="new-password" placeholder="{{ __('Confirmar Senha') }}" />
                     </div>
 
                     @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
@@ -72,7 +86,7 @@
 
                     <div class="container-login100-form-btn">
                         <x-jet-button class="login100-form-btn">
-                        {{ __('Cadastrar-se') }}
+                            {{ __('Cadastrar-se') }}
                         </x-jet-button>
                     </div>
 
@@ -86,6 +100,7 @@
                     <img src="{{ asset('./img/2.png') }}" alt="self cachorro">
                 </div>
             </div>
-        </form>
-    </x-jet-authentication-card>
+        </div>
+    </div>
 </x-guest-layout>
+<script type="text/javascript" src="../../../public/js/index.js"></script>

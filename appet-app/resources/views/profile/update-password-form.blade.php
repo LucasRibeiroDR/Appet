@@ -1,11 +1,11 @@
 @if($errors->any())
-  <div class="alert alert-danger">
+<div class="alert alert-danger">
     <ul>
-      @foreach($errors->all() as $error) 
+        @foreach($errors->all() as $error)
         <li>{{$error}}</li>
-      @endforeach
+        @endforeach
     </ul>
-  </div>
+</div>
 @endif
 
 <x-jet-form-section submit="updatePassword">
@@ -38,11 +38,11 @@
     </x-slot>
 
     <x-slot name="actions">
-        <x-jet-action-message class="btn btn-primary mr-3" on="saved">
+        <x-jet-action-message class="btn btn-primary- mr-3" on="saved">
             {{ __('Saved.') }}
         </x-jet-action-message>
 
-        <x-jet-button class="btn btn-primary">
+        <x-jet-button class="btn btn-primary-">
             {{ __('Save') }}
         </x-jet-button>
     </x-slot>

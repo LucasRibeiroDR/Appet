@@ -1,11 +1,11 @@
 @if($errors->any())
-  <div class="alert alert-danger">
+<div class="alert alert-danger">
     <ul>
-      @foreach($errors->all() as $error) 
+        @foreach($errors->all() as $error)
         <li>{{$error}}</li>
-      @endforeach
+        @endforeach
     </ul>
-  </div>
+</div>
 @endif
 
 <x-jet-action-section>
@@ -38,18 +38,14 @@
                 {{ __('Depois que sua conta for excluída, todos os seus recursos e dados serão excluídos permanentemente. Antes de excluir sua conta, baixe todos os dados ou informações que deseja reter.') }}
 
                 <div class="mt-4" x-data="{}" x-on:confirming-delete-user.window="setTimeout(() => $refs.password.focus(), 250)">
-                    <x-jet-input type="password" class="mt-1 block w-3/4"
-                                placeholder="{{ __('Password') }}"
-                                x-ref="password"
-                                wire:model.defer="password"
-                                wire:keydown.enter="deleteUser" />
+                    <x-jet-input type="password" class="mt-1 block w-3/4" placeholder="{{ __('Password') }}" x-ref="password" wire:model.defer="password" wire:keydown.enter="deleteUser" />
 
                     <x-jet-input-error for="password" class="mt-2" />
                 </div>
             </x-slot>
 
             <x-slot name="footer">
-                <x-jet-secondary-button class="btn-danger" wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled">
+                <x-jet-secondary-button class="btn btn-warning" wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled">
                     {{ __('Cancelar') }}
                 </x-jet-secondary-button>
 

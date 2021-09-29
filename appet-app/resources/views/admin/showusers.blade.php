@@ -4,16 +4,16 @@
 @section('content')
 
 @if($errors->any())
-  <div class="alert alert-danger">
+<div class="alert alert-danger">
     <ul>
-      @foreach($errors->all() as $error) 
+        @foreach($errors->all() as $error)
         <li>{{$error}}</li>
-      @endforeach
+        @endforeach
     </ul>
-  </div>
+</div>
 @endif
 
-<div>
+<div class="">
     <div class="col-md-10 offset-md-1 dashboard-title-container">
         <h1>Usuarios</h1>
     </div>
@@ -26,56 +26,65 @@
         </form>
     </div>
 
-    <div class="col-md-10 offset-md-1 dashboard-pets-container">
+    <div class="col-md-10 offset-md-1 dashboard-pets-container" style="
+    margin-bottom: 120px;">
         @if(count($users) > 0)
         <table class="table">
             <thead>
                 <tr>
-{{--                <th scope="col">#</th>--}}
+                    {{-- <th scope="col">#</th>--}}
                     <th scope="col">Nome</th>
                     <th scope="col">Ações</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($users as $user)
-                    @if($user->hasRole('user'))
-                        <tr>
-{{--                        <td scropt="row">{{ $loop->index + 1 }}</td>--}}
-                            <td>{{ $user->name }}</td>
-                            <td class="d-flex ">
-                                <a class="btn btn-info edit-btn" href="/admin/edit-user/{{$user->id}}">
-                                    <ion-icon name="create-outline"></ion-icon>Editar
-                                </a>
-                                <a class="btn btn-dark create-btn" href="/admin/create-pet/{{$user->id}}">
-                                    <ion-icon name="add"></ion-icon> Novo Pet
-                                </a>
-                                <a class="btn btn-dark create-btn" href="/admin/calendar/{{$user->id}}">
-                                    <ion-icon name="add"></ion-icon> Nova Consulta
-                                </a>
+                @if($user->hasRole('user'))
+                <tr>
+                    {{-- <td scropt="row">{{ $loop->index + 1 }}</td>--}}
+                    <td>{{ $user->name }}</td>
+                    <td class="d-flex ">
+                        <a class="btn btn-info edit-btn" href="/admin/edit-user/{{$user->id}}">
+                            <ion-icon name="create-outline"></ion-icon>Editar
+                        </a>
+                        <a class="btn btn-dark create-btn" href="/admin/create-pet/{{$user->id}}">
+                            <ion-icon name="add"></ion-icon> Novo Pet
+                        </a>
+                        <a class="btn btn-dark create-btn" href="/admin/calendar/{{$user->id}}">
+                            <ion-icon name="add"></ion-icon> Nova Consulta
+                        </a>
 
-                                {{-- <form action="/pets/{{ $user->id }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger delete-btn">
-                                            <ion-icon name="trash-outline"></ion-icon>
-                                            Deletar
-                                    </button>
-                                </form> --}}
-                            </td>
-                        </tr>
-                    @endif
+                        {{-- <form action="/pets/{{ $user->id }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger delete-btn">
+                            <ion-icon name="trash-outline"></ion-icon>
+                            Deletar
+                        </button>
+                        </form> --}}
+                    </td>
+                </tr>
+                @endif
                 @endforeach
             </tbody>
         </table>
-
-        <div>
-            <p class="youHaveConsults"><a href="/admin/create-user">Criar novo usuário</a></p>
+        <div class="col-md-10 offset-md-1 mb-200">
+            <div class="form-group mt-3">
+                <form action="/admin/create-user" class="mb-3">
+                    <button class="editProfile btn btn-block btn-primary-">Criar novo usuário</button>
+                </form>
+            </div>
         </div>
-
         @elseif(count($users) == 0 && $search)
-            <p>{{ $search }} não encontrado</p>
+        <p>{{ $search }} não encontrado</p>
         @else
-            <p class="youDontHavePets">Você ainda não usuários, <a href="/admin/create-user">adicionar usuário</a></p>
+        <div class="col-md-10 offset-md-1">
+            <div class="form-group mt-3">
+                <form action="/admin/create-user" class="mb-3">
+                    <button class="editProfile btn btn-block btn-danger">Você ainda não usuários, adicionar usuário</button>
+                </form>
+            </div>
+        </div>
         @endif
     </div>
 </div>

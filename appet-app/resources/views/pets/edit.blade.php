@@ -4,13 +4,13 @@
 @section('content')
 
 @if($errors->any())
-  <div class="alert alert-danger">
+<div class="alert alert-danger">
     <ul>
-      @foreach($errors->all() as $error) 
+        @foreach($errors->all() as $error)
         <li>{{$error}}</li>
-      @endforeach
+        @endforeach
     </ul>
-  </div>
+</div>
 @endif
 
 <div id="event-create-container" class="col-md-6 offset-md-3">
@@ -19,19 +19,19 @@
         @csrf
         @method('PUT')
         <div class="form-group">
-            <label for="name">Nome do Pet</label>
+            <label for="name">Nome</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Bob, Nina, Belinha, ..." value="{{ $pet->name }}" maxlength=50>
         </div>
         <div class="form-group">
-            <label for="especie">Especie do seu Pet</label>
+            <label for="especie">Especie</label>
             <select name="especie" id="especie" class="form-control" onchange="hidden_show()">
-                <option value="0">Gato</option>
-                <option value="1">Cachorro</option>
+                <option value="Gato">Gato</option>
+                <option value="Cachorro">Cachorro</option>
             </select>
         </div>
 
         <div class="form-group porte" id="porte_value">
-            <label for="porte">Porte do dog</label>
+            <label for="porte">Porte</label>
             <select name="porte" id="porte" class="form-control">
                 <option>Mini</option>
                 <option>Pequeno</option>
@@ -41,39 +41,37 @@
             </select>
         </div>
 
-
-
         <div class="form-group">
-            <label for="raca">Raça do Pet</label>
+            <label for="raca">Raça</label>
             <input type="text" class="form-control" id="raca" name="raca" placeholder="Pinscher, poodle, pug, chihuahua, ..." value="{{ $pet->raca }}">
         </div>
         <div class="form-group">
-            <label for="pelugem">Cor da pelagem</label>
+            <label for="pelugem">Cor</label>
             <input type="text" class="form-control" id="pelugem" name="pelugem" placeholder="Marrom claro, marrom escuro, preto, ..." value="{{ $pet->pelugem }}">
         </div>
 
         <div class="form-group">
-            <label for="data_nascimento">Data de nascimento</label>
+            <label for="data_nascimento">Data de Nascimento</label>
             <input type="date" class="form-control" name="data_nascimento" id="data_nascimento" value="{{ $pet->data_nascimento->format('Y-m-d') }}">
         </div>
         <div class="form-group">
-            <label for="castrado">O animal é castrado?</label>
+            <label for="castrado">Castrado?</label>
             <select name="castrado" id="castrado" class="form-control">
                 <option value="0">Não</option>
                 <option value="1" {{ $pet->castrado == 1 ? "selected='selected'" : "" }}>Sim</option>
             </select>
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="statys">Status do Animal</label>
             <select name="status" id="status" class="form-control">
                 <option value="1">Vivo</option>
                 <option value="0" {{ $pet->status == 0 ? "selected='selected'" : "" }}>Morto</option>
             </select>
-        </div>
+        </div> -->
 
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Finalizar Edição">
+            <input type="submit" class="btn btn-primary-" value="Finalizar Edição">
         </div>
     </form>
 </div>
