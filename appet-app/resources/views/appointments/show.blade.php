@@ -39,23 +39,14 @@
                         <table>
                             <tr>
                                 <td>
-                                    <div>
-                                        <a class="linkCard" href="/appointments/edit/{{ $appointment->id }}">
-                                        <ion-icon name="create-outline"></ion-icon>
-                                        Editar
-                                        </a>
-                                    </div>
-                                </td>
-
-                                <td>
-                                    <div action="/appointments/{{ $appointment->id }}" method="POST">
+                                    <form action="/appointments/{{ $appointment->id }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="linkCard">
                                             <ion-icon name="trash-outline"></ion-icon>
                                             Cancelar
                                         </button>
-                                    </div>
+                                    </form>
                                 </td>
                             </tr>
                         </table>

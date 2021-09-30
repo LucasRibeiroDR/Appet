@@ -69,14 +69,14 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <div action="/pets/{{ $pet->id }}" method="POST">
+                                    <form action="/pets/{{ $pet->id }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="linkCard">
                                             <ion-icon name="trash-outline"></ion-icon>
                                             Deletar
                                         </button>
-                                    </div>
+                                    </form>
                                 </td>
                             </tr>
                         </table>

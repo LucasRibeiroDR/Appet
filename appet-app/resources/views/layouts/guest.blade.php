@@ -8,7 +8,7 @@
 
     <title>@yield('title')</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="./img/pet.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/pet.ico" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -30,7 +30,7 @@
     <script src="/js/index.js"></script>
 </head>
 
-<body class="pt-4 mb-4">
+<body class="mb-4">
     <div class="font-sans text-gray-900 antialiased">
         {{ $slot }}
     </div>

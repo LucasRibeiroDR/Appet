@@ -5,6 +5,7 @@ body {
   font-weight: 400;
   background: #f4f7fa;
   position: relative;
+  margin-top: 60px;
 }
 
 *:focus {
@@ -881,21 +882,6 @@ body.box-layout .pcoded-navbar.theme-horizontal ~ .pcoded-header {
   left: 0;
   top: 0;
   background: rgba(0, 0, 0, 0.7);
-}
-.pcoded-navbar.navbar-image-1 {
-  background-image: url("../images/nav-bg/navbar-img-1.jpg");
-}
-.pcoded-navbar.navbar-image-2 {
-  background-image: url("../images/nav-bg/navbar-img-2.jpg");
-}
-.pcoded-navbar.navbar-image-3 {
-  background-image: url("../images/nav-bg/navbar-img-3.jpg");
-}
-.pcoded-navbar.navbar-image-4 {
-  background-image: url("../images/nav-bg/navbar-img-4.jpg");
-}
-.pcoded-navbar.navbar-image-5 {
-  background-image: url("../images/nav-bg/navbar-img-5.jpg");
 }
 
 /* ====== [ Menu background images end ] ========== */

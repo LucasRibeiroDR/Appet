@@ -4,6 +4,11 @@
 @section('content')
 
 <link rel="stylesheet" href="{{ asset('css/cssAdmin/dashboard.css') }}">
+<style>
+  body {
+    margin: 0px;
+  }
+</style>
 
 @if($errors->any())
 <div class="alert alert-danger">

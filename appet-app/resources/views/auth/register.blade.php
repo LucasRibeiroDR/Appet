@@ -42,13 +42,13 @@
                         <x-jet-input id="email" class="input100" type="email" name="email" :value="old('email')" required placeholder="{{ __('E-mail') }}" />
                     </div>
                     <div class="wrap-input100 validate-input">
-                        <select id="student" class="input100" type="text" name="student" required autocomplete="new-student" onchange="exibir_ocultar()">
-                            <option value="0">Não sou estudante UENP</option>
+                        <select id="student" style="border: none;" class="input100" type="text" name="student" required autocomplete="new-student" onchange="exibir_ocultar()">
                             <option value="1">Sou estudante UENP</option>
+                            <option value="0">Não sou estudante UENP</option>
                         </select>
                     </div>
                     <div class="wrap-input100 validate-input" id="ra_value">
-                        <x-jet-input id="ra" class="input100"  type="text" name="ra" autocomplete="new-ra" placeholder="20XX111130300XX" />
+                        <x-jet-input id="ra" class="input100 ra"  type="text" name="ra" autocomplete="new-ra" placeholder="20XX111130300XX" />
                     </div>
                     <div class="wrap-input100 validate-input">
                         <x-jet-input id="password" class="input100" type="password" name="password" required autocomplete="new-password" placeholder="{{ __('Senha') }}" />
@@ -94,4 +94,3 @@
         </div>
     </div>
 </x-guest-layout>
-<script type="text/javascript" src="../../../public/js/index.js"></script>

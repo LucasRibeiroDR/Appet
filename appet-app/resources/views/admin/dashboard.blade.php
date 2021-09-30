@@ -3,8 +3,6 @@
 @section('title', 'PetsOn | Perfil')
 @section('content')
 
-<link rel="stylesheet" href="{{ asset('css/cssAdmin/dashboard.css') }}">
-
 @if($errors->any())
 <div class="alert alert-danger">
   <ul>
@@ -25,8 +23,8 @@
           </div>
           <div class="card-block pb-0">
             <div class="text-center m-b-30">
-              <div class="bg-c-green config-avatar shadow-3" style="cursor: auto;">
-                <img class="img-fluid rounded-circle" style="width:80px;">
+              <div class="config-avatar shadow-3" style="cursor: auto;">
+                <img src="{{ asset('./img/PetsOn.jpeg') }}" class="config-avatar img-fluid rounded-circle" >
               </div>
               <h5>{{Auth::user()->name}}</h5>
               <span>{{Auth::user()->email}}</span>

@@ -129,7 +129,6 @@ iframe {
   background: #e5f1e2;
   border-radius: 10px;
   overflow: hidden;
-
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -162,7 +161,6 @@ iframe {
   color: #1D4B80;
   line-height: 1.2;
   text-align: center;
-
   width: 100%;
   display: block;
   padding-bottom: 54px;
@@ -182,13 +180,20 @@ iframe {
   font-size: 15px;
   line-height: 1.5;
   color: #1D4B80;
-
   display: block;
   width: 100%;
   background: #fff;
   height: 50px;
   border-radius: 25px;
   padding: 0 30px 0 68px;
+}
+
+.label100{
+  font-family: Poppins-Medium;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #1D4B80;
+  padding-left: 15px;
 }
 
 
