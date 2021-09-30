@@ -3,6 +3,7 @@
 
 <head>
   <title>@yield('title')</title>
+  <link rel="shortcut icon" href="/img/pet.ico" type="image/x-icon">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -104,20 +105,7 @@
   <footer>
       <div class="col-lg-6 col-md-12 col-sm-12">
         <p class="p-small statement">Copyright &copy; <a href="#">PetsOn 2021</a></p>
-      </div> <!-- end of col -->
-      <!-- <div class="container">
-        <div class="row">
-          <div class="col-lg-6 col-md-12 col-sm-12">
-            <ul class="list-unstyled li-space-lg p-small">
-              <li><a href="/">Home</a></li>
-              <li><a href="/login">Entrar</a></li>
-              <li><a href="/register">Cadastrar</a></li>
-              <li><a href="/appointments/show">Agendamentos</a></li>
-              <li><a href="/pets/show">Meus pets</a></li>
-            </ul>
-          </div> 
-        </div>  enf of row
-      </div> end of container -->
+      </div> 
   </footer>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
